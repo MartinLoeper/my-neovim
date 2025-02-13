@@ -529,72 +529,7 @@
             '';
             type = "lua";
           }
-          # typr is just too buggy
-          # {
-          #   plugin = pkgs.callPackage
-          #     ./plugins/typr.nix
-          #     { };
-          #   config = ''
-          #     require('typr').setup()
-          #     vim.api.nvim_create_user_command("Typr", function()
-          #       require("typr").open()
-          #     end, {})
-
-          #     vim.api.nvim_create_user_command("TyprStats", function()
-          #       require("typr.stats").open()
-          #     end, {})
-          #   '';
-          #   type = "lua";
-          # }
-          # {
-          #   plugin = pkgs.vimPlugins.material-nvim;
-          #   config = ''
-          #     require('material').setup({})
-
-          #     -- vim.cmd 'colorscheme material'
-          #     vim.g.material_style = "deep ocean"
-          #   '';
-          #   type = "lua";
-          # }
         ];
-      };
-
-      neovide = {
-        enable = true;
-        settings = {
-          fork = true;
-          frame = "full";
-          idle = true;
-          size = "4096x2048";
-          maximized = false;
-          neovim-bin = "${config.programs.neovim.finalPackage}/bin/nvim";
-          no-multigrid = false;
-          srgb = false;
-          tabs = true;
-          theme = "auto"; # "dark";
-          title-hidden = true;
-          vsync = true;
-          wsl = false;
-          font = {
-            normal = [{
-              family = "Monaspace Neon";
-              style = "Normal";
-            }];
-            bold = [{
-              family = "Monaspace Xenon";
-              style = "Normal";
-            }];
-            italic = [{
-              family = "Monaspace Radon";
-              style = "Normal";
-            }];
-            bold_italic = [{
-              family = "Monaspace Krypton";
-              style = "Normal";
-            }];
-            size = 10.0;
-          };
-        };
       };
     };
   };
