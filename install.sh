@@ -8,6 +8,6 @@ rm /tmp/devbox-installer.sh
 devbox global add home-manager
 echo 'eval "$(devbox global shellenv --init-hook)"' >> ~/.zshrc
 echo "export LC_ALL=en_US.UTF-8" >> ~/.zshrc
-devbox global shellenv --preserve-path-stack -r
+eval "$(devbox global shellenv --preserve-path-stack -r)"
 
 home-manager switch --flake . --extra-experimental-features "nix-command flakes"
