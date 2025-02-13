@@ -5,6 +5,5 @@ chmod u+x /tmp/devbox-installer.sh
 /tmp/devbox-installer.sh -f
 rm /tmp/devbox-installer.sh
 
-devbox global install
-echo ". /home/vscode/.nix-profile/etc/profile.d/nix.sh" >> /home/vscode/.zshrc
-
+devbox global add home-manager
+echo 'eval "$(devbox global shellenv)"' >> ~/.zshrc
