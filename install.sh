@@ -6,4 +6,5 @@ chmod u+x /tmp/devbox-installer.sh
 rm /tmp/devbox-installer.sh
 
 devbox global add home-manager
+refresh-global
 echo 'eval "$(devbox global shellenv)"' >> ~/.zshrc
