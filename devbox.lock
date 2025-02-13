@@ -1,0 +1,53 @@
+{
+  "lockfile_version": "1",
+  "packages": {
+    "home-manager@latest": {
+      "last_modified": "2025-02-09T21:53:45Z",
+      "resolved": "github:NixOS/nixpkgs/b2243f41e860ac85c0b446eadc6930359b294e79#home-manager",
+      "source": "devbox-search",
+      "version": "0-unstable-2025-02-08",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/2yr91xam0yjkh08s49ab0i6vwzxjbbab-home-manager-0-unstable-2025-02-08",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/2yr91xam0yjkh08s49ab0i6vwzxjbbab-home-manager-0-unstable-2025-02-08"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/0jlgah7fl46i1d5z46vj6cqkliy1mc30-home-manager-0-unstable-2025-02-08",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/0jlgah7fl46i1d5z46vj6cqkliy1mc30-home-manager-0-unstable-2025-02-08"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/z6wwsn962ag80ap011pyz4lklrg3368r-home-manager-0-unstable-2025-02-08",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/z6wwsn962ag80ap011pyz4lklrg3368r-home-manager-0-unstable-2025-02-08"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/mp2vf2mjig855inl4lq5pbmxs5kkis6q-home-manager-0-unstable-2025-02-08",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/mp2vf2mjig855inl4lq5pbmxs5kkis6q-home-manager-0-unstable-2025-02-08"
+        }
+      }
+    }
+  }
+}

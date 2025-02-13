@@ -6,5 +6,5 @@ chmod u+x /tmp/devbox-installer.sh
 rm /tmp/devbox-installer.sh
 
 devbox install
-. /home/vscode/.nix-profile/etc/profile.d/nix.sh
+echo ". /home/vscode/.nix-profile/etc/profile.d/nix.sh" >> /home/vscode/.zshrc
 
