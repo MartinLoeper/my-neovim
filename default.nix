@@ -1,6 +1,8 @@
 { pkgs, ... }: {
   home.username = "vscode";
   home.homeDirectory = "/home/vscode";
+  home.stateVersion = "23.11";
+
   # TODO: install nvim
   # TODO: install neovide
   # TODO: install vimPlugins.CopilotChat-nvim OR BETTER: https://github.com/yetone/avante.nvim
