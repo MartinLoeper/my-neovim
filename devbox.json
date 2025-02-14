@@ -1,0 +1,17 @@
+{
+  "$schema":  "https://raw.githubusercontent.com/jetify-com/devbox/0.13.7/.schema/devbox.schema.json",
+  "packages": ["home-manager@latest"],
+  "shell": {
+    "init_hook": [
+      "echo 'Welcome to devbox!' > /dev/null"
+    ],
+    "scripts": {
+      "install": [
+        "home-manager switch --flake . --extra-experimental-features \"nix-command flakes\""
+      ],
+      "nvim": [
+        "nvim --listen 0.0.0.0:9999 $NESTO_LOCAL_WORKSPACE_FOLDER"
+      ]
+    }
+  }
+}
