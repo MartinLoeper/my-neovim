@@ -7,3 +7,4 @@ rm /tmp/devbox-installer.sh
 
 echo "export LC_ALL=en_US.UTF-8" >> ~/.zshrc
 devbox install
+devbox run install
