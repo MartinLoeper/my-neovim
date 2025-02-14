@@ -9,9 +9,6 @@
       "install": [
         "home-manager switch --flake . --extra-experimental-features \"nix-command flakes\""
       ],
-      "nvim": [
-        "nvim --listen 0.0.0.0:9999"
-      ]
     }
   }
 }
