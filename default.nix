@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   home.username = "vscode";
   home.homeDirectory = "/home/vscode";
-  home.stateVersion = "23.11";
+  home.stateVersion = "24.05";
 
   # TODO: install nvim
   # TODO: install neovide
