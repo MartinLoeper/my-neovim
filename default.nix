@@ -241,7 +241,13 @@
                 })
       '';
       plugins = [
-        pkgs.vimPlugins.leetcode-nvim
+        {
+          package = pkgs.vimPlugins.leetcode-nvim;
+          config = ''
+                    require('leetcode').setup()
+            	'';
+          type = "lua";
+        }
         pkgs.vimPlugins.lspkind-nvim
         pkgs.vimPlugins.cmp-cmdline
         pkgs.vimPlugins.cmp-cmdline-history
@@ -501,6 +507,11 @@
             vim.keymap.set('i', '<C-v>', '<C-r>+', { noremap = true, silent = true })
             vim.keymap.set('i', '<C-c>', '"+y', { noremap = true, silent = true })
             vim.keymap.set('v', '<C-c>', '"+y', { noremap = true, silent = true })
+            if vim.fn.filereadable(vim.fn.getcwd() .. "/.editorconfig") == 0 then
+              vim.o.tabstop = 2 
+              vim.o.shiftwidth = 2
+              vim.o.expandtab = true  -- Converts tabs to spaces
+            end
 
             telescope.setup {
               pickers = {
