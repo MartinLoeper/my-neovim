@@ -9,7 +9,7 @@
   outputs = { nixpkgs, home-manager, ... }: {
     homeConfigurations."vscode" = home-manager.lib.homeManagerConfiguration {
       pkgs = import nixpkgs { system = "x86_64-linux"; };
-      modules = [ ./default.nix devcontainer.nix ];
+      modules = [ ./default.nix ./devcontainer.nix ];
     };
     homeManagerModule = ./default.nix;
   };
