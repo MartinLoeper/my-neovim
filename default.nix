@@ -242,7 +242,7 @@
       '';
       plugins = [
         {
-          package = pkgs.vimPlugins.leetcode-nvim;
+          plugin = pkgs.vimPlugins.leetcode-nvim;
           config = ''
                     require('leetcode').setup()
             	'';
