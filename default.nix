@@ -72,172 +72,176 @@
         set number relativenumber
       '';
       extraLuaConfig = ''
-        vim.keymap.set("n", "<Space>", "<Nop>", { silent = true, remap = false })
-        vim.g.mapleader = " "
+                vim.keymap.set("n", "<Space>", "<Nop>", { silent = true, remap = false })
+                vim.g.mapleader = " "
 
-        -- more space for the line numbers
-        vim.opt.numberwidth = 6
+                -- more space for the line numbers
+                vim.opt.numberwidth = 6
 
-        -- replaced by nvim-tree-lua
-        -- vim.api.nvim_set_keymap('n', '<leader>e', ':Ex<CR>', { noremap = true, silent = true })
+                -- replaced by nvim-tree-lua
+                -- vim.api.nvim_set_keymap('n', '<leader>e', ':Ex<CR>', { noremap = true, silent = true })
 
-        -- zoom in neovide when in neovide
-        if vim.g.neovide == true then
-          vim.api.nvim_set_keymap("n", "<C-=>", ":lua vim.g.neovide_scale_factor = math.min(vim.g.neovide_scale_factor + 0.1,  2.0)<CR>", { silent = true })
-          vim.api.nvim_set_keymap("n", "<C-->", ":lua vim.g.neovide_scale_factor = math.max(vim.g.neovide_scale_factor - 0.1,  0.1)<CR>", { silent = true })
-          vim.api.nvim_set_keymap("n", "<C-+>", ":lua vim.g.neovide_transparency = math.min(vim.g.neovide_transparency + 0.05, 1.0)<CR>", { silent = true })
-          vim.api.nvim_set_keymap("n", "<C-_>", ":lua vim.g.neovide_transparency = math.max(vim.g.neovide_transparency - 0.05, 0.0)<CR>", { silent = true })
-          vim.api.nvim_set_keymap("n", "<C-0>", ":lua vim.g.neovide_scale_factor = 0.5<CR>", { silent = true })
-          vim.api.nvim_set_keymap("n", "<C-)>", ":lua vim.g.neovide_transparency = 0.9<CR>", { silent = true })
-        end
+                -- zoom in neovide when in neovide
+                if vim.g.neovide == true then
+                  vim.api.nvim_set_keymap("n", "<C-=>", ":lua vim.g.neovide_scale_factor = math.min(vim.g.neovide_scale_factor + 0.1,  2.0)<CR>", { silent = true })
+                  vim.api.nvim_set_keymap("n", "<C-->", ":lua vim.g.neovide_scale_factor = math.max(vim.g.neovide_scale_factor - 0.1,  0.1)<CR>", { silent = true })
+                  vim.api.nvim_set_keymap("n", "<C-+>", ":lua vim.g.neovide_transparency = math.min(vim.g.neovide_transparency + 0.05, 1.0)<CR>", { silent = true })
+                  vim.api.nvim_set_keymap("n", "<C-_>", ":lua vim.g.neovide_transparency = math.max(vim.g.neovide_transparency - 0.05, 0.0)<CR>", { silent = true })
+                  vim.api.nvim_set_keymap("n", "<C-0>", ":lua vim.g.neovide_scale_factor = 0.5<CR>", { silent = true })
+                  vim.api.nvim_set_keymap("n", "<C-)>", ":lua vim.g.neovide_transparency = 0.9<CR>", { silent = true })
+                end
 
-        vim.api.nvim_set_keymap('n', '<leader>w', ':w<CR>', { noremap = true, silent = true })
-        vim.api.nvim_set_keymap('n', '<leader>q', ':q<CR>', { noremap = true, silent = true })
-        vim.api.nvim_set_keymap('n', '<leader>sh', ':split<CR>', { noremap = true, silent = true })
-        vim.api.nvim_set_keymap('n', '<leader>sv', ':vsplit<CR>', { noremap = true, silent = true })
+                vim.api.nvim_set_keymap('n', '<leader>w', ':w<CR>', { noremap = true, silent = true })
+                vim.api.nvim_set_keymap('n', '<leader>q', ':q<CR>', { noremap = true, silent = true })
+                vim.api.nvim_set_keymap('n', '<leader>sh', ':split<CR>', { noremap = true, silent = true })
+                vim.api.nvim_set_keymap('n', '<leader>sv', ':vsplit<CR>', { noremap = true, silent = true })
 
-        vim.keymap.set('n', '<leader>to', ':tabonly<CR>', { noremap = true, silent = true }) -- Close all other tabs
-        vim.keymap.set('n', '<leader>tc', ':tabclose<CR>', { noremap = true, silent = true }) -- Close current tab
-        vim.keymap.set('n', '<leader>tp', ':tabp<CR>', { noremap = true, silent = true })    -- Previous tab
-        vim.keymap.set('n', '<leader>tn', ':tabn<CR>', { noremap = true, silent = true })    -- Next tab
+                vim.keymap.set('n', '<leader>to', ':tabonly<CR>', { noremap = true, silent = true }) -- Close all other tabs
+                vim.keymap.set('n', '<leader>tc', ':tabclose<CR>', { noremap = true, silent = true }) -- Close current tab
+                vim.keymap.set('n', '<leader>tp', ':tabp<CR>', { noremap = true, silent = true })    -- Previous tab
+                vim.keymap.set('n', '<leader>tn', ':tabn<CR>', { noremap = true, silent = true })    -- Next tab
 
-        vim.keymap.set('n', '<leader>z', function()
-          local cwd = vim.loop.cwd() -- Get the current working directory
-          vim.cmd("!zellij run -x " .. vim.fn.shellescape("50%", 1) .. " --width " .. vim.fn.shellescape("50%", 1) .. " -y " .. vim.fn.shellescape("40%", 1) .. " --height " .. vim.fn.shellescape("60%", 1) .. string.format(" -n 'Terminal: [%s]' -f -c --cwd '%s' -- zsh", cwd, cwd))
-        end, { noremap = true, silent = true })
+                vim.keymap.set('n', '<leader>z', function()
+                  local cwd = vim.loop.cwd() -- Get the current working directory
+                  vim.cmd("!zellij run -x " .. vim.fn.shellescape("50%", 1) .. " --width " .. vim.fn.shellescape("50%", 1) .. " -y " .. vim.fn.shellescape("40%", 1) .. " --height " .. vim.fn.shellescape("60%", 1) .. string.format(" -n 'Terminal: [%s]' -f -c --cwd '%s' -- zsh", cwd, cwd))
+                end, { noremap = true, silent = true })
 
-        vim.keymap.set('n', '<Alt-f>', function() vim.cmd("!zellij action toggle-floating-panes") end)
+                vim.keymap.set('n', '<Alt-f>', function() vim.cmd("!zellij action toggle-floating-panes") end)
+        	vim.keymap.set('n', '<Leader>tt', function()
+                    local cwd = vim.loop.cwd() -- Get the current working directory
+                    vim.cmd(string.format("!zellij action new-tab -l default -c %s",  cwd))
+                  end, { noremap = true, silent = true })
+                -- format whole file
+                vim.api.nvim_set_keymap('n', '<Leader>gq', 'gggqG', { noremap = true, silent = true })
 
-        -- format whole file
-        vim.api.nvim_set_keymap('n', '<Leader>gq', 'gggqG', { noremap = true, silent = true })
+                -- make goto definition use lsp
+                vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
+                -- we use telescope for goto definition
+                --vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
 
-        -- make goto definition use lsp
-        vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
-        -- we use telescope for goto definition
-        --vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
+                -- fill location list with lsp diagnostics
+                vim.api.nvim_set_keymap("n", "<leader>dq", "<cmd>lua vim.diagnostic.setloclist()<CR>", { noremap = true, silent = true })
+                vim.api.nvim_set_keymap("n", "<leader>dn", "<cmd>lua vim.diagnostic.goto_next()<CR>", { noremap = true, silent = true })
+                vim.api.nvim_set_keymap("n", "<leader>dp", "<cmd>lua vim.diagnostic.goto_prev()<CR>", { noremap = true, silent = true })
 
-        -- fill location list with lsp diagnostics
-        vim.api.nvim_set_keymap("n", "<leader>dq", "<cmd>lua vim.diagnostic.setloclist()<CR>", { noremap = true, silent = true })
-        vim.api.nvim_set_keymap("n", "<leader>dn", "<cmd>lua vim.diagnostic.goto_next()<CR>", { noremap = true, silent = true })
-        vim.api.nvim_set_keymap("n", "<leader>dp", "<cmd>lua vim.diagnostic.goto_prev()<CR>", { noremap = true, silent = true })
+                -- open file chooser
+                vim.keymap.set("n", "<leader>-", function()
+                  require("yazi").yazi()
+                end)
 
-        -- open file chooser
-        vim.keymap.set("n", "<leader>-", function()
-          require("yazi").yazi()
-        end)
+                vim.opt.smartindent = true
+                vim.opt.autoindent = true
 
-        vim.opt.smartindent = true
-        vim.opt.autoindent = true
+                local cmp = require'cmp'
+                local lspkind = require('lspkind')
 
-        local cmp = require'cmp'
-        local lspkind = require('lspkind')
+                -- add copilot symbol
+                local lspkind = require("lspkind")
+                lspkind.init({
+                  symbol_map = {
+                    Copilot = "",
+                  },
+                })
+                vim.api.nvim_set_hl(0, "CmpItemKindCopilot", {fg ="#6CC644"})
 
-        -- add copilot symbol
-        local lspkind = require("lspkind")
-        lspkind.init({
-          symbol_map = {
-            Copilot = "",
-          },
-        })
-        vim.api.nvim_set_hl(0, "CmpItemKindCopilot", {fg ="#6CC644"})
+                local function replace_keys(str)
+                  return vim.api.nvim_replace_termcodes(str, true, true, true)
+                end
 
-        local function replace_keys(str)
-          return vim.api.nvim_replace_termcodes(str, true, true, true)
-        end
+                local types = require('cmp.types')
 
-        local types = require('cmp.types')
+                cmp.setup({
+                  completion = {
+                    autocomplete = {
+                      types.cmp.TriggerEvent.TextChanged,
+                    },
+                  },
+                  formatting = {
+                    fields = { "kind", "abbr", "menu" },
+                    format = function(entry, vim_item)
+                      local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+                      local strings = vim.split(kind.kind, "%s", { trimempty = true })
+                      kind.kind = " " .. (strings[1] or "") .. " "
+                      kind.menu = "    (" .. (strings[2] or "") .. ")"
 
-        cmp.setup({
-          completion = {
-            autocomplete = {
-              types.cmp.TriggerEvent.TextChanged,
-            },
-          },
-          formatting = {
-            fields = { "kind", "abbr", "menu" },
-            format = function(entry, vim_item)
-              local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
-              local strings = vim.split(kind.kind, "%s", { trimempty = true })
-              kind.kind = " " .. (strings[1] or "") .. " "
-              kind.menu = "    (" .. (strings[2] or "") .. ")"
+                      return kind
+                    end,
+                  },
+                  mapping = {
+                    ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+                    ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+                    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+                    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+                    ['<C-Space>'] = cmp.mapping.complete(),
+                    ['<C-e>'] = cmp.mapping.abort(),
+                    ['<CR>'] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+                    ['<Tab>'] = cmp.mapping(function(fallback)
+                      if vim.call('vsnip#available', 1) ~= 0 then
+                        vim.fn.feedkeys(replace_keys('<Plug>(vsnip-jump-next)'), ''')
+                      elseif cmp.visible() then
+                        cmp.select_next_item()
+                      else
+                        fallback()
+                      end
+                    end, { 'i', 's' }),
+                    ['<S-Tab>'] = cmp.mapping(function(fallback)
+                      if vim.call('vsnip#available', -1) ~= 0 then
+                        vim.fn.feedkeys(replace_keys('<Plug>(vsnip-jump-prev)'), ''')
+                      elseif cmp.visible() then
+                        cmp.select_prev_item()
+                      else
+                        fallback()
+                      end
+                    end, { 'i', 's' }),
+                  },
+                  snippet = {
+                    -- REQUIRED - you must specify a snippet engine
+                    expand = function(args)
+                      vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+                      -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+                      -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
+                      -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+                      -- vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
+                    end,
+                  },
+                  window = {
+                    -- completion = cmp.config.window.bordered(),
+                    -- documentation = cmp.config.window.bordered(),
+                  },
+                  sources = cmp.config.sources({
+                    { name = "copilot", group_index = 2 },
+                    { name = 'nvim_lsp' },
+                    { name = 'vsnip' }, -- For vsnip users.
+                    { name = 'nvim_lsp_signature_help' },
+                    -- { name = 'luasnip' }, -- For luasnip users.
+                    -- { name = 'ultisnips' }, -- For ultisnips users.
+                    -- { name = 'snippy' }, -- For snippy users.
+                  }, {
+                    { name = 'buffer' },
+                  })
+                })
 
-              return kind
-            end,
-          },
-          mapping = {
-            ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-            ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-            ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-            ['<C-f>'] = cmp.mapping.scroll_docs(4),
-            ['<C-Space>'] = cmp.mapping.complete(),
-            ['<C-e>'] = cmp.mapping.abort(),
-            ['<CR>'] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-            ['<Tab>'] = cmp.mapping(function(fallback)
-              if vim.call('vsnip#available', 1) ~= 0 then
-                vim.fn.feedkeys(replace_keys('<Plug>(vsnip-jump-next)'), ''')
-              elseif cmp.visible() then
-                cmp.select_next_item()
-              else
-                fallback()
-              end
-            end, { 'i', 's' }),
-            ['<S-Tab>'] = cmp.mapping(function(fallback)
-              if vim.call('vsnip#available', -1) ~= 0 then
-                vim.fn.feedkeys(replace_keys('<Plug>(vsnip-jump-prev)'), ''')
-              elseif cmp.visible() then
-                cmp.select_prev_item()
-              else
-                fallback()
-              end
-            end, { 'i', 's' }),
-          },
-          snippet = {
-            -- REQUIRED - you must specify a snippet engine
-            expand = function(args)
-              vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-              -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-              -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-              -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-              -- vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
-            end,
-          },
-          window = {
-            -- completion = cmp.config.window.bordered(),
-            -- documentation = cmp.config.window.bordered(),
-          },
-          sources = cmp.config.sources({
-            { name = "copilot", group_index = 2 },
-            { name = 'nvim_lsp' },
-            { name = 'vsnip' }, -- For vsnip users.
-            { name = 'nvim_lsp_signature_help' },
-            -- { name = 'luasnip' }, -- For luasnip users.
-            -- { name = 'ultisnips' }, -- For ultisnips users.
-            -- { name = 'snippy' }, -- For snippy users.
-          }, {
-            { name = 'buffer' },
-          })
-        })
+                -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+                cmp.setup.cmdline({ '/', '?' }, {
+                  mapping = cmp.mapping.preset.cmdline(),
+                  sources = {
+                    { name = 'buffer' }
+                  }
+                })
 
-        -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-        cmp.setup.cmdline({ '/', '?' }, {
-          mapping = cmp.mapping.preset.cmdline(),
-          sources = {
-            { name = 'buffer' }
-          }
-        })
-
-        -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-        cmp.setup.cmdline(':', {
-          mapping = cmp.mapping.preset.cmdline(),
-          sources = cmp.config.sources({
-            { name = 'path' },
-            { name = 'cmdline' },
-            { name = 'cmdline_history' }
-          }),
-          matching = { disallow_symbol_nonprefix_matching = false }
-        })
+                -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+                cmp.setup.cmdline(':', {
+                  mapping = cmp.mapping.preset.cmdline(),
+                  sources = cmp.config.sources({
+                    { name = 'path' },
+                    { name = 'cmdline' },
+                    { name = 'cmdline_history' }
+                  }),
+                  matching = { disallow_symbol_nonprefix_matching = false }
+                })
       '';
       plugins = [
+        pkgs.vimPlugins.leetcode-nvim
         pkgs.vimPlugins.lspkind-nvim
         pkgs.vimPlugins.cmp-cmdline
         pkgs.vimPlugins.cmp-cmdline-history
@@ -493,7 +497,10 @@
             vim.keymap.set('n', '<leader>gd', builtin.lsp_definitions	, { desc = 'Telescope goto definition' })
             vim.keymap.set('n', '<leader>gi', builtin.lsp_implementations, { desc = 'Telescope goto implementation' })
 
-            vim.keymap.set('i', '<C-v>', '<cmd>Copilot panel<CR>', {noremap=true})
+            vim.keymap.set('i', '<C-c>', '<cmd>Copilot panel<CR>', {noremap=true})
+            vim.keymap.set('i', '<C-v>', '<C-r>+', { noremap = true, silent = true })
+            vim.keymap.set('i', '<C-c>', '"+y', { noremap = true, silent = true })
+            vim.keymap.set('v', '<C-c>', '"+y', { noremap = true, silent = true })
 
             telescope.setup {
               pickers = {
