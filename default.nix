@@ -244,8 +244,8 @@
         {
           plugin = pkgs.vimPlugins.leetcode-nvim;
           config = ''
-                    require('leetcode').setup()
-            	'';
+            require('leetcode').setup()
+          '';
           type = "lua";
         }
         pkgs.vimPlugins.lspkind-nvim
