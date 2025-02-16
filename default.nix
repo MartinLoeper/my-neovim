@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
 
   # TODO: install nvim
   # TODO: install neovide
@@ -62,6 +62,10 @@
     pkgs.ripgrep
     pkgs.nodejs # requried by copilot plugin
   ];
+
+  home.activation.ensureCacheNvim = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    mkdir -p "$HOME/.cache/nvim"
+  '';
 
   # read about motions: https://www.barbarianmeetscoding.com/boost-your-coding-fu-with-vscode-and-vim/moving-blazingly-fast-with-the-core-vim-motions/
   programs = {
@@ -506,7 +510,7 @@
             vim.keymap.set('n', '<leader>gd', builtin.lsp_definitions	, { desc = 'Telescope goto definition' })
             vim.keymap.set('n', '<leader>gi', builtin.lsp_implementations, { desc = 'Telescope goto implementation' })
 
-            vim.keymap.set('i', '<C-c>', '<cmd>Copilot panel<CR>', {noremap=true})
+            vim.keymap.set('i', '<C-a>', '<cmd>Copilot panel<CR>', {noremap=true})
             vim.keymap.set('i', '<C-v>', '<C-r>+', { noremap = true, silent = true })
             vim.keymap.set('i', '<C-c>', '"+y', { noremap = true, silent = true })
             vim.keymap.set('v', '<C-c>', '"+y', { noremap = true, silent = true })
