@@ -248,6 +248,9 @@
           '';
           type = "lua";
         }
+        pkgs.vimPlugins.nui-nvim # leetcode dep
+        pkgs.vimPlugins.plenary-nvim # leetcode dep
+
         pkgs.vimPlugins.lspkind-nvim
         pkgs.vimPlugins.cmp-cmdline
         pkgs.vimPlugins.cmp-cmdline-history
