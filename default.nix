@@ -241,13 +241,6 @@
                 })
       '';
       plugins = [
-        {
-          plugin = pkgs.vimPlugins.leetcode-nvim;
-          config = ''
-                    require('leetcode').setup()
-            	'';
-          type = "lua";
-        }
         pkgs.vimPlugins.lspkind-nvim
         pkgs.vimPlugins.cmp-cmdline
         pkgs.vimPlugins.cmp-cmdline-history
@@ -527,6 +520,7 @@
         (import ./plugins/navbuddy.nix { inherit pkgs; })
         (import ./plugins/gruvbox.nix { inherit pkgs; })
         (import ./plugins/lualine.nix { inherit pkgs; })
+        (import ./plugins/leetcode.nix { inherit pkgs; })
         {
           plugin = pkgs.vimPlugins.telescope-lsp-handlers-nvim;
           config = ''
