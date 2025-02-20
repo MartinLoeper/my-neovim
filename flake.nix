@@ -9,10 +9,11 @@
 
   outputs = { nixpkgs, home-manager, flake-utils, ... }:
     flake-utils.lib.eachDefaultSystem (system: {
-      homeConfigurations = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs { inherit system; };
-        modules = [ ./default.nix ./devcontainer.nix ];
-      };
+      packages.homeConfigurations."vscode" =
+        home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs { inherit system; };
+          modules = [ ./default.nix ./devcontainer.nix ];
+        };
       homeManagerModule = ./default.nix;
     });
 }
