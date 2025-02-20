@@ -245,8 +245,6 @@
                 })
       '';
       plugins = [
-        pkgs.vimPlugins.nui-nvim # leetcode dep
-        pkgs.vimPlugins.plenary-nvim # leetcode dep
         pkgs.vimPlugins.lspkind-nvim
         pkgs.vimPlugins.cmp-cmdline
         pkgs.vimPlugins.cmp-cmdline-history
@@ -527,6 +525,8 @@
         (import ./plugins/gruvbox.nix { inherit pkgs; })
         (import ./plugins/lualine.nix { inherit pkgs; })
         (import ./plugins/leetcode.nix { inherit pkgs; })
+        pkgs.vimPlugins.nui-nvim # leetcode dep
+        pkgs.vimPlugins.plenary-nvim # leetcode dep
         {
           plugin = pkgs.vimPlugins.telescope-lsp-handlers-nvim;
           config = ''

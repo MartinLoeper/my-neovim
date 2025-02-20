@@ -1,14 +1,17 @@
 {
-  "$schema":  "https://raw.githubusercontent.com/jetify-com/devbox/0.13.7/.schema/devbox.schema.json",
-  "packages": ["home-manager@latest"],
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.13.7/.schema/devbox.schema.json",
+  "packages": [
+    "home-manager@latest",
+    "tmux@latest",
+  ],
   "shell": {
     "init_hook": [
-      "echo 'Welcome to devbox!' > /dev/null"
+      "echo 'Welcome to the mloeper neovim container!'",
     ],
     "scripts": {
       "install": [
-        "home-manager switch --flake . --extra-experimental-features \"nix-command flakes\""
+        "home-manager switch --flake . --extra-experimental-features \"nix-command flakes\"",
       ],
-    }
-  }
+    },
+  },
 }
