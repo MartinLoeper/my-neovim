@@ -86,8 +86,8 @@
                    ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
                  },
                  paste = {
-                   ["+"] = function() return vim.fn.getreg("+") end,
-                   ["*"] = function() return vim.fn.getreg("*") end,
+                   ["+"] = function() return { vim.fn.getreg("+") } end,
+                   ["*"] = function() return { vim.fn.getreg("*") } end,
                  },
              }
 
