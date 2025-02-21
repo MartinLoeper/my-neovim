@@ -79,14 +79,18 @@
               vim.keymap.set("n", "<Space>", "<Nop>", { silent = true, remap = false })
               vim.g.mapleader = " "
 
-              vim.g.clipboard = {
-                name = "OSC 52",
-                copy = {
-                  ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
-                  ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
-                },
-              }
-                                                                                            
+             vim.g.clipboard = {
+                 name = "OSC 52",
+                 copy = {
+                   ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+                   ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+                 },
+                 paste = {
+                   ["+"] = function() return vim.fn.getreg("+") end,
+                   ["*"] = function() return vim.fn.getreg("*") end,
+                 },
+             }
+
               -- more space for the line numbers
               vim.opt.numberwidth = 6
 
