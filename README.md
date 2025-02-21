@@ -10,11 +10,11 @@ TBD: install steps
 ## Create the container
 
 ```bash
-devcontainer up --workspace-folder . --dotfiles-repository https://github.com/MartinLoeper/my-neovim --remote-env "TERM=screen-256color-bce"
+devcontainer up --workspace-folder . --dotfiles-repository https://github.com/MartinLoeper/my-neovim"
 ```
 
 ## Start neovim
 
 ```bash
-docker exec --user vscode -it <containerId> zsh -i -c "cd ~/dotfiles && tmux -c 'nvim .'"
+docker exec --user vscode -it <containerId> zsh -i -c "cd ~/dotfiles && nvim ."
 ```
