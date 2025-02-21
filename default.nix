@@ -79,10 +79,11 @@
               vim.keymap.set("n", "<Space>", "<Nop>", { silent = true, remap = false })
               vim.g.mapleader = " "
 
+              vim.o.clipboard = "unnamedplus"
               local function paste()
                 return {
-                  vim.fn.split(vim.fn.getreg("*"), "\n"),
-                  vim.fn.getregtype("*"),
+                  vim.fn.split(vim.fn.getreg(""), "\n"),
+                  vim.fn.getregtype(""),
                 }
               end
 
