@@ -545,6 +545,7 @@
         (import ./plugins/gruvbox.nix { inherit pkgs; })
         (import ./plugins/lualine.nix { inherit pkgs; })
         (import ./plugins/leetcode.nix { inherit pkgs; })
+        (import ./plugins/lazygit.nix { inherit pkgs; })
         pkgs.vimPlugins.nui-nvim # leetcode dep
         pkgs.vimPlugins.plenary-nvim # leetcode dep
         {
