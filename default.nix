@@ -331,7 +331,13 @@
         }
         pkgs.vimPlugins.todo-comments-nvim
         pkgs.vimPlugins.autosave-nvim
-        pkgs.vimPlugins.ultimate-autopair-nvim
+        {
+          plugin = pkgs.vimPlugins.ultimate-autopair-nvim;
+          config = ''
+            require("ultimate-autopair").setup()
+          '';
+          type = "lua";
+        }
         {
           plugin = pkgs.vimPlugins.gitsigns-nvim;
           config = ''
