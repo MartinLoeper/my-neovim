@@ -272,6 +272,7 @@
         pkgs.vimPlugins.cmp-buffer
         pkgs.vimPlugins.lualine-lsp-progress
         pkgs.vimPlugins.which-key-nvim
+        pkgs.vimPlugins.colorbuddy-nvim
         {
           plugin = pkgs.vimPlugins.gitsigns-nvim;
           config = ''
