@@ -330,7 +330,13 @@
           type = "lua";
         }
         pkgs.vimPlugins.todo-comments-nvim
-        pkgs.vimPlugins.autosave-nvim
+        {
+          plugin = pkgs.vimPlugins.autosave-nvim;
+          config = ''
+            require("auto-save").setup {}
+          '';
+          type = "lua";
+        }
         {
           plugin = pkgs.vimPlugins.ultimate-autopair-nvim;
           config = ''
