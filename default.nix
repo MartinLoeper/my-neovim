@@ -79,6 +79,8 @@
               vim.keymap.set("n", "<Space>", "<Nop>", { silent = true, remap = false })
               vim.g.mapleader = " "
 
+              vim.cmd.colorscheme("colorbuddy")
+
               vim.o.clipboard = "unnamedplus"
               local function paste()
                 return {
@@ -615,7 +617,6 @@
           type = "lua";
         }
         (import ./plugins/navbuddy.nix { inherit pkgs; })
-        (import ./plugins/gruvbox.nix { inherit pkgs; })
         (import ./plugins/lualine.nix { inherit pkgs; })
         (import ./plugins/leetcode.nix { inherit pkgs; })
         (import ./plugins/lazygit.nix { inherit pkgs; })
