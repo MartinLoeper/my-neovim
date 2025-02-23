@@ -339,7 +339,7 @@
         {
           plugin = pkgs.vimPlugins.autosave-nvim;
           config = ''
-            require("auto-save").setup {}
+            require("autosave").setup {}
           '';
           type = "lua";
         }
