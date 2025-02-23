@@ -329,6 +329,9 @@
           '';
           type = "lua";
         }
+        pkgs.vimPlugins.todo-comments-nvim
+        pkgs.vimPlugins.autosave-nvim
+        pkgs.vimPlugins.ultimate-autopair-nvim
         {
           plugin = pkgs.vimPlugins.gitsigns-nvim;
           config = ''
