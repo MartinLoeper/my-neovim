@@ -340,7 +340,12 @@
           plugin = pkgs.vimPlugins.autosave-nvim;
           config = ''
             require("autosave").setup {
-              trigger_events = {"BufLeave"},
+              events = {
+                register = true, -- Should autosave register its autocommands
+                triggers = { -- The autocommands to register, if enabled
+                  'BufLeave',
+                }
+              },
             }
           '';
           type = "lua";
