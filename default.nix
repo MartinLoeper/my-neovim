@@ -339,7 +339,9 @@
         {
           plugin = pkgs.vimPlugins.autosave-nvim;
           config = ''
-            require("autosave").setup {}
+            require("autosave").setup {
+              trigger_events = {"InsertLeave"},
+            }
           '';
           type = "lua";
         }
