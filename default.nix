@@ -277,7 +277,164 @@
         pkgs.vimPlugins.cmp-buffer
         pkgs.vimPlugins.lualine-lsp-progress
         pkgs.vimPlugins.which-key-nvim
-        pkgs.vimPlugins.vim-gitgutter
+        {
+          plugin = pkgs.vimPlugins.catppuccin-nvim;
+          config = ''
+            require("catppuccin").setup({
+              flavour = "mocha", -- latte, frappe, macchiato, mocha
+              background = { -- :h background
+                  light = "latte",
+                  dark = "mocha",
+              },
+              transparent_background = false, -- disables setting the background color.
+              show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
+              term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
+              dim_inactive = {
+                  enabled = false, -- dims the background color of inactive window
+                  shade = "dark",
+                  percentage = 0.15, -- percentage of the shade to apply to the inactive window
+              },
+              no_italic = false, -- Force no italic
+              no_bold = false, -- Force no bold
+              no_underline = false, -- Force no underline
+              styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
+                  comments = { "italic" }, -- Change the style of comments
+                  conditionals = { "italic" },
+                  loops = {},
+                  functions = {},
+                  keywords = {},
+                  strings = {},
+                  variables = {},
+                  numbers = {},
+                  booleans = {},
+                  properties = {},
+                  types = {},
+                  operators = {},
+                  -- miscs = {}, -- Uncomment to turn off hard-coded styles
+              },
+              color_overrides = {},
+              custom_highlights = {},
+              default_integrations = true,
+              integrations = {
+                  cmp = true,
+                  gitsigns = true,
+                  nvimtree = true,
+                  treesitter = true,
+                  notify = false,
+                  mini = {
+                      enabled = true,
+                      indentscope_color = "",
+                  },
+                  -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
+              },
+            })
+
+            -- setup must be called before loading
+            vim.cmd.colorscheme "catppuccin"
+          '';
+          type = "lua";
+        }
+        {
+          plugin = pkgs.vimPlugins.todo-comments-nvim;
+          config = ''
+            require("todo-comments").setup {}
+          '';
+          type = "lua";
+        }
+        {
+          plugin = pkgs.vimPlugins.autosave-nvim;
+          config = ''
+            require("autosave").setup {
+              events = {
+                register = true, -- Should autosave register its autocommands
+                triggers = { -- The autocommands to register, if enabled
+                  'BufLeave',
+                }
+              },
+            }
+          '';
+          type = "lua";
+        }
+        {
+          plugin = pkgs.vimPlugins.ultimate-autopair-nvim;
+          config = ''
+            require("ultimate-autopair").setup()
+          '';
+          type = "lua";
+        }
+        {
+          plugin = pkgs.vimPlugins.gitsigns-nvim;
+          config = ''
+            require('gitsigns').setup{
+              current_line_blame = true,
+              on_attach = function(bufnr)
+                local gitsigns = require('gitsigns')
+
+                local function map(mode, l, r, opts)
+                  opts = opts or {}
+                  opts.buffer = bufnr
+                  vim.keymap.set(mode, l, r, opts)
+                end
+
+                -- Navigation
+                map('n', ']c', function()
+                  if vim.wo.diff then
+                    vim.cmd.normal({']c', bang = true})
+                  else
+                    gitsigns.nav_hunk('next')
+                  end
+                end)
+
+                map('n', '[c', function()
+                  if vim.wo.diff then
+                    vim.cmd.normal({'[c', bang = true})
+                  else
+                    gitsigns.nav_hunk('prev')
+                  end
+                end)
+
+                -- Actions
+                map('n', '<leader>hs', gitsigns.stage_hunk)
+                map('n', '<leader>hr', gitsigns.reset_hunk)
+
+                map('v', '<leader>hs', function()
+                  gitsigns.stage_hunk({ vim.fn.line('.'), vim.fn.line('v') })
+                end)
+
+                map('v', '<leader>hr', function()
+                  gitsigns.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') })
+                end)
+
+                map('n', '<leader>hS', gitsigns.stage_buffer)
+                map('n', '<leader>hR', gitsigns.reset_buffer)
+                map('n', '<leader>hp', gitsigns.preview_hunk)
+                map('n', '<leader>hi', gitsigns.preview_hunk_inline)
+
+                map('n', '<leader>hb', function()
+                  gitsigns.blame_line({ full = true })
+                end)
+
+                map('n', '<leader>hd', gitsigns.diffthis)
+
+                map('n', '<leader>hD', function()
+                  gitsigns.diffthis('~')
+                end)
+
+                map('n', '<leader>hQ', function() gitsigns.setqflist('all') end)
+                map('n', '<leader>hq', gitsigns.setqflist)
+
+                -- Toggles
+                map('n', '<leader>tb', gitsigns.toggle_current_line_blame)
+                map('n', '<leader>td', gitsigns.toggle_deleted)
+                map('n', '<leader>tw', gitsigns.toggle_word_diff)
+
+                -- Text object
+                map({'o', 'x'}, 'ih', gitsigns.select_hunk)
+              end
+            }
+          '';
+          type = "lua";
+        }
         pkgs.vimPlugins.yazi-nvim
         pkgs.vimPlugins.nvim-notify
         {
@@ -312,6 +469,7 @@
           config = ''
             vim.opt.termguicolors = true
             require("bufferline").setup{
+              highlights = require("catppuccin.groups.integrations.bufferline").get(),
               options = {
                 diagnostics = "nvim_lsp",
                 offsets = {
@@ -547,7 +705,6 @@
           type = "lua";
         }
         (import ./plugins/navbuddy.nix { inherit pkgs; })
-        (import ./plugins/gruvbox.nix { inherit pkgs; })
         (import ./plugins/lualine.nix { inherit pkgs; })
         (import ./plugins/leetcode.nix { inherit pkgs; })
         (import ./plugins/lazygit.nix { inherit pkgs; })
