@@ -197,6 +197,15 @@
                   ['<C-Space>'] = cmp.mapping.complete(),
                   ['<C-e>'] = cmp.mapping.abort(),
                   ['<CR>'] = cmp.mapping.confirm({ select = false, behavior = cmp.ConfirmBehavior.Replace }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+                  ['<S-Tab>'] = cmp.mapping(function(fallback)
+                    if vim.call('vsnip#available', 1) ~= 0 then
+                      vim.fn.feedkeys(replace_keys('<Plug>(vsnip-jump-next)'), ''')
+                    elseif cmp.visible() then
+                      cmp.select_next_item()
+                    else
+                      fallback()
+                    end
+                  end, { 'i', 's' }),
                   ['<C-j>'] = cmp.mapping(function(fallback)
                     if vim.call('vsnip#available', 1) ~= 0 then
                       vim.fn.feedkeys(replace_keys('<Plug>(vsnip-jump-next)'), ''')
@@ -677,7 +686,6 @@
             vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
             vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
             vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
-            vim.keymap.set('n', '<leader>fh', builtin.man_pages, { desc = 'Telescope man pages' })
             vim.keymap.set('n', '<leader>fw', builtin.grep_string, { desc = 'Telescope grep current word or selection' })
             vim.keymap.set('n', '<leader>fif', builtin.current_buffer_fuzzy_find, { desc = 'Telescope find in current buffer' })
             vim.keymap.set('n', '<leader>fr', builtin.lsp_references, { desc = 'Telescope find lsp references' })
