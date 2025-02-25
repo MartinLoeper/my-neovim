@@ -96,7 +96,7 @@
                   ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
                 },
                 paste = {
-                  ["+"] = my_paste() 
+                  ["+"] = my_paste(), 
                   ["*"] = my_paste()
                 }
               }
