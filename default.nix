@@ -263,6 +263,11 @@
                 }),
                 matching = { disallow_symbol_nonprefix_matching = false }
               })
+
+              vim.opt.foldmethod = "indent"  -- Use indentation levels for folding
+              vim.opt.foldlevel = 99         -- Start with all folds open
+              vim.opt.foldenable = true      -- Enable folding
+              vim.opt.foldnestmax = 3        -- Maximum nested fold levels
       '';
       plugins = [
         pkgs.vimPlugins.lspkind-nvim
