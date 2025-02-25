@@ -6,7 +6,7 @@ let
     src = fetchFromGitHub {
       owner = "lsrothy";
       repo = "neominimap.nvim";
-      rev = "8f6e5e64393b530fd1d8e0ea96c51ffbb4046186";
+      rev = "505e756fc96d05a7c372792fe76e346aa0ed9240";
       hash = "sha256-udElcii8uK8YKg54srBHvdZCNH80rsB5VdPTyoWchSE=";
     };
     rockspecVersion = "1.1";
