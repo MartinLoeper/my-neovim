@@ -630,6 +630,9 @@
               },
               float = {
                 minimap_width = 10,
+                margin = {
+                  top = 0,
+                } 
               }
             }
             vim.opt.wrap = false
