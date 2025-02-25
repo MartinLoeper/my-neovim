@@ -96,8 +96,14 @@
                   ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
                 },
                 paste = {
-                  ["+"] = my_paste(), 
-                  ["*"] = my_paste()
+                  ["+"] = function()
+                    local entry = require("yanky.storage").get(1)
+                    return { (entry and entry.regcontents) or "", "v" }
+                  end,
+                  ["*"] = function()
+                    local entry = require("yanky.storage").get(1)
+                    return { (entry and entry.regcontents) or "", "v" }
+                  end,
                 }
               }
 
