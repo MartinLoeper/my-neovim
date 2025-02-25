@@ -275,6 +275,11 @@
               vim.opt.foldlevel = 99         -- Start with all folds open
               vim.opt.foldenable = true      -- Enable folding
               vim.opt.foldnestmax = 3        -- Maximum nested fold levels
+              
+              -- show minimap on start
+              vim.g.minimap_width = 10
+              vim.g.minimap_auto_start = 1
+              vim.g.minimap_auto_start_win_enter = 1
       '';
       plugins = [
         pkgs.vimPlugins.lspkind-nvim
@@ -616,14 +621,7 @@
             }'';
           type = "lua";
         }
-        {
-          plugin = pkgs.vimPlugins.minimap-vim;
-          config = ''
-            vim.g.minimap_auto_start = 1
-            vim.g.minimap_auto_start_win_enter = 1
-          '';
-          type = "lua";
-        }
+        pkgs.vimPlugins.minimap-vim
         {
           plugin = pkgs.vimPlugins.nvim-lspconfig;
           config = ''
