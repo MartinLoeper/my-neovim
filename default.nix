@@ -291,6 +291,13 @@
         {
           plugin = pkgs.vimPlugins.zen-mode-nvim;
           config = ''
+            require("zen-mode").setup {
+              plugins = {
+                twilight = { enabled = true },
+                wezterm = { enabled = true }
+              }
+            }
+
             vim.api.nvim_set_keymap("n", "<leader>z", ":ZenMode<CR>", {})
           '';
           type = "lua";
