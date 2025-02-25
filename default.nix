@@ -650,7 +650,7 @@
             vim.keymap.set({"n","x"}, "gp", "<Plug>(YankyGPutAfter)")
             vim.keymap.set({"n","x"}, "gP", "<Plug>(YankyGPutBefore)")
 
-            vim.keymap.set("n", "<M-p>", "<Plug>(YankyNextEntry)")
+            vim.keymap.set("n", "<M-p>", "<Plug>(YankyPreviousEntry)")
           '';
           type = "lua";
         }
