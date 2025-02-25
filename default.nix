@@ -619,7 +619,12 @@
         {
           plugin = pkgs.callPackage ./plugins/neominimap.nix { };
           config = ''
-            require('neominimap').setup()
+            vim.g.neominimap = {
+              auto_enable = true,
+              layout = "float",
+            }
+            vim.opt.wrap = false
+            vim.opt.sidescrolloff = 36
           '';
           type = "lua";
         }
