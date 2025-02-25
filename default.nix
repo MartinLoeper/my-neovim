@@ -275,18 +275,6 @@
               vim.opt.foldlevel = 99         -- Start with all folds open
               vim.opt.foldenable = true      -- Enable folding
               vim.opt.foldnestmax = 3        -- Maximum nested fold levels
-              
-              -- show minimap on start
-              vim.g.minimap_width = 10
-              vim.g.minimap_auto_start = 1
-              vim.g.minimap_auto_start_win_enter = 1
-              vim.g.minimap_left = 0
-              vim.g.minimap_block_filetypes = {'fugitive', 'nvim-tree', 'tagbar', 'fzf', 'telescope', 'NvimTree', 'yazi'}
-              vim.g.minimap_block_buftypes = {'nofile', 'nowrite', 'quickfix', 'terminal', 'prompt', 'NvimTree', 'yazi'}
-              vim.g.minimap_close_filetypes = {'startify', 'netrw', 'vim-plug', 'NvimTree', 'yazi'}
-              vim.g.minimap_highlight_range = 1
-              vim.g.minimap_highlight_search = 1
-              vim.g.minimap_git_colors = 
       '';
       plugins = [
         pkgs.vimPlugins.lspkind-nvim
@@ -628,7 +616,13 @@
             }'';
           type = "lua";
         }
-        pkgs.vimPlugins.minimap-vim
+        {
+          plugin = pkgs.callPackage ./plugins/neominimap.nix { };
+          config = ''
+            require('neominimap').setup()
+          '';
+          type = "lua";
+        }
         {
           plugin = pkgs.vimPlugins.nvim-lspconfig;
           config = ''
