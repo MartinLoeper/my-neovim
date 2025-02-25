@@ -80,13 +80,11 @@
               vim.g.mapleader = " "
 
               vim.o.clipboard = "unnamedplus"
-              function my_paste(reg)
-                return function(lines)
-
-                    local content = vim.fn.getreg('"')
-                    return vim.split(content, '\n')
-                    
-                end
+              local function paste()
+                return {
+                  vim.fn.split(vim.fn.getreg(""), "\n"),
+                  vim.fn.getregtype(""),
+                }
               end
 
               vim.g.clipboard = {
@@ -96,15 +94,9 @@
                   ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
                 },
                 paste = {
-                  ["+"] = function()
-                    local entry = require("yanky.storage").get(1)
-                    return { (entry and entry.regcontents) or "", "v" }
-                  end,
-                  ["*"] = function()
-                    local entry = require("yanky.storage").get(1)
-                    return { (entry and entry.regcontents) or "", "v" }
-                  end,
-                }
+                  ["+"] = paste,
+                  ["*"] = paste,
+                },
               }
 
               -- more space for the line numbers
@@ -283,6 +275,10 @@
               vim.opt.foldlevel = 99         -- Start with all folds open
               vim.opt.foldenable = true      -- Enable folding
               vim.opt.foldnestmax = 3        -- Maximum nested fold levels
+
+              -- insert plain tab in insert mode when pressing tab key
+              -- idk why i have to configure this explicitly
+              vim.api.nvim_set_keymap("i", "<Tab>", "<C-V><Tab>", { noremap = true, silent = true })
       '';
       plugins = [
         pkgs.vimPlugins.lspkind-nvim
@@ -648,45 +644,46 @@
           '';
           type = "lua";
         }
-        {
-          plugin = pkgs.vimPlugins.yanky-nvim;
-          config = ''
-            require("yanky").setup{
-              ring = {
-                history_length = 100,
-                storage = "shada",
-                sync_with_numbered_registers = true,
-                cancel_event = "update",
-                ignore_registers = { "_" },
-                update_register_on_cycle = false,
-                permanent_wrapper = nil,
-              },
-              system_clipboard = {
-                sync_with_ring = true,
-              },
-              ring = {
-                ignore_registers = { "_", "+", "*" },
-              },
-              highlight = {
-                on_put = true,
-                on_yank = true,
-                timer = 300,
-              },
-            }
-            require("telescope").load_extension("yank_history")
-
-            vim.keymap.set({"n","x"}, "p", "<Plug>(YankyPutAfter)")
-            vim.keymap.set({"n","x"}, "P", "<Plug>(YankyPutBefore)")
-            vim.keymap.set({"n","x"}, "gp", "<Plug>(YankyGPutAfter)")
-            vim.keymap.set({"n","x"}, "gP", "<Plug>(YankyGPutBefore)")
-
-            vim.keymap.set("n", "<M-p>", "<Plug>(YankyPreviousEntry)")
-            vim.keymap.set("n", "<leader>fy", function()
-              require("telescope").extensions.yank_history.yank_history()
-            end, { noremap = true, silent = true, desc = "Open Yank History with Telescope" })
-          '';
-          type = "lua";
-        }
+        # unfortunately blocked by: https://github.com/gbprod/yanky.nvim/issues/213
+        # {
+        #   plugin = pkgs.vimPlugins.yanky-nvim;
+        #   config = ''
+        #     require("yanky").setup{
+        #       ring = {
+        #         history_length = 100,
+        #         storage = "shada",
+        #         sync_with_numbered_registers = true,
+        #         cancel_event = "update",
+        #         ignore_registers = { "_" },
+        #         update_register_on_cycle = false,
+        #         permanent_wrapper = nil,
+        #       },
+        #       system_clipboard = {
+        #         sync_with_ring = true,
+        #       },
+        #       ring = {
+        #         ignore_registers = { "_", "+", "*" },
+        #       },
+        #       highlight = {
+        #         on_put = true,
+        #         on_yank = true,
+        #         timer = 300,
+        #       },
+        #     }
+        #     require("telescope").load_extension("yank_history")
+        #
+        #     vim.keymap.set({"n","x"}, "p", "<Plug>(YankyPutAfter)")
+        #     vim.keymap.set({"n","x"}, "P", "<Plug>(YankyPutBefore)")
+        #     vim.keymap.set({"n","x"}, "gp", "<Plug>(YankyGPutAfter)")
+        #     vim.keymap.set({"n","x"}, "gP", "<Plug>(YankyGPutBefore)")
+        #
+        #     vim.keymap.set("n", "<M-p>", "<Plug>(YankyPreviousEntry)")
+        #     vim.keymap.set("n", "<leader>fy", function()
+        #       require("telescope").extensions.yank_history.yank_history()
+        #     end, { noremap = true, silent = true, desc = "Open Yank History with Telescope" })
+        #   '';
+        #   type = "lua";
+        # }
         {
           plugin = pkgs.vimPlugins.nvim-lspconfig;
           config = ''
