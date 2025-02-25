@@ -624,7 +624,7 @@
               layout = "float",
               click = {
                 enabled = true
-              }
+              },
               mark = {
                 enabled = true
               }
