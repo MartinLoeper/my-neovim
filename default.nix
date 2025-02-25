@@ -626,7 +626,7 @@
                 enabled = true
               },
               mark = {
-                enabled = true
+                enabled = false
               },
               float = {
                 minimap_width = 10,
@@ -650,8 +650,7 @@
             vim.keymap.set({"n","x"}, "gp", "<Plug>(YankyGPutAfter)")
             vim.keymap.set({"n","x"}, "gP", "<Plug>(YankyGPutBefore)")
 
-            vim.keymap.set("n", "<M-p>", "<Plug>(YankyPreviousEntry)")
-            -- vim.keymap.set("n", "<c-n>", "<Plug>(YankyNextEntry)")
+            vim.keymap.set("n", "<M-p>", "<Plug>(YankyNextEntry)")
           '';
           type = "lua";
         }
