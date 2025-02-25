@@ -80,6 +80,15 @@
               vim.g.mapleader = " "
 
               vim.o.clipboard = "unnamedplus"
+              function my_paste(reg)
+                return function(lines)
+
+                    local content = vim.fn.getreg('"')
+                    return vim.split(content, '\n')
+                    
+                end
+              end
+
               vim.g.clipboard = {
                 name = "OSC 52",
                 copy = {
@@ -87,8 +96,8 @@
                   ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
                 },
                 paste = {
-                  ["+"] = function() return vim.fn.getreg("+") end,
-                  ["*"] = function() return vim.fn.getreg("*") end,
+                  ["+"] = my_paste() 
+                  ["*"] = my_paste()
                 }
               }
 
