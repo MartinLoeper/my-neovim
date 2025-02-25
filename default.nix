@@ -125,7 +125,7 @@
               vim.keymap.set('n', '<leader>tp', ':tabp<CR>', { noremap = true, silent = true })    -- Previous tab
               vim.keymap.set('n', '<leader>tn', ':tabn<CR>', { noremap = true, silent = true })    -- Next tab
 
-              vim.keymap.set('n', '<leader>z', function()
+              vim.keymap.set('n', '<leader>tf', function()
                 local cwd = vim.loop.cwd() -- Get the current working directory
                 vim.cmd("!zellij run -x " .. vim.fn.shellescape("50%", 1) .. " --width " .. vim.fn.shellescape("50%", 1) .. " -y " .. vim.fn.shellescape("40%", 1) .. " --height " .. vim.fn.shellescape("60%", 1) .. string.format(" -n 'Terminal: [%s]' -f -c --cwd '%s' -- zsh", cwd, cwd))
               end, { noremap = true, silent = true })
@@ -256,7 +256,7 @@
               cmp.setup.cmdline({ '/', '?' }, {
                 mapping = cmp.mapping.preset.cmdline(),
                 sources = {
-                  { name = 'buffer' }
+        {{}}          { name = 'buffer' }
                 }
               })
 
@@ -288,6 +288,19 @@
         pkgs.vimPlugins.cmp-buffer
         pkgs.vimPlugins.lualine-lsp-progress
         pkgs.vimPlugins.which-key-nvim
+        {
+          plugin = pkgs.vimPlugins.true-zen-nvim;
+          config = ''
+            require("true-zen").setup{}
+
+            api.nvim_set_keymap("n", "<leader>zn", ":TZNarrow<CR>", {})
+            api.nvim_set_keymap("v", "<leader>zn", ":'<,'>TZNarrow<CR>", {})
+            api.nvim_set_keymap("n", "<leader>zf", ":TZFocus<CR>", {})
+            api.nvim_set_keymap("n", "<leader>zm", ":TZMinimalist<CR>", {})
+            api.nvim_set_keymap("n", "<leader>za", ":TZAtaraxis<CR>", {})
+          '';
+          type = "lua";
+        }
         {
           plugin = pkgs.vimPlugins.catppuccin-nvim;
           config = ''
