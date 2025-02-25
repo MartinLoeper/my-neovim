@@ -356,11 +356,11 @@
         {
           plugin = pkgs.vimPlugins.ultimate-autopair-nvim;
           config = ''
-            require("ultimate-autopair").setup(
+            require("ultimate-autopair").setup({
               tabout = {
                 enable = true;
               } 
-            )
+            })
           '';
           type = "lua";
         }
