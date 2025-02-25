@@ -368,7 +368,12 @@
             require("ultimate-autopair").setup({
               tabout = {
                 enable = true;
-              } 
+                hopout = true;
+              },
+              fastwarp = {
+                enable = true;
+                map = "<C-i>";
+              },
             })
           '';
           type = "lua";
