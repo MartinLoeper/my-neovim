@@ -656,6 +656,14 @@
               system_clipboard = {
                 sync_with_ring = true,
               },
+              ring = {
+                ignore_registers = { "_", "+", "*" },
+              },
+              highlight = {
+                on_put = true,
+                on_yank = true,
+                timer = 300,
+              },
             }
             require("telescope").load_extension("yank_history")
 
