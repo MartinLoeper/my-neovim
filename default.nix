@@ -192,14 +192,14 @@
                   end,
                 },
                 mapping = {
-                  ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-                  ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+                  -- ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+                  -- ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
                   ['<C-b>'] = cmp.mapping.scroll_docs(-4),
                   ['<C-f>'] = cmp.mapping.scroll_docs(4),
                   ['<C-Space>'] = cmp.mapping.complete(),
                   ['<C-e>'] = cmp.mapping.abort(),
                   ['<CR>'] = cmp.mapping.confirm({ select = false, behavior = cmp.ConfirmBehavior.Replace }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-                  ['<Tab>'] = cmp.mapping(function(fallback)
+                  ['<C-j>'] = cmp.mapping(function(fallback)
                     if vim.call('vsnip#available', 1) ~= 0 then
                       vim.fn.feedkeys(replace_keys('<Plug>(vsnip-jump-next)'), ''')
                     elseif cmp.visible() then
@@ -208,7 +208,7 @@
                       fallback()
                     end
                   end, { 'i', 's' }),
-                  ['<S-Tab>'] = cmp.mapping(function(fallback)
+                  ['<C-k>'] = cmp.mapping(function(fallback)
                     if vim.call('vsnip#available', -1) ~= 0 then
                       vim.fn.feedkeys(replace_keys('<Plug>(vsnip-jump-prev)'), ''')
                     elseif cmp.visible() then
@@ -358,7 +358,11 @@
         {
           plugin = pkgs.vimPlugins.ultimate-autopair-nvim;
           config = ''
-            require("ultimate-autopair").setup()
+            require("ultimate-autopair").setup(
+              tabout = {
+                enable = true;
+              } 
+            )
           '';
           type = "lua";
         }
