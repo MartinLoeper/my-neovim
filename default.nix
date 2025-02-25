@@ -622,6 +622,9 @@
             vim.g.neominimap = {
               auto_enable = true,
               layout = "float",
+              click = {
+                enabled = true
+              }
             }
             vim.opt.wrap = false
             vim.opt.sidescrolloff = 36
