@@ -625,6 +625,9 @@
               click = {
                 enabled = true
               }
+              mark = {
+                enabled = true
+              }
             }
             vim.opt.wrap = false
             vim.opt.sidescrolloff = 36
