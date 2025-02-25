@@ -289,15 +289,9 @@
         pkgs.vimPlugins.lualine-lsp-progress
         pkgs.vimPlugins.which-key-nvim
         {
-          plugin = pkgs.vimPlugins.true-zen-nvim;
+          plugin = pkgs.vimPlugins.zen-mode-nvim;
           config = ''
-            require("true-zen").setup{}
-
-            vim.api.nvim_set_keymap("n", "<leader>zn", ":TZNarrow<CR>", {})
-            vim.api.nvim_set_keymap("v", "<leader>zn", ":'<,'>TZNarrow<CR>", {})
-            vim.api.nvim_set_keymap("n", "<leader>zf", ":TZFocus<CR>", {})
-            vim.api.nvim_set_keymap("n", "<leader>zm", ":TZMinimalist<CR>", {})
-            vim.api.nvim_set_keymap("n", "<leader>za", ":TZAtaraxis<CR>", {})
+            vim.api.nvim_set_keymap("n", "<leader>z", ":ZenMode<CR>", {})
           '';
           type = "lua";
         }
