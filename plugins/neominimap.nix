@@ -5,7 +5,7 @@ let
     version = "3.9.1";
     src = fetchFromGitHub {
       owner = "lsrothy";
-      repo = "neominimap";
+      repo = "neominimap.nvim";
       rev = "8f6e5e64393b530fd1d8e0ea96c51ffbb4046186";
       hash = "sha256-udElcii8uK8YKg54srBHvdZCNH80rsB5VdPTyoWchSE=";
     };
