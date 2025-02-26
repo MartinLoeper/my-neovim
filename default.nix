@@ -288,6 +288,7 @@
         pkgs.vimPlugins.cmp-buffer
         pkgs.vimPlugins.lualine-lsp-progress
         pkgs.vimPlugins.which-key-nvim
+        pkgs.vimPlugins.twilight-nvim
         {
           plugin = pkgs.vimPlugins.zen-mode-nvim;
           config = ''
