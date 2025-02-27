@@ -278,7 +278,7 @@
 
         -- insert plain tab in insert mode when pressing tab key
         -- idk why i have to configure this explicitly
-        vim.api.nvim_set_keymap("i", "<Tab>", "<C-V><Tab>", { noremap = true, silent = true })
+        vim.api.nvim_set_keymap("i", "<Tab>", "<Tab>", { noremap = true, silent = true })
       '';
       plugins = [
         pkgs.vimPlugins.lspkind-nvim
