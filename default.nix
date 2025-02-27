@@ -281,6 +281,7 @@
         vim.api.nvim_set_keymap("i", "<Tab>", "<Tab>", { noremap = true, silent = true })
       '';
       plugins = [
+        pkgs.vimPlugins.vim-fugitive
         pkgs.vimPlugins.lspkind-nvim
         pkgs.vimPlugins.cmp-cmdline
         pkgs.vimPlugins.cmp-cmdline-history
