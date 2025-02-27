@@ -281,6 +281,13 @@
         vim.api.nvim_set_keymap("i", "<Tab>", "<Tab>", { noremap = true, silent = true })
       '';
       plugins = [
+        {
+          plugin = pkgs.vimPlugins.unimpaired-nvim;
+          config = ''
+            require('unimpaired').setup {}
+          '';
+          type = "lua";
+        }
         pkgs.vimPlugins.vim-fugitive
         pkgs.vimPlugins.lspkind-nvim
         pkgs.vimPlugins.cmp-cmdline
