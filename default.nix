@@ -795,6 +795,7 @@
         (import ./plugins/leetcode.nix { inherit pkgs; })
         (import ./plugins/lazygit.nix { inherit pkgs; })
         (import ./plugins/comment.nix { inherit pkgs; })
+        (import ./plugins/noice.nix { inherit pkgs; })
         pkgs.vimPlugins.nui-nvim # leetcode dep
         pkgs.vimPlugins.plenary-nvim # leetcode dep
         {
