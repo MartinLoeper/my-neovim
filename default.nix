@@ -759,7 +759,11 @@
 
             vim.keymap.set('n', '<leader>fa', ':lua require"telescope.builtin".find_files({ hidden = true })<CR>', {noremap=true})
             vim.keymap.set('n', '<leader>ff', '<cmd>lua project_files()<CR>', {noremap=true})
-            vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+            vim.keymap.set('n', '<leader>fg', function()
+              require('telescope.builtin').live_grep({
+                    additional_args = function() return { "--hidden", "--glob", "!.git/*" } end
+                      })
+              end, { desc = 'Telescope live grep' })
             vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
             vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
             vim.keymap.set('n', '<leader>fw', builtin.grep_string, { desc = 'Telescope grep current word or selection' })
