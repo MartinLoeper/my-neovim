@@ -764,8 +764,9 @@
                     additional_args = function() return { "--hidden", "--glob", "!.git/*" } end
                       })
               end, { desc = 'Telescope live grep' })
-            vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
-            vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+            vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = '[F]ind [B]uffers using Telescope' })
+            vim.keymap.set('n', '<leader>fc', require('telescope.builtin').resume, { desc = "[Find] using Telescope [C]ontinue" })
+            vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = '[F]ind [H]elp Tags using Telescope' })
             vim.keymap.set('n', '<leader>fw', builtin.grep_string, { desc = 'Telescope grep current word or selection' })
             vim.keymap.set('n', '<leader>fif', builtin.current_buffer_fuzzy_find, { desc = 'Telescope find in current buffer' })
             vim.keymap.set('n', '<leader>fr', builtin.lsp_references, { desc = 'Telescope find lsp references' })
