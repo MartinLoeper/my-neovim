@@ -104,10 +104,19 @@
         vim.keymap.set('n', '<leader>tc', ':tabclose<CR>', { noremap = true, silent = true }) -- Close current tab
         vim.keymap.set('n', '<leader>tp', ':tabp<CR>', { noremap = true, silent = true })    -- Previous tab
         vim.keymap.set('n', '<leader>tn', ':tabn<CR>', { noremap = true, silent = true })    -- Next tab
-
         vim.keymap.set('n', '<leader>tf', function()
           local cwd = vim.loop.cwd() -- Get the current working directory
-          vim.cmd("!zellij run -x " .. vim.fn.shellescape("50%", 1) .. " --width " .. vim.fn.shellescape("50%", 1) .. " -y " .. vim.fn.shellescape("40%", 1) .. " --height " .. vim.fn.shellescape("60%", 1) .. string.format(" -n 'Terminal: [%s]' -f -c --cwd '%s' -- zsh", cwd, cwd))
+          local cmd = string.format(
+            "zellij run -x %s --width %s -y %s --height %s -n 'Terminal: [%s]' -f -c --cwd '%s' -- zsh",
+            vim.fn.shellescape("50%", 1),
+            vim.fn.shellescape("50%", 1),
+            vim.fn.shellescape("40%", 1),
+            vim.fn.shellescape("60%", 1),
+            cwd,
+            cwd
+          )
+
+          vim.fn.jobstart(cmd, { detach = true }) -- Run it in the background silently
         end, { noremap = true, silent = true })
 
         vim.keymap.set('n', '<Alt-f>', function() vim.cmd("!zellij action toggle-floating-panes") end)
