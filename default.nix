@@ -780,9 +780,9 @@
             vim.keymap.set('n', '<leader>gi', builtin.lsp_implementations, { desc = 'Telescope goto implementation' })
 
             vim.keymap.set('i', '<C-a>', '<cmd>Copilot panel<CR>', {noremap=true})
-            vim.keymap.set('i', '<C-v>', '<C-r>+', { noremap = true, silent = true })
-            vim.keymap.set('i', '<C-c>', '"+y', { noremap = true, silent = true })
-            vim.keymap.set('v', '<C-c>', '"+y', { noremap = true, silent = true })
+            -- vim.keymap.set('i', '<C-v>', '<C-r>+', { noremap = true, silent = true })
+            -- vim.keymap.set('i', '<C-c>', '"+y', { noremap = true, silent = true })
+            -- vim.keymap.set('v', '<C-c>', '"+y', { noremap = true, silent = true })
             if vim.fn.filereadable(vim.fn.getcwd() .. "/.editorconfig") == 0 then
               vim.o.tabstop = 2 
               vim.o.shiftwidth = 2
