@@ -107,8 +107,7 @@
         vim.keymap.set('n', '<leader>tf', function()
           local cwd = vim.loop.cwd() -- Get the current working directory
           local cmd = string.format(
-            "zellij run -x %s --width %s -y %s --height %s -n 'Terminal: [%s]' -f -c --cwd '%s' -- zsh",
-            vim.fn.shellescape("50%", 1),
+            "zellij run -x " .. vim.fn.shellescape("50%", 1) .. " --width %s -y %s --height %s -n 'Terminal: [%s]' -f -c --cwd '%s' -- zsh",
             vim.fn.shellescape("50%", 1),
             vim.fn.shellescape("40%", 1),
             vim.fn.shellescape("60%", 1),
