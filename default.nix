@@ -273,7 +273,7 @@
         (import ./plugins/which-key.nix { inherit pkgs; })
         (import ./plugins/twilight.nix { inherit pkgs; })
         (import ./plugins/catppuccin.nix { inherit pkgs; })
-        (import ./plugins/beacon.nix.nix { inherit pkgs; })
+        (import ./plugins/beacon.nix { inherit pkgs; })
         {
           plugin = pkgs.vimPlugins.todo-comments-nvim;
           config = ''
