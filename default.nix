@@ -270,8 +270,8 @@
           neovimUtils = pkgs.neovimUtils;
         })
         (import ./plugins/lualine/copilot-lualine.nix { inherit pkgs; })
-        (import ./plugins/todo-comments.nix { })
-        (import ./plugins/copilot.nix { })
+        (import ./plugins/todo-comments.nix { inherit pkgs; })
+        (import ./plugins/copilot.nix { inherit pkgs; })
         {
           plugin = pkgs.vimPlugins.autosave-nvim;
           config = ''
