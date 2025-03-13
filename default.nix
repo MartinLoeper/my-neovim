@@ -267,9 +267,7 @@
         (import ./plugins/fugative.nix { inherit pkgs; })
         (import ./plugins/cmp/cmp-cmdline.nix { inherit pkgs; })
         (import ./plugins/cmp/cmp-cmdline-history.nix { inherit pkgs; })
-        (import ./plugins/cmp/cmp-cmdline-lsp-signature-help.nix {
-          inherit pkgs;
-        })
+        (import ./plugins/cmp/cmp-lsp-signature-help.nix { inherit pkgs; })
         (import ./plugins/cmp/cmp-buffer.nix { inherit pkgs; })
         (import ./plugins/lualine/lualine-lsp-progress.nix { inherit pkgs; })
         (import ./plugins/which-key.nix { inherit pkgs; })
