@@ -1,4 +1,4 @@
-{ lua, fetchFromGitHub, neovimUtils }:
+{ lua, fetchFromGitHub, neovimUtils, pkgs }:
 let
   monaspace-lua = lua.pkgs.toLuaModule (lua.stdenv.mkDerivation ({
     name = "monaspace-lua";
@@ -24,5 +24,12 @@ let
       license.fullName = "MIT";
     };
   }));
-in (neovimUtils.buildNeovimPlugin { luaAttr = monaspace-lua; })
+  plugin = (neovimUtils.buildNeovimPlugin { luaAttr = monaspace-lua; });
+in {
+  inherit plugin;
+  config = ''
+    require('monaspace').setup()
+  '';
+  type = "lua";
+}
 

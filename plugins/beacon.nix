@@ -24,5 +24,12 @@ let
       license.fullName = "MIT";
     };
   }));
-in (neovimUtils.buildNeovimPlugin { luaAttr = beacon; })
+  plugin = (neovimUtils.buildNeovimPlugin { luaAttr = beacon; });
+in {
+  inherit plugin;
+  config = ''
+    require('beacon').setup()
+  '';
+  type = "lua";
+}
 

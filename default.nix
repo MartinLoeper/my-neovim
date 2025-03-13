@@ -273,7 +273,7 @@
         (import ./plugins/which-key.nix { inherit pkgs; })
         (import ./plugins/twilight.nix { inherit pkgs; })
         (import ./plugins/catppuccin.nix { inherit pkgs; })
-        (import ./plugins/beacon.nix { inherit pkgs; })
+        (pkgs.callPackage ./plugins/beacon.nix { })
         {
           plugin = pkgs.vimPlugins.todo-comments-nvim;
           config = ''
@@ -732,13 +732,6 @@
         {
           plugin = pkgs.vimPlugins.vim-startify;
           config = "let g:startify_change_to_vcs_root = 0";
-        }
-        {
-          plugin = pkgs.callPackage ./plugins/monaspace.nix { };
-          config = ''
-            require('monaspace').setup()
-          '';
-          type = "lua";
         }
       ];
     };

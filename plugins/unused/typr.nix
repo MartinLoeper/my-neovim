@@ -35,5 +35,12 @@ let
       license.fullName = "GPL-3.0";
     };
   }));
-in (neovimUtils.buildNeovimPlugin { luaAttr = typr-lua; })
+  plugin = (neovimUtils.buildNeovimPlugin { luaAttr = typr-lua; });
+in {
+  inherit plugin;
+  config = ''
+    require('typr').setup()
+  '';
+  type = "lua";
+}
 
