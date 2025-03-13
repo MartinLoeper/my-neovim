@@ -261,36 +261,19 @@
         vim.api.nvim_set_keymap("i", "<Tab>", "<Tab>", { noremap = true, silent = true })
       '';
       plugins = [
-        {
-          plugin = pkgs.vimPlugins.unimpaired-nvim;
-          config = ''
-            require('unimpaired').setup {}
-          '';
-          type = "lua";
-        }
-        pkgs.vimPlugins.vim-fugitive
-        pkgs.vimPlugins.lspkind-nvim
-        pkgs.vimPlugins.cmp-cmdline
-        pkgs.vimPlugins.cmp-cmdline-history
-        pkgs.vimPlugins.cmp-nvim-lsp-signature-help
-        pkgs.vimPlugins.cmp-buffer
-        pkgs.vimPlugins.lualine-lsp-progress
-        pkgs.vimPlugins.which-key-nvim
+        (import ./plugins/zen-mode.nix { inherit pkgs; })
+        (import ./plugins/unimpaired.nix { inherit pkgs; })
+        (import ./plugins/lspkind.nix { inherit pkgs; })
+        (import ./plugins/fugative.nix { inherit pkgs; })
+        (import ./plugins/cmp/cmp-cmdline.nix { inherit pkgs; })
+        (import ./plugins/cmp/cmp-cmdline-history.nix { inherit pkgs; })
+        (import ./plugins/cmp/cmp-cmdline-lsp-signature-help.nix {
+          inherit pkgs;
+        })
+        (import ./plugins/cmp/cmp-buffer.nix { inherit pkgs; })
+        (import ./plugins/lualine/lualine-lsp-progress.nix { inherit pkgs; })
+        (import ./plugins/which-key.nix { inherit pkgs; })
         pkgs.vimPlugins.twilight-nvim
-        {
-          plugin = pkgs.vimPlugins.zen-mode-nvim;
-          config = ''
-            require("zen-mode").setup {
-              plugins = {
-                twilight = { enabled = true },
-                wezterm = { enabled = true, font = "+2", }
-              }
-            }
-
-            vim.api.nvim_set_keymap("n", "<leader>z", ":ZenMode<CR>", {})
-          '';
-          type = "lua";
-        }
         {
           plugin = pkgs.vimPlugins.catppuccin-nvim;
           config = ''
@@ -366,22 +349,6 @@
                 }
               },
             }
-          '';
-          type = "lua";
-        }
-        {
-          plugin = pkgs.vimPlugins.ultimate-autopair-nvim;
-          config = ''
-            require("ultimate-autopair").setup({
-              tabout = {
-                enable = true;
-                hopout = true;
-              },
-              fastwarp = {
-                enable = true;
-                map = "<C-i>";
-              },
-            })
           '';
           type = "lua";
         }
@@ -801,7 +768,7 @@
           type = "lua";
         }
         (import ./plugins/navbuddy.nix { inherit pkgs; })
-        (import ./plugins/lualine.nix { inherit pkgs; })
+        (import ./plugins/lualine/lualine.nix { inherit pkgs; })
         (import ./plugins/leetcode.nix { inherit pkgs; })
         (import ./plugins/lazygit.nix { inherit pkgs; })
         (import ./plugins/comment.nix { inherit pkgs; })
