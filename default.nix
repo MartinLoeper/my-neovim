@@ -273,7 +273,11 @@
         (import ./plugins/which-key.nix { inherit pkgs; })
         (import ./plugins/twilight.nix { inherit pkgs; })
         (import ./plugins/catppuccin.nix { inherit pkgs; })
-        (pkgs.callPackage ./plugins/beacon.nix { })
+        (import ./plugins/beacon.nix {
+          lua = pkgs.lua;
+          fetchFromGitHub = pkgs.fetchFromGitHub;
+          neovimUtils = pkgs.neovimUtils;
+        })
         {
           plugin = pkgs.vimPlugins.todo-comments-nvim;
           config = ''
@@ -539,30 +543,11 @@
           '';
           type = "lua";
         }
-        {
-          plugin = pkgs.callPackage ./plugins/neominimap.nix { };
-          config = ''
-            vim.g.neominimap = {
-              auto_enable = true,
-              layout = "float",
-              click = {
-                enabled = true
-              },
-              mark = {
-                enabled = false
-              },
-              float = {
-                minimap_width = 10,
-                margin = {
-                  top = 0,
-                } 
-              }
-            }
-            vim.opt.wrap = false
-            vim.opt.sidescrolloff = 36
-          '';
-          type = "lua";
-        }
+        (import ./plugins/neominimap.nix {
+          lua = pkgs.lua;
+          fetchFromGitHub = pkgs.fetchFromGitHub;
+          neovimUtils = pkgs.neovimUtils;
+        })
         # unfortunately blocked by: https://github.com/gbprod/yanky.nvim/issues/213
         # {
         #   plugin = pkgs.vimPlugins.yanky-nvim;

@@ -24,4 +24,29 @@ let
       license.fullName = "MIT";
     };
   }));
-in (neovimUtils.buildNeovimPlugin { luaAttr = neominimap; })
+  plugin = (neovimUtils.buildNeovimPlugin { luaAttr = neominimap; });
+in {
+  inherit plugin;
+  config = ''
+    vim.g.neominimap = {
+      auto_enable = true,
+      layout = "float",
+      click = {
+        enabled = true
+      },
+      mark = {
+        enabled = false
+      },
+      float = {
+        minimap_width = 10,
+        margin = {
+          top = 0,
+        } 
+      }
+    }
+    vim.opt.wrap = false
+    vim.opt.sidescrolloff = 36
+  '';
+  type = "lua";
+
+}
