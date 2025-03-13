@@ -133,6 +133,9 @@
           require("yazi").yazi()
         end)
 
+        -- remap tab to ctrl tab in insert mode
+        vim.api.nvim_set_keymap('i', '<C-Tab>', '<Tab>', { noremap = true, silent = true })
+
         vim.opt.smartindent = true
         vim.opt.autoindent = true
 
@@ -177,7 +180,7 @@
             ['<C-Space>'] = cmp.mapping.complete(),
             ['<C-e>'] = cmp.mapping.abort(),
             ['<CR>'] = cmp.mapping.confirm({ select = false, behavior = cmp.ConfirmBehavior.Replace }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-            ['<S-Tab>'] = cmp.mapping(function(fallback)
+            ['<Tab>'] = cmp.mapping(function(fallback)
               if vim.call('vsnip#available', 1) ~= 0 then
                 vim.fn.feedkeys(replace_keys('<Plug>(vsnip-jump-next)'), ''')
               elseif cmp.visible() then
@@ -209,10 +212,6 @@
             -- REQUIRED - you must specify a snippet engine
             expand = function(args)
               vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-              -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-              -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-              -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-              -- vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
             end,
           },
           window = {
@@ -220,13 +219,9 @@
             -- documentation = cmp.config.window.bordered(),
           },
           sources = cmp.config.sources({
-            { name = "copilot", group_index = 2 },
             { name = 'nvim_lsp' },
             { name = 'vsnip' }, -- For vsnip users.
             { name = 'nvim_lsp_signature_help' },
-            -- { name = 'luasnip' }, -- For luasnip users.
-            -- { name = 'ultisnips' }, -- For ultisnips users.
-            -- { name = 'snippy' }, -- For snippy users.
           }, {
             { name = 'buffer' },
           })
@@ -255,10 +250,6 @@
         vim.opt.foldlevel = 99         -- Start with all folds open
         vim.opt.foldenable = true      -- Enable folding
         vim.opt.foldnestmax = 3        -- Maximum nested fold levels
-
-        -- insert plain tab in insert mode when pressing tab key
-        -- idk why i have to configure this explicitly
-        vim.api.nvim_set_keymap("i", "<Tab>", "<Tab>", { noremap = true, silent = true })
       '';
       plugins = [
         (import ./plugins/zen-mode.nix { inherit pkgs; })
@@ -278,6 +269,7 @@
           fetchFromGitHub = pkgs.fetchFromGitHub;
           neovimUtils = pkgs.neovimUtils;
         })
+        (import ./plugins/lualine/copilot-lualine.nix { inherit pkgs; })
         {
           plugin = pkgs.vimPlugins.todo-comments-nvim;
           config = ''
@@ -469,35 +461,6 @@
           '';
           type = "lua";
         }
-        {
-          plugin = pkgs.vimPlugins.copilot-lua;
-          config = ''
-            require("copilot").setup({
-              suggestion = { 
-                enabled = false, 
-                auto_trigger = true,
-                keymap = {
-                  accept = "<M-l>",
-                  accept_word = "<M-Tab>",
-                },
-              },
-              panel = { enabled = true, auto_refresh = true },
-            })
-
-            -- make the suggestions italic s.t. the monaspace handwritten font is used
-            -- see pending issue: https://github.com/zbirenbaum/copilot.lua/issues/324
-            vim.api.nvim_set_hl(0, "CopilotSuggestion", { fg = "#555555", italic = true })
-          '';
-          type = "lua";
-        }
-        {
-          plugin = pkgs.vimPlugins.copilot-cmp;
-          config = ''
-            require("copilot_cmp").setup()
-          '';
-          type = "lua";
-        }
-        pkgs.vimPlugins.copilot-lualine
         {
           plugin = pkgs.vimPlugins.nvim-tree-lua;
           config = ''
