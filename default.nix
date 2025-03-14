@@ -283,6 +283,7 @@
         (import ./plugins/telescope.nix { inherit pkgs; })
         (import ./plugins/fidget.nix { inherit pkgs; })
         (import ./plugins/treesitter.nix { inherit pkgs; })
+        (import ./plugins/treesitter-textobjects.nix { inherit pkgs; })
         {
           plugin = pkgs.vimPlugins.gitsigns-nvim;
           config = ''
