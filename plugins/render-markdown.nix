@@ -2,7 +2,7 @@
   plugin = pkgs.vimPlugins.render-markdown-nvim;
   config = ''
     require('render-markdown').setup({
-      ft = { "markdown", "codecompanion" }
+      file_types = { "markdown", "codecompanion" }
     })
   '';
   type = "lua";
