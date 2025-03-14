@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  plugin = pkgs.vimPlugins.figet-nvim;
+  plugin = pkgs.vimPlugins.fidget-nvim;
   config = ''
     require("fidget").setup {}
   '';
