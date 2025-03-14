@@ -13,6 +13,8 @@
        panel = { enabled = false, auto_refresh = true },
     })
 
+    vim.g.copilot_enabled = true
+
     local toggleCopilot = function()
       local copilot = require("copilot")
       local client = require("copilot.client")
