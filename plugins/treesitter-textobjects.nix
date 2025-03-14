@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  plugin = pkgs.vimPlugins.treesitter-textobjects;
+  plugin = pkgs.vimPlugins.nvim-treesitter-textobjects;
   config = ''
     require'nvim-treesitter.configs'.setup {
       textobjects = {
