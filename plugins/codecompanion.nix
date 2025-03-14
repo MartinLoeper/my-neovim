@@ -1,5 +1,8 @@
 { pkgs, ... }: {
   plugin = pkgs.vimPlugins.codecompanion-nvim;
-  config = builtins.readFile ./codecompanion.lua;
+  config = builtins.concatStrings [
+    (builtins.readFile ./codecompanion.lua)
+    (builtins.readFile ./codecompanion-fidget.lua)
+  ];
   type = "lua";
 }
