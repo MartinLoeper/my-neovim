@@ -29,23 +29,16 @@ in {
   inherit plugin;
   config = ''
     vim.g.neominimap = {
-      auto_enable = true,
+      auto_enable = false,
       layout = "float",
       click = {
         enabled = true
       },
       mark = {
         enabled = false
-      },
-      float = {
-        minimap_width = 10,
-        margin = {
-          top = 0,
-        } 
       }
     }
-    vim.opt.wrap = false
-    vim.opt.sidescrolloff = 36
+    vim.keymap.set('n', '<leader>tm', '<cmd>Neominimap toggle<cr>', { desc = 'Toggle minimap' })
   '';
   type = "lua";
 
