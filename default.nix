@@ -222,6 +222,7 @@
             { name = 'nvim_lsp' },
             { name = 'vsnip' }, -- For vsnip users.
             { name = 'nvim_lsp_signature_help' },
+            { name = 'path' },
           }, {
             { name = 'buffer' },
           })
@@ -266,6 +267,7 @@
         (import ./plugins/cmp/cmp-cmdline-history.nix { inherit pkgs; })
         (import ./plugins/cmp/cmp-lsp-signature-help.nix { inherit pkgs; })
         (import ./plugins/cmp/cmp-buffer.nix { inherit pkgs; })
+        (import ./plugins/cmp/cmp-path.nix { inherit pkgs; })
         (import ./plugins/lualine/lualine-lsp-progress.nix { inherit pkgs; })
         (import ./plugins/which-key.nix { inherit pkgs; })
         (import ./plugins/twilight.nix { inherit pkgs; })
@@ -282,8 +284,10 @@
         (import ./plugins/telescope-ui-select.nix { inherit pkgs; })
         (import ./plugins/telescope.nix { inherit pkgs; })
         (import ./plugins/fidget.nix { inherit pkgs; })
+        (import ./plugins/harpoon.nix { inherit pkgs; })
         (import ./plugins/treesitter.nix { inherit pkgs; })
         (import ./plugins/treesitter-textobjects.nix { inherit pkgs; })
+        (import ./plugins/treesitter-textsubjects.nix { inherit pkgs; })
         {
           plugin = pkgs.vimPlugins.gitsigns-nvim;
           config = ''
@@ -360,26 +364,6 @@
         }
         pkgs.vimPlugins.yazi-nvim
         pkgs.vimPlugins.nvim-notify
-        {
-          plugin = pkgs.vimPlugins.harpoon2;
-          config = ''
-            local harpoon = require("harpoon")
-            harpoon:setup()
-
-            vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end, { noremap = true, silent = true })
-            vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { noremap = true, silent = true })
-
-            vim.keymap.set("n", "<Leader>j", function() harpoon:list():select(1) end)
-            vim.keymap.set("n", "<Leader>k", function() harpoon:list():select(2) end)
-            vim.keymap.set("n", "<Leader>l", function() harpoon:list():select(3) end)
-            vim.keymap.set("n", "<Leader>;", function() harpoon:list():select(4) end)
-
-            -- Toggle previous & next buffers stored within Harpoon list
-            vim.keymap.set("n", "<C-P>", function() harpoon:list():prev() end, { noremap = true, silent = true })
-            vim.keymap.set("n", "<C-N>", function() harpoon:list():next() end, { noremap = true, silent = true })
-          '';
-          type = "lua";
-        }
         {
           plugin = pkgs.vimPlugins.indent-blankline-nvim;
           config = ''
@@ -526,35 +510,6 @@
         #   type = "lua";
         # }
         {
-          plugin = pkgs.vimPlugins.nvim-lspconfig;
-          config = ''
-            local nvim_lsp = require('lspconfig')
-
-            -- nvim-cmp supports additional completion capabilities
-            local capabilities = vim.lsp.protocol.make_client_capabilities()
-            capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-            local navbuddy = require("nvim-navbuddy")
-
-            local servers = { 'terraformls', 'gopls', 'hyprls', 'nil_ls' }
-            for _, lsp in ipairs(servers) do
-              nvim_lsp[lsp].setup {
-                capabilities = capabilities,
-                on_attach = function(client, bufnr)                    
-                  navbuddy.attach(client, bufnr)
-                end
-              }
-            end
-
-            local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-            function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-              opts = opts or {}
-              opts.border = opts.border or border
-              return orig_util_open_floating_preview(contents, syntax, opts, ...)
-            end
-          '';
-          type = "lua";
-        }
-        {
           plugin = pkgs.vimPlugins.nvim-web-devicons;
           config = ''
             require'nvim-web-devicons'.setup()
@@ -584,6 +539,7 @@
         (import ./plugins/lazygit.nix { inherit pkgs; })
         (import ./plugins/comment.nix { inherit pkgs; })
         (import ./plugins/noice.nix { inherit pkgs; })
+        (import ./plugins/lspconfig.nix { inherit pkgs; })
         (import ./plugins/codecompanion.nix { inherit pkgs; })
         (import ./plugins/render-markdown.nix { inherit pkgs; })
         pkgs.vimPlugins.nui-nvim # leetcode dep
