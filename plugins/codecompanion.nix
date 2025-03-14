@@ -7,7 +7,7 @@
           intro_message = "We Vibe-Coding today huh??! Leggo!! AI doing its best 🚀",
           show_settings = true,
           show_token_count = true,
-          start_in_insert_node = true,
+          start_in_insert_mode = true,
         }
       },
       strategies = {
