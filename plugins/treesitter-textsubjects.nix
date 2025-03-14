@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  plugin = pkgs.vimPlugins.treesitter-textsubjects;
+  plugin = pkgs.vimPlugins.nvim-treesitter-textsubjects;
   config = ''
     require('nvim-treesitter-textsubjects').configure({
       prev_selection = ',',
