@@ -282,6 +282,7 @@
         (import ./plugins/telescope-ui-select.nix { inherit pkgs; })
         (import ./plugins/telescope.nix { inherit pkgs; })
         (import ./plugins/fidget.nix { inherit pkgs; })
+        (import ./plugins/treesitter.nix { inherit pkgs; })
         {
           plugin = pkgs.vimPlugins.gitsigns-nvim;
           config = ''
@@ -475,25 +476,6 @@
             },
                 })
                 vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
-          '';
-          type = "lua";
-        }
-        {
-          plugin = pkgs.vimPlugins.nvim-treesitter.withAllGrammars;
-          config = ''
-            require'nvim-treesitter.configs'.setup {
-              sync_install = false,
-              auto_install = false,
-
-              highlight = {
-                enable = true,
-                additional_vim_regex_highlighting = false,
-              }
-            }
-
-            vim.filetype.add({
-                pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
-            })
           '';
           type = "lua";
         }

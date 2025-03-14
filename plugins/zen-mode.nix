@@ -4,7 +4,7 @@
     require("zen-mode").setup {
       plugins = {
         twilight = { enabled = true },
-        wezterm = { enabled = true, font = "+2", }
+        wezterm = { enabled = true, font = "+5", }
       }
     }
 
