@@ -68,5 +68,4 @@ function M:report_exit_status(handle, request)
   end
 end
 
-return M
-
+M:init()
