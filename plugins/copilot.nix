@@ -36,7 +36,7 @@
       end
     end
 
-    api.nvim_create_user_command("ToggleCopilot", toggleCopilot, { range = false })
+    vim.api.nvim_create_user_command("ToggleCopilot", toggleCopilot, { range = false })
     vim.keymap.set("n", "<leader>ts", "<cmd>ToggleCopilot<cr>", { desc = " Toggle Copilot" })
 
      -- make the suggestions italic s.t. the monaspace handwritten font is used
