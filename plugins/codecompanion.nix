@@ -2,6 +2,14 @@
   plugin = pkgs.vimPlugins.codecompanion-nvim;
   config = ''
     require("codecompanion").setup({
+      display = {
+        chat = {
+          intro_message = "We Vibe-Coding today huh??! Leggo!! AI doing its best 🚀",
+          show_settings = true,
+          show_token_count = true,
+          start_in_insert_node = true,
+        }
+      },
       strategies = {
         chat = {
           adapter = "anthropic",
@@ -29,7 +37,7 @@
     })
 
     vim.keymap.set({ "n", "v" }, "<C-a>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
-    vim.keymap.set({ "n", "v" }, "<LocalLeader>c", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
+    vim.keymap.set({ "n", "v" }, "<Leader>c", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
     vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
     vim.cmd([[cab cc CodeCompanion]])
     vim.cmd([[cab ccc CodeCompanionChat]])
