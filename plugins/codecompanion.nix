@@ -5,7 +5,7 @@
       display = {
         chat = {
           intro_message = "We Vibe-Coding today huh??! Leggo!! AI doing its best 🚀",
-          show_settings = true,
+          show_settings = false,
           show_token_count = true,
           start_in_insert_mode = true,
         }

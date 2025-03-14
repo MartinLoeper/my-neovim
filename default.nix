@@ -281,6 +281,7 @@
         (import ./plugins/autosave.nix { inherit pkgs; })
         (import ./plugins/telescope-ui-select.nix { inherit pkgs; })
         (import ./plugins/telescope.nix { inherit pkgs; })
+        (import ./plugins/fidget.nix { inherit pkgs; })
         {
           plugin = pkgs.vimPlugins.gitsigns-nvim;
           config = ''
