@@ -46,6 +46,7 @@
               enabled = true,
               indentscope_color = "",
           },
+          fidget = true,
           -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
       },
     })
