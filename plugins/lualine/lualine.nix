@@ -64,7 +64,7 @@
                   codecompanion_adapter_name,
                 },
                 lualine_c = {
-                  codecompanion_adapter_name,
+                  codecompanion_current_model_name,
                 },
                 lualine_x = {},
                 lualine_y = {
