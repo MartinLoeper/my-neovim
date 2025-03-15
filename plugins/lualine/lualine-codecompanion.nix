@@ -9,7 +9,7 @@ let
 
     installPhase = ''
       mkdir -p $out/lua
-      cp -r $src $out/lua/lualine-codecompanion
+      cp -r $src $out/lua/lualine-codecompanion.lua
     '';
 
     dontUnpack = true;
