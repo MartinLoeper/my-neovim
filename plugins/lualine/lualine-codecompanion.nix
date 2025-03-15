@@ -12,6 +12,8 @@ let
       cp -r $src $out/lua/lualine-codecompanion
     '';
 
+    dontUnpack = true;
+
     meta = {
       homepage =
         "https://codecompanion.olimorris.dev/usage/ui.html#user-interface";
