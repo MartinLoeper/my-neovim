@@ -18,8 +18,8 @@
     vim.keymap.set("n", "<Leader>;", function() harpoon:list():select(4) end)
 
     -- Toggle previous & next buffers stored within Harpoon list
-    vim.keymap.set("n", "<C-P>", function() harpoon:list():prev() end, { noremap = true, silent = true })
-    vim.keymap.set("n", "<C-N>", function() harpoon:list():next() end, { noremap = true, silent = true })
+    vim.keymap.set("n", "<C-j>", function() harpoon:list():prev() end, { noremap = true, silent = true })
+    vim.keymap.set("n", "<C-k>", function() harpoon:list():next() end, { noremap = true, silent = true })
   '';
   type = "lua";
 }

@@ -29,7 +29,9 @@
     vim.keymap.set({"n","x"}, "gp", "<Plug>(YankyGPutAfter)")
     vim.keymap.set({"n","x"}, "gP", "<Plug>(YankyGPutBefore)")
 
-    vim.keymap.set("n", "<M-p>", "<Plug>(YankyPreviousEntry)")
+    vim.keymap.set("n", "<c-p>", "<Plug>(YankyPreviousEntry)")
+    vim.keymap.set("n", "<c-n>", "<Plug>(YankyNextEntry)")
+
     vim.keymap.set("n", "<leader>fy", function()
       require("telescope").extensions.yank_history.yank_history()
     end, { noremap = true, silent = true, desc = "Open Yank History with Telescope" })
