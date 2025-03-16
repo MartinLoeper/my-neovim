@@ -28,7 +28,7 @@ in {
   inherit plugin;
   config = ''
     require("workspaces").setup()
-    vim.keymap.set('n', '<leader>fw', '<cmd>Telescope workspaces<CR>', { desc = '[F]ind [W]orkspaces using Telescope' })
+    vim.keymap.set('n', '<leader>fp', '<cmd>Telescope workspaces<CR>', { desc = '[F]ind [P]rojects using Telescope' })
   '';
   type = "lua";
 }
