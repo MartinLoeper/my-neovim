@@ -282,6 +282,11 @@
           fetchFromGitHub = pkgs.fetchFromGitHub;
           neovimUtils = pkgs.neovimUtils;
         })
+        (import ./plugins/workspaces.nix {
+          lua = pkgs.lua;
+          fetchFromGitHub = pkgs.fetchFromGitHub;
+          neovimUtils = pkgs.neovimUtils;
+        })
         (import ./plugins/lualine/copilot-lualine.nix { inherit pkgs; })
         (import ./plugins/todo-comments.nix { inherit pkgs; })
         (import ./plugins/copilot.nix { inherit pkgs; })
