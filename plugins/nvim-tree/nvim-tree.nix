@@ -1,7 +1,6 @@
 { pkgs, ... }: {
   plugin = pkgs.vimPlugins.nvim-tree-lua;
   config = pkgs.lib.strings.concatStrings [
-    (builtins.readFile ./quickfix-decorator.lua)
     ''
       require("nvim-tree").setup({
         sort = {
@@ -27,6 +26,7 @@
       })
       vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
     ''
+    (builtins.readFile ./quickfix-decorator.lua)
   ];
   type = "lua";
 }
