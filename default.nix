@@ -270,6 +270,7 @@
         (import ./plugins/which-key.nix { inherit pkgs; })
         (import ./plugins/twilight.nix { inherit pkgs; })
         (import ./plugins/catppuccin.nix { inherit pkgs; })
+        (import ./plugins/yoink.nix { inherit pkgs; })
         (import ./plugins/beacon.nix {
           lua = pkgs.lua;
           fetchFromGitHub = pkgs.fetchFromGitHub;
@@ -294,6 +295,7 @@
         (import ./plugins/todo-comments.nix { inherit pkgs; })
         (import ./plugins/copilot.nix { inherit pkgs; })
         (import ./plugins/autosave.nix { inherit pkgs; })
+        (import ./plugins/yanky.nix { inherit pkgs; })
         (import ./plugins/telescope-ui-select.nix { inherit pkgs; })
         (import ./plugins/telescope.nix { inherit pkgs; })
         (import ./plugins/fidget.nix { inherit pkgs; })
@@ -457,46 +459,6 @@
           fetchFromGitHub = pkgs.fetchFromGitHub;
           neovimUtils = pkgs.neovimUtils;
         })
-        # unfortunately blocked by: https://github.com/gbprod/yanky.nvim/issues/213
-        # {
-        #   plugin = pkgs.vimPlugins.yanky-nvim;
-        #   config = ''
-        #     require("yanky").setup{
-        #       ring = {
-        #         history_length = 100,
-        #         storage = "shada",
-        #         sync_with_numbered_registers = true,
-        #         cancel_event = "update",
-        #         ignore_registers = { "_" },
-        #         update_register_on_cycle = false,
-        #         permanent_wrapper = nil,
-        #       },
-        #       system_clipboard = {
-        #         sync_with_ring = true,
-        #       },
-        #       ring = {
-        #         ignore_registers = { "_", "+", "*" },
-        #       },
-        #       highlight = {
-        #         on_put = true,
-        #         on_yank = true,
-        #         timer = 300,
-        #       },
-        #     }
-        #     require("telescope").load_extension("yank_history")
-        #
-        #     vim.keymap.set({"n","x"}, "p", "<Plug>(YankyPutAfter)")
-        #     vim.keymap.set({"n","x"}, "P", "<Plug>(YankyPutBefore)")
-        #     vim.keymap.set({"n","x"}, "gp", "<Plug>(YankyGPutAfter)")
-        #     vim.keymap.set({"n","x"}, "gP", "<Plug>(YankyGPutBefore)")
-        #
-        #     vim.keymap.set("n", "<M-p>", "<Plug>(YankyPreviousEntry)")
-        #     vim.keymap.set("n", "<leader>fy", function()
-        #       require("telescope").extensions.yank_history.yank_history()
-        #     end, { noremap = true, silent = true, desc = "Open Yank History with Telescope" })
-        #   '';
-        #   type = "lua";
-        # }
         {
           plugin = pkgs.vimPlugins.nvim-web-devicons;
           config = ''

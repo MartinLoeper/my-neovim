@@ -49,7 +49,7 @@
     		
         telescope.load_extension("ui-select")
         telescope.load_extension("workspaces")
-
+        telescope.load_extension("yank_history")
   '';
   type = "lua";
 }
