@@ -44,7 +44,6 @@ in {
           function()
             require("sessions").load(nil, { silent = true })
           end,
-          "Telescope find_files"
           "NvimTreeOpen",
         }
       },
