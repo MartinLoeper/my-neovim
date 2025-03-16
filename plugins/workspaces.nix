@@ -40,11 +40,11 @@ in {
 
         -- hooks run after change directory
         open = {
+          "NvimTreeOpen",
           -- load any saved session from current directory
           function()
             require("sessions").load(nil, { silent = true })
           end,
-          "NvimTreeOpen",
           "Telescope find_files"
         }
       },
