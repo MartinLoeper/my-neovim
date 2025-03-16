@@ -256,7 +256,7 @@
         end
       '';
       plugins = [
-        (import ./plugins/nvim-tree.nix { inherit pkgs; })
+        (import ./plugins/nvim-tree/nvim-tree.nix { inherit pkgs; })
         (import ./plugins/zen-mode.nix { inherit pkgs; })
         (import ./plugins/unimpaired.nix { inherit pkgs; })
         (import ./plugins/lspkind.nix { inherit pkgs; })
