@@ -304,6 +304,7 @@
         (import ./plugins/treesitter.nix { inherit pkgs; })
         (import ./plugins/treesitter-textobjects.nix { inherit pkgs; })
         (import ./plugins/treesitter-textsubjects.nix { inherit pkgs; })
+        (import ./plugins/toggleterm.nix { inherit pkgs; })
         {
           plugin = pkgs.vimPlugins.gitsigns-nvim;
           config = ''

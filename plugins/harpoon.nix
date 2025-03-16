@@ -2,7 +2,11 @@
   plugin = pkgs.vimPlugins.harpoon2;
   config = ''
     local harpoon = require("harpoon")
-    harpoon:setup()
+    harpoon:setup({
+      global_settings = {
+        save_on_toggle = true,
+      }
+    })
 
     vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end, { noremap = true, silent = true })
     vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { noremap = true, silent = true })
