@@ -2,7 +2,7 @@
 let
   workspaces = lua.pkgs.toLuaModule (lua.stdenv.mkDerivation ({
     name = "workspaces";
-    version = "2.0.0";
+    version = "1.0.0";
     src = fetchFromGitHub {
       owner = "natecraddock";
       repo = "workspaces.nvim";
@@ -27,7 +27,26 @@ let
 in {
   inherit plugin;
   config = ''
-    require("workspaces").setup()
+    require("workspaces").setup({
+     hooks = {
+        -- hooks run before change directory
+        open_pre = {
+          -- If recording, save current session state and stop recording
+          "SessionsStop",
+
+          -- delete all buffers (does not save changes)
+          "silent %bdelete!",
+        },
+
+        -- hooks run after change directory
+        open = {
+          -- load any saved session from current directory
+          function()
+            require("sessions").load(nil, { silent = true })
+          end
+        }
+      },
+    })
     vim.keymap.set('n', '<leader>fp', '<cmd>Telescope workspaces<CR>', { desc = '[F]ind [P]rojects using Telescope' })
   '';
   type = "lua";
