@@ -1,7 +1,9 @@
 { pkgs, ... }: {
   plugin = pkgs.vimPlugins.toggleterm-nvim;
   config = ''
-    require("toggleterm").setup()
+    require("toggleterm").setup({
+      open_mapping = [[<c-\>]]
+    })
 
     local trim_spaces = true
     vim.keymap.set("v", "<space>ss", function()

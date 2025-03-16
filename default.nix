@@ -82,9 +82,6 @@
         -- more space for the line numbers
         vim.opt.numberwidth = 6
 
-        -- replaced by nvim-tree-lua
-        -- vim.api.nvim_set_keymap('n', '<leader>e', ':Ex<CR>', { noremap = true, silent = true })
-
         -- zoom in neovide when in neovide
         if vim.g.neovide == true then
           vim.api.nvim_set_keymap("n", "<C-=>", ":lua vim.g.neovide_scale_factor = math.min(vim.g.neovide_scale_factor + 0.1,  2.0)<CR>", { silent = true })

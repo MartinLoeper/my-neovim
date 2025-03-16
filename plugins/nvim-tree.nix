@@ -19,6 +19,9 @@
         update_cwd = true,     -- Update the current working directory to match the file
         ignore_list = {}       -- Files to ignore
       },
+      diagnostics = {
+        enable = true,
+      },
     })
     vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
   '';
