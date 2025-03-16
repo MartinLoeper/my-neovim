@@ -259,6 +259,7 @@
         end
       '';
       plugins = [
+        (import ./plugins/nvim-tree.nix { inherit pkgs; })
         (import ./plugins/zen-mode.nix { inherit pkgs; })
         (import ./plugins/unimpaired.nix { inherit pkgs; })
         (import ./plugins/lspkind.nix { inherit pkgs; })
@@ -450,32 +451,6 @@
           plugin = pkgs.vimPlugins.remote-nvim-nvim;
           config = ''
             require("remote-nvim").setup()
-          '';
-          type = "lua";
-        }
-        {
-          plugin = pkgs.vimPlugins.nvim-tree-lua;
-          config = ''
-                require("nvim-tree").setup({
-                  sort = {
-                    sorter = "case_sensitive",
-                  },
-                  view = {
-                    width = 30,
-                  },
-                  renderer = {
-                    group_empty = true,
-                  },
-                  filters = {
-                    dotfiles = false,
-                  },
-                  update_focused_file = {
-                    enable = true,         -- Enable automatic focusing
-                    update_cwd = true,     -- Update the current working directory to match the file
-                    ignore_list = {}       -- Files to ignore
-            },
-                })
-                vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
           '';
           type = "lua";
         }
