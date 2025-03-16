@@ -25,7 +25,7 @@
           },
           highlight_git = "all",
           highlight_diagnostics = "all",
-          highlight_openend_files = "all",
+          highlight_opened_files = "all",
           highlight_modified = "all",
         },
         filters = {
