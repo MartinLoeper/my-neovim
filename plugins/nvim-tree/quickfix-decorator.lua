@@ -67,5 +67,3 @@ function QuickfixDecorator:highlight_group(node)
   end
   return nil
 end
-
-require('nvim-tree.api').decorator.add(QuickfixDecorator:new())
