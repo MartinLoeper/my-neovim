@@ -4,7 +4,7 @@
     local harpoon = require("harpoon")
     harpoon:setup({
       global_settings = {
-        # note: use :w do exit and close
+        -- note: use :w do exit and close
         save_on_toggle = true,
       }
     })
