@@ -13,7 +13,6 @@
         renderer = {
           group_empty = true,
           decorators = {
-            QuickfixDecorator
             "Git",
             "Open",
             "Hidden",
