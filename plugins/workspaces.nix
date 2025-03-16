@@ -7,7 +7,7 @@ let
       owner = "natecraddock";
       repo = "workspaces.nvim";
       rev = "55a1eb6f5b72e07ee8333898254e113e927180ca";
-      hash = "sha256-x/79mRkwwT+sNrnf8QqocsaQtM+Rx6BdvVj5Nnv5JDY=";
+      hash = "sha256-a3f0NUYooMxrZEqLer+Duv6/ktq5MH2qUoFHD8z7fZA=";
     };
     rockspecVersion = "1.1";
     rocksSubdir = "dummy";
