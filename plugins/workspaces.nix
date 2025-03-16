@@ -40,11 +40,13 @@ in {
 
         -- hooks run after change directory
         open = {
-          -- load any saved session from current directory
-          function()
-            require("sessions").load(nil, { silent = true })
-          end,
-          "NvimTreeOpen",
+            -- load any saved session from current directory
+            function()
+              local success = require("sessions").load(nil, { silent = true })
+              if not success then
+                vim.cmd('Telescope find_files')
+              end
+            end,
         }
       },
     })
