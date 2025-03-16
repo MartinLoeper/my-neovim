@@ -53,6 +53,19 @@ in {
       },
     })
     vim.keymap.set('n', '<leader>fp', '<cmd>Telescope workspaces<CR>', { desc = '[F]ind [P]rojects using Telescope' })
+
+    # see: https://github.com/nvim-tree/nvim-tree.lua/wiki/Recipes
+    vim.api.nvim_create_autocmd({ 'BufEnter' }, {
+      pattern = 'NvimTree*',
+      callback = function()
+        local api = require('nvim-tree.api')
+        local view = require('nvim-tree.view')
+
+        if not view.is_visible() then
+          api.tree.open()
+        end
+      end,
+    })
   '';
   type = "lua";
 }
