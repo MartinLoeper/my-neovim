@@ -43,7 +43,9 @@ in {
           -- load any saved session from current directory
           function()
             require("sessions").load(nil, { silent = true })
-          end
+          end,
+          "NvimTreeOpen",
+          "Telescope find_files"
         }
       },
     })
