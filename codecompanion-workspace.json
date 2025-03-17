@@ -3,21 +3,27 @@
   "version": "1.0.0",
   "system_prompt": "This is my personal neovim config repository. It is built using Nix's home-manager.",
   "groups": [
-        {
-      "name": "nix-files",
+    {
+      "name": "all",
       "system_prompt": "This group contains most important nix files that are used to configure my neovim setup.",
       "opts": {
         "remove_config_system_prompt": true
       },
       "data": [
         "nix-flake"
+      ],
+      "files": [
+        {
+          "description": "This is the entrypoint for installing the neovim setup using home-manager via a nix flake.",
+          "path": "flake.nix"
+        }
       ]
     }
   ],
   "data": {
     "nix-flake": {
       "type": "file",
-      "path": "flake.nix",
+      "path": "/home/mloeper/repos/mloeper/my-neovim/flake.nix",
       "description": "This file is used to configure my neovim setup using Nix's home-manager."
     }
   }

@@ -53,6 +53,9 @@
             },
             lualine_x = { 'copilot' ,'encoding', 'fileformat', 'filetype' },
           },
+          disabled_filetypes = {
+            statusline = { "NvimTree" },
+          },
           extensions = {
             {
               filetypes = { "codecompanion" },
