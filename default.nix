@@ -304,6 +304,7 @@
         (import ./plugins/telescope.nix { inherit pkgs; })
         (import ./plugins/fidget.nix { inherit pkgs; })
         (import ./plugins/harpoon.nix { inherit pkgs; })
+        (import ./plugins/surround.nix { inherit pkgs; })
         (import ./plugins/treesitter.nix { inherit pkgs; })
         (import ./plugins/treesitter-textobjects.nix { inherit pkgs; })
         (import ./plugins/treesitter-textsubjects.nix { inherit pkgs; })
