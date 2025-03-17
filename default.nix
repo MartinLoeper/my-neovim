@@ -494,7 +494,7 @@
         (import ./plugins/comment.nix { inherit pkgs; })
         (import ./plugins/noice.nix { inherit pkgs; })
         (import ./plugins/lsp/lspconfig.nix { inherit pkgs; })
-        (import ./plugins/codecompanion.nix { inherit pkgs; })
+        (import ./plugins/codecompanion/codecompanion.nix { inherit pkgs; })
         (import ./plugins/render-markdown.nix { inherit pkgs; })
         pkgs.vimPlugins.nui-nvim # leetcode dep
         pkgs.vimPlugins.plenary-nvim # leetcode dep
