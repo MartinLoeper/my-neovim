@@ -267,7 +267,7 @@
         (import ./plugins/zen-mode.nix { inherit pkgs; })
         (import ./plugins/unimpaired.nix { inherit pkgs; })
         (import ./plugins/lspkind.nix { inherit pkgs; })
-        (import ./plugins/fugative.nix { inherit pkgs; })
+        (import ./plugins/git/fugative.nix { inherit pkgs; })
         (import ./plugins/cmp/cmp-cmdline.nix { inherit pkgs; })
         (import ./plugins/cmp/cmp-cmdline-history.nix { inherit pkgs; })
         (import ./plugins/cmp/cmp-lsp-signature-help.nix { inherit pkgs; })

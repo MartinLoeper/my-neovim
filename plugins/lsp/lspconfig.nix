@@ -8,7 +8,7 @@
     capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
     local navbuddy = require("nvim-navbuddy")
 
-    local servers = { 'terraformls', 'gopls', 'hyprls', 'nil_ls', 'jsonls', 'lua_ls' }
+    local servers = { 'terraformls', 'gopls', 'hyprls', 'nil_ls', 'jsonls' }
     for _, lsp in ipairs(servers) do
       nvim_lsp[lsp].setup {
         capabilities = capabilities,
@@ -18,6 +18,41 @@
       }
     end
 
+    -- configure lua separately to include the neovim lua runtime, see lspconfig docs
+    nvim_lsp.lua_ls.setup {
+      capabilities = capabilities,
+      on_attach = function(client, bufnr)                    
+        navbuddy.attach(client, bufnr)
+      end,
+      on_init = function(client)
+        if client.workspace_folders then
+          local path = client.workspace_folders[1].name
+          if path ~= vim.fn.stdpath('config') and (vim.loop.fs_stat(path..'/.luarc.json') or vim.loop.fs_stat(path..'/.luarc.jsonc')) then
+            return
+          end
+        end
+
+        client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+          runtime = {
+            -- Tell the language server which version of Lua you're using
+            -- (most likely LuaJIT in the case of Neovim)
+            version = 'LuaJIT'
+          },
+          -- Make the server aware of Neovim runtime files
+          workspace = {
+            checkThirdParty = false,
+            library = {
+              vim.env.VIMRUNTIME
+            }
+          }
+        })
+      end,
+      settings = {
+        Lua = {}
+      }
+    }
+
+    -- configure floating preview for lsp
     local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
     function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
       opts = opts or {}
