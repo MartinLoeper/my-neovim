@@ -5,36 +5,20 @@
   # opt: lewis6991/hover.nvim
   # consider: https://git.sr.ht/~whynothugo/lsp_lines.nvim
   # opt: antosha417/nvim-lsp-file-operations
-  # ray-x/lsp_signature.nvim
   # zeioth/garbage-day.nvim
   # chrisgrieser/nvim-dr-lsp
   # soulis-1256/eagle.nvim
   # opt: https://github.com/folke/lazydev.nvim
   # askfiy/lsp_extra_dim
-  # nvimdev/lspsaga.nvim
   # filipdutescu/renamer.nvim
   # folke/trouble.nvim
   # try replicate the setup from:
-  # https://www.reddit.com/r/neovim/comments/1hyradp/monaspacenvim_mix_and_match_monaspace_fonts_in/
-  # esp. monaspace font
-  # https://github.com/nvim-neo-tree/neo-tree.nvim
-  # folke/todo-comments.nvim
   # ms-jpq/coq_nvim J
   # https://github.com/mistweaverco/kulala.nvim
   # https://github.com/toppair/peek.nvim
-  # https://github.com/nvim-telescope/telescope.nvim
-  # theme:
-  # https://github.com/rafamadriz/neon ????? dark
-  # https://github.com/Mofiqul/vscode.nvim ??
-  # https://github.com/marko-cerovac/material.nvim Deep ocean
-  # https://github.com/nvimdev/dashboard-nvim
-  # https://github.com/romgrk/barbar.nvim
   # https://github.com/David-Kunz/jester
-  # git support?? https://github.com/rockerBOO/awesome-neovim?tab=readme-ov-file#git
-  # terminal support??
   # https://github.com/pwntester/octo.nvim
   # formatter like https://github.com/lukas-reineke/lsp-format.nvim
-  # https://github.com/akinsho/toggleterm.nvim
   # https://github.com/kevinhwang91/nvim-ufo
   # https://github.com/sontungexpt/url-open
   # even more utils: https://github.com/rockerBOO/awesome-neovim?tab=readme-ov-file#utility
@@ -318,32 +302,21 @@
         { plugin = pkgs.vimPlugins.cmp-vsnip; }
         pkgs.vimPlugins.vim-vsnip
         pkgs.vimPlugins.vim-vsnip-integ
-        # pkgs.vimPlugins.ultisnips
         { plugin = pkgs.vimPlugins.nvim-cmp; }
         (import ./plugins/navbuddy.nix { inherit pkgs; })
         (import ./plugins/lualine/lualine.nix { inherit pkgs; })
-        (import ./plugins/leetcode.nix { inherit pkgs; })
         (import ./plugins/lazygit.nix { inherit pkgs; })
         (import ./plugins/comment.nix { inherit pkgs; })
         (import ./plugins/noice.nix { inherit pkgs; })
         (import ./plugins/lsp/lspconfig.nix { inherit pkgs; })
         (import ./plugins/codecompanion/codecompanion.nix { inherit pkgs; })
         (import ./plugins/render-markdown.nix { inherit pkgs; })
+        (import ./plugins/telescope-lsp-handlers.nix { inherit pkgs; })
+        (import ./plugins/startify.nix { inherit pkgs; })
+
         pkgs.vimPlugins.nui-nvim # leetcode dep
         pkgs.vimPlugins.plenary-nvim # leetcode dep
-        {
-          plugin = pkgs.vimPlugins.telescope-lsp-handlers-nvim;
-          config = ''
-            require('telescope').load_extension('lsp_handlers')
-
-            vim.api.nvim_set_keymap('n', '<leader>fc', '<cmd>lua vim.lsp.buf.code_action()<CR>', { noremap = true, silent = true })
-          '';
-          type = "lua";
-        }
-        {
-          plugin = pkgs.vimPlugins.vim-startify;
-          config = "let g:startify_change_to_vcs_root = 0";
-        }
+        (import ./plugins/leetcode.nix { inherit pkgs; })
       ];
     };
   };
