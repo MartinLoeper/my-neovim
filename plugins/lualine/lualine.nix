@@ -48,9 +48,6 @@
         require('lualine').setup {
           sections = {
             lualine_f = { 'filename' },
-            lualine_p = {
-              'lsp_progress'
-            },
             lualine_x = { 'copilot' ,'encoding', 'fileformat', 'filetype' },
           },
           disabled_filetypes = {
