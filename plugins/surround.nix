@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  plugin = pkgs.vimPlugins.surround-nvim;
+  plugin = pkgs.vimPlugins.nvim-surround;
   config = ''require("nvim-surround").setup()'';
   type = "lua";
 }
