@@ -2,6 +2,7 @@
   plugin = pkgs.vimPlugins.nvim-lspconfig;
   config = ''
     local nvim_lsp = require('lspconfig')
+    local fidget = require("fidget")
 
     -- nvim-cmp supports additional completion capabilities
     local capabilities = vim.lsp.protocol.make_client_capabilities()
