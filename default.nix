@@ -269,7 +269,6 @@
         (import ./plugins/git/fugative.nix { inherit pkgs; })
         (import ./plugins/cmp/cmp-cmdline.nix { inherit pkgs; })
         (import ./plugins/cmp/cmp-cmdline-history.nix { inherit pkgs; })
-        (import ./plugins/cmp/cmp-lsp-signature-help.nix { inherit pkgs; })
         (import ./plugins/cmp/cmp-buffer.nix { inherit pkgs; })
         (import ./plugins/cmp/cmp-path.nix { inherit pkgs; })
         (import ./plugins/lualine/lualine-lsp-progress.nix { inherit pkgs; })
@@ -312,63 +311,10 @@
         (import ./plugins/toggleterm.nix { inherit pkgs; })
         (import ./plugins/competitest.nix { inherit pkgs; })
         (import ./plugins/git/gitsigns.nix { inherit pkgs; })
-        pkgs.vimPlugins.yazi-nvim
-        pkgs.vimPlugins.nvim-notify
-        {
-          plugin = pkgs.vimPlugins.indent-blankline-nvim;
-          config = ''
-            require("ibl").setup()
-          '';
-          type = "lua";
-        }
-        {
-          plugin = pkgs.vimPlugins.bufferline-nvim;
-          config = ''
-            vim.opt.termguicolors = true
-            require("bufferline").setup{
-              highlights = require("catppuccin.groups.integrations.bufferline").get(),
-              options = {
-                diagnostics = "nvim_lsp",
-                offsets = {
-                  {
-                      filetype = "NvimTree",
-                      text = "File Explorer",
-                      highlight = "Directory",
-                      separator = true -- use a "true" to enable the default, or set your own character
-                  }
-                }
-              }
-            }
-          '';
-          type = "lua";
-        }
-        {
-          # note: use gq{motion} to format buffer content -> sometimes not working...
-          # saving always works if the formatter is set below...
-          plugin = pkgs.vimPlugins.conform-nvim;
-          config = ''
-            require("conform").setup({
-              formatters_by_ft = {
-                terraform = { "terraform_fmt" },
-                nix = { "nixfmt" }
-              },
-              format_on_save = {
-                timeout_ms = 500,
-                lsp_format = "fallback",
-              },
-            })
-          '';
-          type = "lua";
-        }
-        {
-          plugin = pkgs.vimPlugins.nvim-lsp-notify;
-          config = ''
-            require('lsp-notify').setup({
-              notify = require('notify'),
-            })
-          '';
-          type = "lua";
-        }
+        (import ./plugins/indent-blankline.nix { inherit pkgs; })
+        (import ./plugins/yazi.nix { inherit pkgs; })
+        (import ./plugins/bufferline.nix { inherit pkgs; })
+        (import ./plugins/conform.nix { inherit pkgs; })
         {
           plugin = pkgs.vimPlugins.zellij-nav-nvim;
           config = ''
