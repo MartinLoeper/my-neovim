@@ -264,7 +264,6 @@
         (import ./plugins/cmp/cmp-cmdline-history.nix { inherit pkgs; })
         (import ./plugins/cmp/cmp-buffer.nix { inherit pkgs; })
         (import ./plugins/cmp/cmp-path.nix { inherit pkgs; })
-        (import ./plugins/lualine/lualine-lsp-progress.nix { inherit pkgs; })
         (import ./plugins/which-key.nix { inherit pkgs; })
         (import ./plugins/twilight.nix { inherit pkgs; })
         (import ./plugins/catppuccin.nix { inherit pkgs; })
