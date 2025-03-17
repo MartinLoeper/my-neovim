@@ -14,11 +14,13 @@
         capabilities = capabilities,
         on_attach = function(client, bufnr)                    
           navbuddy.attach(client, bufnr)
+          vim.lsp.inlay_hint.enable(bufnr, true)
+          fidget.notify(client.name .. " attached")
         end,
         handlers = {
-          ["$/progress"] = function(err, result, ctx, config)
-            require("fidget.backend").progress_handler(err, result, ctx, config)
-          end
+          ["$/progress"] = fidget.progress.handle,  -- Use fidget's built-in handler
+          ["window/showMessage"] = fidget.notify,   -- Add this for general notifications
+          ["window/logMessage"] = fidget.notify,    -- Add this for log messages
         }
       }
     end
@@ -29,6 +31,11 @@
       on_attach = function(client, bufnr)                    
         navbuddy.attach(client, bufnr)
       end,
+      handlers = {
+        ["$/progress"] = function(err, result, ctx, config)
+          require("fidget.backend").progress_handler(err, result, ctx, config)
+        end
+      },
       on_init = function(client)
         if client.workspace_folders then
           local path = client.workspace_folders[1].name
