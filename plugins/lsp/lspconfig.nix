@@ -14,7 +14,12 @@
         capabilities = capabilities,
         on_attach = function(client, bufnr)                    
           navbuddy.attach(client, bufnr)
-        end
+        end,
+        handlers = {
+          ["$/progress"] = function(err, result, ctx, config)
+            require("fidget.backend").progress_handler(err, result, ctx, config)
+          end
+        }
       }
     end
 

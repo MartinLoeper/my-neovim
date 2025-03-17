@@ -1,14 +1,6 @@
 { pkgs, lib, ... }: {
 
-  # TODO: install nvim
-  # TODO: install neovide
-  # TODO: install vimPlugins.CopilotChat-nvim OR BETTER: https://github.com/yetone/avante.nvim
-  # zbirenbaum/copilot.lua
-  # TODO: install vimPlugins.nvim-treesitter
-  # TODO: install vimPlugins.nvim-remote-containers
-  # TODO: install vimPlugins.nvim-lspconfig
   # TODO: actions-preview.nvim
-  # barbecue.nvim + SmiteshP/nvim-navic
   # j-hui/fidget.nvim
   # opt: lewis6991/hover.nvim
   # consider: https://git.sr.ht/~whynothugo/lsp_lines.nvim
@@ -262,6 +254,7 @@
         vim.opt.cursorline = true
       '';
       plugins = [
+        (import ./plugins/web-devicons.nix { inherit pkgs; })
         (import ./plugins/nvim-tree/nvim-tree.nix { inherit pkgs; })
         (import ./plugins/zen-mode.nix { inherit pkgs; })
         (import ./plugins/unimpaired.nix { inherit pkgs; })
@@ -315,48 +308,13 @@
         (import ./plugins/yazi.nix { inherit pkgs; })
         (import ./plugins/bufferline.nix { inherit pkgs; })
         (import ./plugins/conform.nix { inherit pkgs; })
-        {
-          plugin = pkgs.vimPlugins.zellij-nav-nvim;
-          config = ''
-            require("zellij-nav").setup()
-
-            vim.keymap.set("n", "<c-h>", "<cmd>ZellijNavigateLeftTab<cr>",  { desc = "navigate left or tab"  })
-            vim.keymap.set("n", "<c-j>", "<cmd>ZellijNavigateDown<cr>",  { desc = "navigate down" })
-            vim.keymap.set("n", "<c-k>", "<cmd>ZellijNavigateUp<cr>",    { desc = "navigate up" })
-            vim.keymap.set("n", "<c-l>", "<cmd>ZellijNavigateRightTab<cr>", { desc = "navigate right or tab" })
-          '';
-          type = "lua";
-        }
-        {
-          plugin = pkgs.vimPlugins.remote-nvim-nvim;
-          config = ''
-            require("remote-nvim").setup()
-          '';
-          type = "lua";
-        }
+        (import ./plugins/zellij.nix { inherit pkgs; })
+        (import ./plugins/lspsaga.nix { inherit pkgs; })
         (import ./plugins/neominimap.nix {
           lua = pkgs.lua;
           fetchFromGitHub = pkgs.fetchFromGitHub;
           neovimUtils = pkgs.neovimUtils;
         })
-        {
-          plugin = pkgs.vimPlugins.nvim-web-devicons;
-          config = ''
-            require'nvim-web-devicons'.setup()
-          '';
-          type = "lua";
-        }
-        {
-          plugin = pkgs.vimPlugins.lspsaga-nvim;
-          config = ''
-            require('lspsaga').setup({
-              lightbulb = {
-                enable = false, -- Disable the light bulb feature
-              },
-            })
-          '';
-          type = "lua";
-        }
         pkgs.vimPlugins.cmp-nvim-lsp
         { plugin = pkgs.vimPlugins.cmp-vsnip; }
         pkgs.vimPlugins.vim-vsnip
