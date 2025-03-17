@@ -58,6 +58,8 @@
   # TODO: vim-indentwise
   # TODO: make diagnostics work for buffers which are not open, see: https://github.com/artemave/workspace-diagnostics.nvim
 
+  imports = [ ./plugins/lsp/jsonls.nix ];
+
   home.packages = [
     pkgs.ripgrep
     pkgs.nodejs # requried by copilot plugin
@@ -491,7 +493,7 @@
         (import ./plugins/lazygit.nix { inherit pkgs; })
         (import ./plugins/comment.nix { inherit pkgs; })
         (import ./plugins/noice.nix { inherit pkgs; })
-        (import ./plugins/lspconfig.nix { inherit pkgs; })
+        (import ./plugins/lsp/lspconfig.nix { inherit pkgs; })
         (import ./plugins/codecompanion.nix { inherit pkgs; })
         (import ./plugins/render-markdown.nix { inherit pkgs; })
         pkgs.vimPlugins.nui-nvim # leetcode dep

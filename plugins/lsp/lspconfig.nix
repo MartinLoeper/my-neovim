@@ -8,7 +8,7 @@
     capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
     local navbuddy = require("nvim-navbuddy")
 
-    local servers = { 'terraformls', 'gopls', 'hyprls', 'nil_ls' }
+    local servers = { 'terraformls', 'gopls', 'hyprls', 'nil_ls', 'jsonls' }
     for _, lsp in ipairs(servers) do
       nvim_lsp[lsp].setup {
         capabilities = capabilities,

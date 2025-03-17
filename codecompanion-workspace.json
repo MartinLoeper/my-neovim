@@ -1,0 +1,24 @@
+{
+  "name": "my-neovim-config",
+  "version": "1.0.0",
+  "system_prompt": "This is my personal neovim config repository. It is built using Nix's home-manager.",
+  "groups": [
+        {
+      "name": "nix-files",
+      "system_prompt": "This group contains most important nix files that are used to configure my neovim setup.",
+      "opts": {
+        "remove_config_system_prompt": true
+      },
+      "data": [
+        "nix-flake"
+      ]
+    }
+  ],
+  "data": {
+    "nix-flake": {
+      "type": "file",
+      "path": "flake.nix",
+      "description": "This file is used to configure my neovim setup using Nix's home-manager."
+    }
+  }
+}
