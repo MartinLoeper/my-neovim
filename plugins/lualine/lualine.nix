@@ -54,7 +54,7 @@
             lualine_x = { 'copilot' ,'encoding', 'fileformat', 'filetype' },
           },
           disabled_filetypes = {
-            'NvimTree',
+            'NvimTree', 'NvimTree_1'
           },
           extensions = {
             {
