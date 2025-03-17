@@ -58,7 +58,7 @@
   # TODO: vim-indentwise
   # TODO: make diagnostics work for buffers which are not open, see: https://github.com/artemave/workspace-diagnostics.nvim
 
-  imports = [ ./plugins/lsp/jsonls.nix ];
+  imports = [ ./plugins/lsp/jsonls.nix ./plugins/lsp/luals.nix ];
 
   home.packages = [
     pkgs.ripgrep
@@ -309,6 +309,7 @@
         (import ./plugins/treesitter-textobjects.nix { inherit pkgs; })
         (import ./plugins/treesitter-textsubjects.nix { inherit pkgs; })
         (import ./plugins/toggleterm.nix { inherit pkgs; })
+        (import ./plugins/competitest.nix { inherit pkgs; })
         {
           plugin = pkgs.vimPlugins.gitsigns-nvim;
           config = ''
