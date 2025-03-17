@@ -15,7 +15,7 @@
         sync_with_ring = true,
       },
       ring = {
-        ignore_registers = { "_", "+", "*" },
+        ignore_registers = { "_" },
       },
       highlight = {
         on_put = true,

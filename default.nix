@@ -79,6 +79,9 @@
         vim.keymap.set("n", "<Space>", "<Nop>", { silent = true, remap = false })
         vim.g.mapleader = " "
 
+        -- configure clipboard s.t. yanky can access it
+        vim.opt.clipboard = "unnamed,unnamedplus"
+
         -- more space for the line numbers
         vim.opt.numberwidth = 6
 
