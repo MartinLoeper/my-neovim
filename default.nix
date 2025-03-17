@@ -159,10 +159,10 @@
             ['<C-e>'] = cmp.mapping.abort(),
             ['<CR>'] = cmp.mapping.confirm({ select = false, behavior = cmp.ConfirmBehavior.Replace }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
             ['<Tab>'] = cmp.mapping(function(fallback)
-              if vim.call('vsnip#available', 1) ~= 0 then
-                vim.fn.feedkeys(replace_keys('<Plug>(vsnip-jump-next)'), ''')
-              elseif cmp.visible() then
-                cmp.select_next_item()
+              if vim.fn.pumvisible() == 1 then
+                vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-n>', true, true, true), 'n')
+              elseif vim.fn['vsnip#available'](1) == 1 then
+                vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>(vsnip-expand-or-jump)', true, true, true), ' ')
               else
                 fallback()
               end
