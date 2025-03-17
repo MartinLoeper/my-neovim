@@ -1,3 +1,1 @@
-{ pkgs, ... }: {
-  environment.systemPackages = with pkgs; [ vscode-langservers-extracted ];
-}
+{ pkgs, ... }: { home.packages = with pkgs; [ vscode-langservers-extracted ]; }
