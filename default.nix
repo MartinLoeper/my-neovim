@@ -223,7 +223,6 @@
           sources = cmp.config.sources({
             { name = 'nvim_lsp' },
             { name = 'vsnip' }, -- For vsnip users.
-            { name = 'nvim_lsp_signature_help' },
             { name = 'path' },
           }, {
             { name = 'buffer' },
