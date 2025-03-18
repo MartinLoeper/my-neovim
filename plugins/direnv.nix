@@ -33,13 +33,7 @@ in {
       autoload_direnv = true,
     })
 
-    -- Create an autocmd to reload direnv when directory changes
-    --vim.api.nvim_create_autocmd("DirChanged", {
-    --  pattern = "*",
-    --  callback = function()
-    --    direnv.check_direnv()
-    --  end
-    --})
+    direnv.check_direnv()
   '';
   type = "lua";
 }
