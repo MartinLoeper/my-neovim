@@ -6,6 +6,11 @@
       highlights = require("catppuccin.groups.integrations.bufferline").get(),
       options = {
         diagnostics = "nvim_lsp",
+        numbers = "buffer_id",
+        show_buffer_close_icons = false,
+        indicator = {
+          stylw = "underline"
+        },
         offsets = {
           {
               filetype = "NvimTree",
