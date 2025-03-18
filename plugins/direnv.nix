@@ -4,7 +4,7 @@ let
     name = "direnv";
     version = "1.0.0";
     src = fetchFromGitHub {
-      owner = "NotAShelf";
+      owner = "MartinLoeper";
       repo = "direnv.nvim";
       rev = "7f775af4c8f4a59f70f7d89596097b71b802583a";
       hash = "sha256-nWcAIchqGsWiF0cQ7NwePRa1fpugE8duZKqdBaisrAc=";
