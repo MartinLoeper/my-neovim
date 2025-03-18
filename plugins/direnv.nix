@@ -29,7 +29,15 @@ in {
   inherit plugin;
   config = ''
     require("direnv").setup({
-       autoload_direnv = true,
+      autoload_direnv = true,
+    })
+
+    -- Create an autocmd to reload direnv when directory changes
+    vim.api.nvim_create_autocmd("DirChanged", {
+      pattern = "*",
+      callback = function()
+        require("direnv").reload()
+      end
     })
   '';
   type = "lua";
