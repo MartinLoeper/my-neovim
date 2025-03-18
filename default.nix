@@ -171,6 +171,11 @@
         (import ./plugins/cmp/friendly-snippets.nix { inherit pkgs; })
         (import ./plugins/overseer.nix { inherit pkgs; })
         (import ./plugins/trouble.nix { inherit pkgs; })
+        (import ./plugins/cheat.nix {
+          lua = pkgs.lua;
+          fetchFromGitHub = pkgs.fetchFromGitHub;
+          neovimUtils = pkgs.neovimUtils;
+        })
         (import ./plugins/direnv.nix {
           lua = pkgs.lua;
           fetchFromGitHub = pkgs.fetchFromGitHub;
