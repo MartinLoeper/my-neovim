@@ -5,7 +5,12 @@
     vim.o.winminwidth = 10
     vim.o.equalalways = false
 
-    require('windows').setup()
+    require('windows').setup({
+      ignore = {
+        buftype = { "quickfix" },
+        filetype = { "NvimTree", "neo-tree", "undotree", "gundo" }
+      }
+    })
 
     local function cmd(command)
        return table.concat({ '<Cmd>', command, '<CR>' })
