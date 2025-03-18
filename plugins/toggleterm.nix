@@ -18,6 +18,7 @@
     vim.cmd('autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()')
     vim.cmd([[cab tt ToggleTerm]])
     vim.cmd([[cab ttf ToggleTerm direction=float]])
+    vim.cmd([[cab ttv ToggleTerm direction=vertical]])
   '';
   type = "lua";
 }
