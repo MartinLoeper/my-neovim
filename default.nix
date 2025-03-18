@@ -4,6 +4,7 @@
     ./plugins/lsp/jsonls.nix
     ./plugins/lsp/luals.nix
     ./plugins/lsp/javals.nix
+    ./plugins/lsp/markdownls.nix
   ];
 
   home.packages = [
