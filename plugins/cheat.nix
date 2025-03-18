@@ -17,6 +17,7 @@ let
     installPhase = ''
       mkdir -p $out/lua
       cp -r lua/. $out/lua/
+      cp -r plugin/. $out/plugin/
     '';
 
     meta = {
