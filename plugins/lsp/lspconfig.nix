@@ -8,7 +8,7 @@
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-    local servers = { 'terraformls', 'gopls', 'hyprls', 'nil_ls', 'jsonls', 'java_language_server', 'marksman' }
+    local servers = { 'terraformls', 'gopls', 'hyprls', 'nil_ls', 'jsonls', 'marksman' }
     for _, lsp in ipairs(servers) do
       nvim_lsp[lsp].setup {
         capabilities = capabilities,
@@ -17,6 +17,14 @@
         end,
       }
     end
+
+    nvim_lsp.java_language_server.setup {
+      capabilities = capabilities,
+      on_attach = function(client, bufnr)
+        fidget.notify(client.name .. " attached")
+      end,
+      cmd = "java-language-server",
+    }
 
     -- configure lua separately to include the neovim lua runtime, see lspconfig docs
     nvim_lsp.lua_ls.setup {
