@@ -7,7 +7,7 @@ let
       owner = "mvaldes14";
       repo = "terraform.nvim";
       rev = "20c70da0d00dd4275a7589b6906d7881d6aaaaeb";
-      hash = "sha256-x/79mRkwwT+sNrnf8QqocsaQtM+Rx6BdvVj5Nnv5JDY=";
+      hash = "sha256-5o6x5Mj2r9oDya9NjwDuvzqjsC0s47v0vkXkMlj1pJ0=";
     };
     rockspecVersion = "1.1";
     rocksSubdir = "dummy";
