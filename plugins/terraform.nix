@@ -30,6 +30,8 @@ let
 in {
   inherit plugin;
   config = ''
+    require("terraform").setup{}
+
     vim.api.nvim_create_autocmd("BufWritePost", {
       pattern = { "*.tf" },
       callback = function()
