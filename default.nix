@@ -260,7 +260,11 @@
         (import ./plugins/which-key.nix { inherit pkgs; })
         (import ./plugins/twilight.nix { inherit pkgs; })
         (import ./plugins/catppuccin.nix { inherit pkgs; })
-        (import ./plugins/terraform.nix { inherit pkgs; })
+        (import ./plugins/terraform.nix {
+          lua = pkgs.lua;
+          fetchFromGitHub = pkgs.fetchFromGitHub;
+          neovimUtils = pkgs.neovimUtils;
+        })
         (import ./plugins/beacon.nix {
           lua = pkgs.lua;
           fetchFromGitHub = pkgs.fetchFromGitHub;
