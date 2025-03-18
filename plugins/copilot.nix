@@ -1,9 +1,6 @@
 { pkgs, ... }: {
   plugin = pkgs.vimPlugins.copilot-lua;
   config = ''
-     require("copilot").setup({
-    })
-
     vim.g.copilot_enabled = false
 
     local toggleCopilot = function()
