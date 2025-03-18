@@ -27,6 +27,14 @@ let
       license.fullName = "MIT";
     };
   }));
-  plugin = (neovimUtils.buildNeovimPlugin { luaAttr = cheat; });
+  plugin = (neovimUtils.buildNeovimPlugin {
+    luaAttr = cheat;
+    config = ''
+      require("nvim-cheatsh").setup({
+        position = "right"
+      })
+    '';
+    type = "lua";
+  });
 in { inherit plugin; }
 
