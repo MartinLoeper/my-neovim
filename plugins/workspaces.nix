@@ -43,11 +43,11 @@ in {
             -- load any saved session from current directory
             function()
               local success = require("sessions").load(nil, { silent = true })
+              vim.cmd('NvimTreeOpen')
+
               if not success then
                 vim.cmd('Telescope find_files')
               end
-
-              vim.cmd('NvimTreeOpen')
             end,
         }
       },
