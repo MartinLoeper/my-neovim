@@ -43,31 +43,31 @@
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.abort(),
         ['<CR>'] = cmp.mapping.confirm({ select = false, behavior = cmp.ConfirmBehavior.Replace }),
-          ['<Tab>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              cmp.select_next_item()
-            elseif vim.fn['vsnip#available'](1) == 1 then
-              vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>(vsnip-expand-or-jump)', true, true, true), "")
-            else
-              fallback()
-            end
-          end, { 'i', 's' }),
+        ['<Tab>'] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_next_item()
+          elseif vim.fn['vsnip#available'](1) == 1 then
+            vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>(vsnip-expand-or-jump)', true, true, true), "")
+          else
+            fallback()
+          end
+        end, { 'i', 's' }),
 
         -- TODO: fix the mapping, see above as reference
         ['<C-j>'] = cmp.mapping(function(fallback)
-          if vim.call('vsnip#available', 1) ~= 0 then
-            vim.fn.feedkeys(replace_keys('<Plug>(vsnip-jump-next)'), ''')
-          elseif cmp.visible() then
+          if cmp.visible() then
             cmp.select_next_item()
+          elseif vim.fn['vsnip#available'](1) == 1 then
+            vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>(vsnip-expand-or-jump)', true, true, true), "")
           else
             fallback()
           end
         end, { 'i', 's' }),
         ['<C-k>'] = cmp.mapping(function(fallback)
-          if vim.call('vsnip#available', -1) ~= 0 then
-            vim.fn.feedkeys(replace_keys('<Plug>(vsnip-jump-prev)'), ''')
-          elseif cmp.visible() then
+          if cmp.visible() then
             cmp.select_prev_item()
+          elseif vim.fn['vsnip#available'](-1) == 1 then
+            vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>(vsnip-expand-or-jump)', true, true, true), "")
           else
             fallback()
           end

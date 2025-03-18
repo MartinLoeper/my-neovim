@@ -1,39 +1,5 @@
 { pkgs, lib, ... }: {
 
-  # TODO: actions-preview.nvim
-  # j-hui/fidget.nvim
-  # opt: lewis6991/hover.nvim
-  # consider: https://git.sr.ht/~whynothugo/lsp_lines.nvim
-  # opt: antosha417/nvim-lsp-file-operations
-  # zeioth/garbage-day.nvim
-  # chrisgrieser/nvim-dr-lsp
-  # soulis-1256/eagle.nvim
-  # opt: https://github.com/folke/lazydev.nvim
-  # askfiy/lsp_extra_dim
-  # filipdutescu/renamer.nvim
-  # folke/trouble.nvim
-  # try replicate the setup from:
-  # ms-jpq/coq_nvim J
-  # https://github.com/mistweaverco/kulala.nvim
-  # https://github.com/toppair/peek.nvim
-  # https://github.com/David-Kunz/jester
-  # https://github.com/pwntester/octo.nvim
-  # formatter like https://github.com/lukas-reineke/lsp-format.nvim
-  # https://github.com/kevinhwang91/nvim-ufo
-  # https://github.com/sontungexpt/url-open
-  # even more utils: https://github.com/rockerBOO/awesome-neovim?tab=readme-ov-file#utility
-  # https://github.com/sindrets/diffview.nvim
-  # opt: https://github.com/p00f/godbolt.nvim
-  # TODO: spell checking
-  # TODO: fuzzzy search in command mode
-  # TODO: make function key work as ctrl when pressed -> use keyd utility
-  # TODO: mason as lsp etc manager
-  # TODO: bufferline for tabs
-  # TODO: minimap.vim
-  # TODO: friendly-snippets
-  # TODO: vim-indentwise
-  # TODO: make diagnostics work for buffers which are not open, see: https://github.com/artemave/workspace-diagnostics.nvim
-
   imports = [ ./plugins/lsp/jsonls.nix ./plugins/lsp/luals.nix ];
 
   home.packages = [
@@ -45,7 +11,6 @@
     mkdir -p "$HOME/.cache/nvim"
   '';
 
-  # read about motions: https://www.barbarianmeetscoding.com/boost-your-coding-fu-with-vscode-and-vim/moving-blazingly-fast-with-the-core-vim-motions/
   programs = {
     neovim = {
       enable = true;
@@ -182,15 +147,15 @@
         (import ./plugins/conform.nix { inherit pkgs; })
         (import ./plugins/zellij.nix { inherit pkgs; })
         (import ./plugins/lspsaga.nix { inherit pkgs; })
+        (import ./plugins/cmp/cmp-nvim-lsp.nix { inherit pkgs; })
         (import ./plugins/neominimap.nix {
           lua = pkgs.lua;
           fetchFromGitHub = pkgs.fetchFromGitHub;
           neovimUtils = pkgs.neovimUtils;
         })
-        pkgs.vimPlugins.cmp-nvim-lsp
-        { plugin = pkgs.vimPlugins.cmp-vsnip; }
-        pkgs.vimPlugins.vim-vsnip
-        pkgs.vimPlugins.vim-vsnip-integ
+        (import ./plugins/cmp/cmp-vsnip.nix { inherit pkgs; })
+        (import ./plugins/cmp/vim-vsnip.nix { inherit pkgs; })
+        (import ./plugins/cmp/vim-vsnip-integ.nix { inherit pkgs; })
         (import ./plugins/cmp/cmp.nix { inherit pkgs; })
         (import ./plugins/outline.nix { inherit pkgs; })
         (import ./plugins/lualine/lualine.nix { inherit pkgs; })
