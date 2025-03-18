@@ -49,8 +49,9 @@ in {
                     hidden = true,
                     previewer = true
                 })
-              vim.cmd('NvimTreeOpen')
               end
+
+              vim.cmd('NvimTreeOpen')
             end,
         }
       },
