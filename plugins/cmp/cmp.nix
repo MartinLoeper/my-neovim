@@ -21,16 +21,10 @@
 
     cmp.setup({
       completion = {
-        autocomplete = function()
-          local vsnip = vim.fn['vsnip#available'](1)
-          if vsnip == 1 then
-            return false
-          end
-          return {
-            types.cmp.TriggerEvent.TextChanged,
-            types.cmp.TriggerEvent.InsertEnter,
-          }
-        end,
+        autocomplete = {
+          types.cmp.TriggerEvent.TextChanged,
+          types.cmp.TriggerEvent.InsertEnter,
+        },
       },
       formatting = {
         fields = { "kind", "abbr", "menu" },
