@@ -170,6 +170,7 @@
         (import ./plugins/startify.nix { inherit pkgs; })
         (import ./plugins/cmp/friendly-snippets.nix { inherit pkgs; })
         (import ./plugins/overseer.nix { inherit pkgs; })
+        (import ./plugins/trouble.nix { inherit pkgs; })
         (import ./plugins/direnv.nix {
           lua = pkgs.lua;
           fetchFromGitHub = pkgs.fetchFromGitHub;
