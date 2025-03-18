@@ -50,10 +50,8 @@
         lualine_f = { 'filename' },
         lualine_x = { 'copilot' ,'encoding', 'fileformat', 'filetype' },
       },
-      disabled_filetypes = {
-        'NvimTree', 'NvimTree_1'
-      },
       extensions = {
+        -- hide status line for nvim tree
         {
           filetypes = { "NvimTree" },
           sections = {}

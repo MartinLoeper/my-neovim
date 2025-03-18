@@ -59,6 +59,7 @@
     -- hide the cmd bar at the bottom
     -- noice does the same when it is in charge for handling messages
     vim.opt.cmdheight = 0
+    vim.notify = require("fidget.notification").notify
   '';
   type = "lua";
 }
