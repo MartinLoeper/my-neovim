@@ -21,7 +21,10 @@
       enable = true;
       defaultEditor = true;
       extraLuaConfig = ''
+        -- show relative line numbers and current line absolute
         vim.opt.relativenumber = true
+        vim.opt.number = true
+
         vim.keymap.set("n", "<Space>", "<Nop>", { silent = true, remap = false })
         vim.g.mapleader = " "
 
