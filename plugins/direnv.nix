@@ -32,8 +32,6 @@ in {
     direnv.setup({
       autoload_direnv = true,
     })
-
-    direnv.check_direnv()
   '';
   type = "lua";
 }
