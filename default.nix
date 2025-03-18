@@ -176,6 +176,7 @@
           fetchFromGitHub = pkgs.fetchFromGitHub;
           neovimUtils = pkgs.neovimUtils;
         })
+        pkgs.vimPlugins.fzf-lua # dependency of cheat.sh
         (import ./plugins/direnv.nix {
           lua = pkgs.lua;
           fetchFromGitHub = pkgs.fetchFromGitHub;
