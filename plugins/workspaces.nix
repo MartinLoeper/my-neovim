@@ -45,9 +45,9 @@ in {
               local success = require("sessions").load(nil, { silent = true })
               if not success then
                 vim.cmd('Telescope find_files')
-              else
-                vim.cmd('NvimTreeOpen')
               end
+
+              vim.cmd('NvimTreeOpen')
             end,
         }
       },
