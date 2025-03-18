@@ -7,7 +7,7 @@ let
       owner = "MartinLoeper";
       repo = "direnv.nvim";
       rev = "c2595359597beaa37b1d6cadb47df83720d2a15f";
-      hash = "sha256-nz9cZeTartnrPgsp9aLjM2u839anQV4FVBHhd8LsiFd=";
+      hash = "sha256-V8XAz33VVPnaTcHEZucTLia9h5nNiwLhpjUdrZJlx+s=";
     };
     rockspecVersion = "1.1";
     rocksSubdir = "dummy";
