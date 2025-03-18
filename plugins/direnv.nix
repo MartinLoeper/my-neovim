@@ -6,8 +6,8 @@ let
     src = fetchFromGitHub {
       owner = "MartinLoeper";
       repo = "direnv.nvim";
-      rev = "3946f13d145ca35d8ea1fbb0242c628120ede075";
-      hash = "sha256-nz9cZeTartnrPgsp9aLjM2u839anQV4FVBHhd8LsiFI=";
+      rev = "c2595359597beaa37b1d6cadb47df83720d2a15f";
+      hash = "sha256-nz9cZeTartnrPgsp9aLjM2u839anQV4FVBHhd8LsiFd=";
     };
     rockspecVersion = "1.1";
     rocksSubdir = "dummy";
