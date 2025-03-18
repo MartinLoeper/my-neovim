@@ -20,6 +20,10 @@
     -- Toggle previous & next buffers stored within Harpoon list
     vim.keymap.set("n", "<M-j>", function() harpoon:list():prev() end, { noremap = true, silent = true })
     vim.keymap.set("n", "<M-k>", function() harpoon:list():next() end, { noremap = true, silent = true })
+
+    -- highlight the current file in harpoon buffer list
+    local harpoon_extensions = require("harpoon.extensions")
+    harpoon:extend(harpoon_extensions.builtins.highlight_current_file())
   '';
   type = "lua";
 }
