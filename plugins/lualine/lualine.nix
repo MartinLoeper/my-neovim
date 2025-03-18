@@ -51,9 +51,15 @@
         lualine_x = { 'copilot' ,'encoding', 'fileformat', 'filetype' },
       },
       extensions = {
-        -- hide status line for nvim tree
+        -- hide status line for outline
+        {
+          filetypes = { "Outline" },
+          sections = {},
+        },
+
         "nvim-tree",
         "toggleterm",
+        "man",
         {
           filetypes = { "codecompanion" },
           sections = {
