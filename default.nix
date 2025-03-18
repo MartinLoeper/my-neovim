@@ -64,9 +64,6 @@
           require("yazi").yazi()
         end)
 
-        -- remap tab to ctrl tab in insert mode
-        vim.api.nvim_set_keymap('i', '<C-Tab>', '<Tab>', { noremap = true, silent = true })
-
         vim.opt.smartindent = true
         vim.opt.autoindent = true
 
