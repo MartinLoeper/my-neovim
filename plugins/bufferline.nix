@@ -9,7 +9,7 @@
         numbers = "buffer_id",
         show_buffer_close_icons = false,
         indicator = {
-          stylw = "underline"
+          style = "underline"
         },
         offsets = {
           {
