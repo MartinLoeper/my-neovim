@@ -1,6 +1,10 @@
 { pkgs, lib, ... }: {
 
-  imports = [ ./plugins/lsp/jsonls.nix ./plugins/lsp/luals.nix ];
+  imports = [
+    ./plugins/lsp/jsonls.nix
+    ./plugins/lsp/luals.nix
+    ./plugins/lsp/javals.nix
+  ];
 
   home.packages = [
     pkgs.ripgrep
