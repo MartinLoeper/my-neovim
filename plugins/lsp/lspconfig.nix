@@ -23,7 +23,7 @@
       on_attach = function(client, bufnr)
         fidget.notify(client.name .. " attached")
       end,
-      cmd = "java-language-server",
+      cmd = { "java-language-server" },
     }
 
     -- configure lua separately to include the neovim lua runtime, see lspconfig docs
