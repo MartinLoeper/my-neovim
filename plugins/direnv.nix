@@ -6,8 +6,8 @@ let
     src = fetchFromGitHub {
       owner = "NotAShelf";
       repo = "direnv.nvim";
-      rev = "3e38d855c764bb1bec230130ed0e026fca54e4c8";
-      hash = "sha256-nWdAIchqGsWiF0cQ7NwePRa1fpugE8duZKqdBaisrAc=";
+      rev = "7f775af4c8f4a59f70f7d89596097b71b802583a";
+      hash = "sha256-nWcAIchqGsWiF0cQ7NwePRa1fpugE8duZKqdBaisrAc=";
     };
     rockspecVersion = "1.1";
     rocksSubdir = "dummy";
@@ -35,9 +35,7 @@ in {
     vim.api.nvim_create_autocmd("DirChanged", {
       pattern = "*",
       callback = function()
-        vim.schedule(function()
-          direnv.check_direnv()
-       end)
+        direnv.check_direnv()
       end
     })
   '';
