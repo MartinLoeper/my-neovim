@@ -52,10 +52,8 @@
       },
       extensions = {
         -- hide status line for nvim tree
-        {
-          filetypes = { "NvimTree" },
-          sections = {}
-        },
+        "nvim-tree",
+        "toggleterm",
         {
           filetypes = { "codecompanion" },
           sections = {
