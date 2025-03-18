@@ -23,6 +23,7 @@
       completion = {
         autocomplete = {
           types.cmp.TriggerEvent.TextChanged,
+          types.cmp.TriggerEvent.InsertEnter,
         },
       },
       formatting = {
@@ -73,15 +74,15 @@
         end, { 'i', 's' }),
       },
       snippet = {
-        -- REQUIRED - you must specify a snippet engine
         expand = function(args)
-          vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+          vim.fn["vsnip#anonymous"](args.body)
         end,
       },
       window = {
         -- completion = cmp.config.window.bordered(),
         -- documentation = cmp.config.window.bordered(),
       },
+      preselect = cmp.PreselectMode.None,
       sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         { name = 'vsnip' },
