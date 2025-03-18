@@ -52,8 +52,15 @@
             fallback()
           end
         end, { 'i', 's' }),
-
-        -- TODO: fix the mapping, see above as reference
+        ['<S-Tab>'] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_prev_item()
+          elseif vim.fn['vsnip#available'](-1) == 1 then
+            vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>(vsnip-jump-prev)', true, true, true), "")
+          else
+            fallback()
+          end
+        end, { 'i', 's' }),
         ['<C-j>'] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
