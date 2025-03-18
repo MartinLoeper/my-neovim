@@ -2,11 +2,11 @@
   plugin = pkgs.vimPlugins.copilot-lua;
   config = ''
      require("copilot").setup({
-       suggestion = { 
-         enabled = true, 
+       suggestion = {
+         enabled = true,
          auto_trigger = true,
          keymap = {
-           accept = "<S-Tab>",
+           accept = "<C-Tab>",
            accept_word = "<M-Tab>",
          },
        },
