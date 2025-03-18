@@ -46,7 +46,11 @@ in {
               vim.cmd('NvimTreeOpen')
 
               if not success then
-                vim.cmd('Telescope find_files({ hidden = true, previewer = true, selection_strategy = 'select_horizontal' })')
+                require('telescope.builtin').find_files({
+                    hidden = true,
+                    selection_strategy = 'select_horizontal',
+                    previewer = true
+                })
               end
             end,
         }
