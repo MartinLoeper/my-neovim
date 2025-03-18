@@ -7,14 +7,12 @@
     -- nvim-cmp supports additional completion capabilities
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-    local navbuddy = require("nvim-navbuddy")
 
     local servers = { 'terraformls', 'gopls', 'hyprls', 'nil_ls', 'jsonls' }
     for _, lsp in ipairs(servers) do
       nvim_lsp[lsp].setup {
         capabilities = capabilities,
-        on_attach = function(client, bufnr)                    
-          navbuddy.attach(client, bufnr)
+        on_attach = function(client, bufnr)
           fidget.notify(client.name .. " attached")
         end,
       }
@@ -23,9 +21,6 @@
     -- configure lua separately to include the neovim lua runtime, see lspconfig docs
     nvim_lsp.lua_ls.setup {
       capabilities = capabilities,
-      on_attach = function(client, bufnr)                    
-        navbuddy.attach(client, bufnr)
-      end,
       on_init = function(client)
         if client.workspace_folders then
           local path = client.workspace_folders[1].name
