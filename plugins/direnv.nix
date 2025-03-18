@@ -38,9 +38,7 @@ in {
       pattern = "*",
       callback = function()
         vim.schedule(function()
-         vim.schedule(function()
-            direnv.check_direnv()
-         end)
+          direnv.check_direnv()
        end)
       end
     })
