@@ -125,7 +125,6 @@
         (import ./plugins/lualine/copilot-lualine.nix { inherit pkgs; })
         (import ./plugins/todo-comments.nix { inherit pkgs; })
         (import ./plugins/copilot.nix { inherit pkgs; })
-        (import ./plugins/autosave.nix { inherit pkgs; })
         (import ./plugins/yanky.nix { inherit pkgs; })
         (import ./plugins/telescope-ui-select.nix { inherit pkgs; })
         (import ./plugins/telescope.nix { inherit pkgs; })

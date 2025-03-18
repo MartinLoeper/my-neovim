@@ -9,6 +9,7 @@
     })
 
     vim.cmd([[cab or OverseerRun]])
+    vim.cmd([[cab ot OverseerToggle]])
   '';
   type = "lua";
 }
