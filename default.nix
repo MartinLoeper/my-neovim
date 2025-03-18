@@ -313,7 +313,7 @@
         pkgs.vimPlugins.vim-vsnip
         pkgs.vimPlugins.vim-vsnip-integ
         { plugin = pkgs.vimPlugins.nvim-cmp; }
-        (import ./plugins/navbuddy.nix { inherit pkgs; })
+        (import ./plugins/outline.nix { inherit pkgs; })
         (import ./plugins/lualine/lualine.nix { inherit pkgs; })
         (import ./plugins/lazygit.nix { inherit pkgs; })
         (import ./plugins/comment.nix { inherit pkgs; })
