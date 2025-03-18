@@ -46,7 +46,7 @@ in {
               vim.cmd('NvimTreeOpen')
 
               if not success then
-                vim.cmd('Telescope find_files')
+                vim.cmd('Telescope find_files({ hidden = true, previewer = true, selection_strategy = 'select_horizontal' })')
               end
             end,
         }
