@@ -28,7 +28,8 @@ let
 in {
   inherit plugin;
   config = ''
-    require("direnv").setup({
+    local direnv = require("direnv")
+    direnv.setup({
       autoload_direnv = true,
     })
 
@@ -36,7 +37,7 @@ in {
     vim.api.nvim_create_autocmd("DirChanged", {
       pattern = "*",
       callback = function()
-        require("direnv").check_direnv()
+        direnv.check_direnv()
       end
     })
   '';
