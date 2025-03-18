@@ -32,7 +32,7 @@
         client.buf_detach()
         -- destroy microsoft XD
         client.teardown()
-        fidget.notify("Copilot OFF", vim.log.levels.ERROR)
+        fidget.notify("Copilot OFF", vim.log.levels.INFO)
       end
     end
 
