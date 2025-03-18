@@ -7,7 +7,7 @@ let
       owner = "RishabhRD";
       repo = "nvim-cheat.sh";
       rev = "eb6acbacd39cf7c1966cb58d6586351db14607da";
-      hash = "sha256-x/73mRkwwT+sNrnf8QqocsaQtM+Rx6BUvVj5Nnv5JDY=";
+      hash = "sha256-N3/kMDA9nscg3R9qvaVVUnrvOs9PehZWjyefEzEMiME=";
     };
     rockspecVersion = "1.1";
     rocksSubdir = "dummy";
