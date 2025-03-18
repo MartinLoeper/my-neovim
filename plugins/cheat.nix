@@ -1,13 +1,13 @@
 { lua, fetchFromGitHub, neovimUtils }:
 let
   cheat = lua.pkgs.toLuaModule (lua.stdenv.mkDerivation ({
-    name = "beacon";
+    name = "cheat";
     version = "1.0.0";
     src = fetchFromGitHub {
-      owner = "RishabhRD";
-      repo = "nvim-cheat.sh";
-      rev = "eb6acbacd39cf7c1966cb58d6586351db14607da";
-      hash = "sha256-N3/kMDA9nscg3R9qvaVVUnrvOs9PehZWjyefEzEMiME=";
+      owner = "siawkz";
+      repo = "nvim-cheatsh";
+      rev = "f35915775bf6e1a7b61b292b2bf713c7be82ae69";
+      hash = "sha256-N3/kMDAdnscg3R9qvaVVUnrvOs9PehZWjyefEzEMiME=";
     };
     rockspecVersion = "1.1";
     rocksSubdir = "dummy";
@@ -19,7 +19,8 @@ let
 
     meta = {
       homepage = "https://github.com/RishabhRD/nvim-cheat.sh";
-      description = "cheat.sh integration for neovim in elegant way";
+      description =
+        "Seamless integration of cheat.sh with Neovim: Access a wide range of cheat sheets directly through Telescope.";
       license.fullName = "MIT";
     };
   }));
