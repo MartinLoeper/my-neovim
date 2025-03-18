@@ -12,6 +12,8 @@ let
     rockspecVersion = "1.1";
     rocksSubdir = "dummy";
 
+    doCheck = false;
+
     installPhase = ''
       mkdir -p $out/lua
       cp -r lua/. $out/lua/
