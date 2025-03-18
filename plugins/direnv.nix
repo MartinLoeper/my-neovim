@@ -29,7 +29,7 @@ in {
   inherit plugin;
   config = ''
     require("direnv").setup({
-       -- autoload_direnv = true,
+       autoload_direnv = true,
     })
   '';
   type = "lua";
