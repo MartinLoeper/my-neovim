@@ -3,7 +3,7 @@
   config = ''
      require("copilot").setup({
        suggestion = {
-         enabled = true,
+         enabled = false,
          auto_trigger = true,
          keymap = {
            accept = "<C-Tab>",
@@ -13,7 +13,7 @@
        panel = { enabled = false, auto_refresh = true },
     })
 
-    vim.g.copilot_enabled = true
+    vim.g.copilot_enabled = false
 
     local toggleCopilot = function()
       local copilot = require("copilot")
@@ -28,13 +28,13 @@
         -- spin up lsp from scratch ang get client setup and attached
         copilot.setup()
         client.setup()
-        fidget.notify("ON", { level = "info", title = "Copilot" })
+        fidget.notify("Copilot ON", vim.log.levels.INFO)
       else
         -- detatch first to prevent lsp spamming it's own notifications when teardown is called
         client.buf_detach()
         -- destroy microsoft XD
         client.teardown()
-        fidget.notify("OFF", { level = "error", title = "Copilot" })
+        fidget.notify("Copilot OFF", vim.log.levels.ERROR)
       end
     end
 
