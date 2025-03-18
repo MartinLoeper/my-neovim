@@ -45,10 +45,11 @@ in {
               local success = require("sessions").load(nil, { silent = true })
 
               if not success then
-                require('telescope.builtin').find_files({
-                    hidden = true,
-                    previewer = true
-                })
+                -- TODO: this currently does not work; it gets closed immediately
+                --require('telescope.builtin').find_files({
+                --    hidden = true,
+                --    previewer = true
+                --})
               end
 
               vim.cmd('NvimTreeOpen')
