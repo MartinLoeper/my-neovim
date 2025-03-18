@@ -36,7 +36,7 @@ in {
     vim.api.nvim_create_autocmd("DirChanged", {
       pattern = "*",
       callback = function()
-        require("direnv").reload()
+        require("direnv").check_direnv()
       end
     })
   '';
