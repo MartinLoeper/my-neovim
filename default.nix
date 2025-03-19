@@ -93,6 +93,7 @@
         })
 
         vim.opt.cursorline = true
+        vim.opt.scrolloff = 10
       '';
       plugins = [
         (import ./plugins/web-devicons.nix { inherit pkgs; })
