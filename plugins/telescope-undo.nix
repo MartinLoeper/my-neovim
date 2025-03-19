@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  plugin = pkgs.telescope-undo-nvim;
+  plugin = pkgs.vimPlugins.telescope-undo-nvim;
   config = ''
     vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>")
   '';
