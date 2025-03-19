@@ -4,7 +4,7 @@
       owner = "olimorris";
       repo = "codecompanion.nvim";
       rev = "95680637c4e1605826544a96478e26bc96687ad2";
-      sha256 = "sha256-x/79mgkwwT+sNrnf8QqocsaQtM+Rx6BUvVj5Nnv5JDY=";
+      sha256 = "sha256-LKC0y6/+6PWlIIWpfBdfaTFVnndFvk7id2kBMwrIlKQ=";
     };
   }));
   config = pkgs.lib.strings.concatStrings [
