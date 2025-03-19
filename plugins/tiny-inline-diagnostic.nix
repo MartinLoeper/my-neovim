@@ -19,8 +19,8 @@
         linehl = {
           [vim.diagnostic.severity.ERROR] = "DiagnosticVirtualTextError",
           [vim.diagnostic.severity.WARN]  = "DiagnosticVirtualTextWarn",
-          [vim.diagnostic.severity.INFO]  = "DiagnosticVirtualTextInfo",
-          [vim.diagnostic.severity.HINT]  = "DiagnosticVirtualTextHint",
+          -- [vim.diagnostic.severity.INFO]  = "DiagnosticVirtualTextInfo",
+          -- [vim.diagnostic.severity.HINT]  = "DiagnosticVirtualTextHint",
         },
       }
     })
