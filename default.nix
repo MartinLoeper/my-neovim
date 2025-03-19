@@ -135,6 +135,7 @@
         (import ./plugins/copilot.nix { inherit pkgs; })
         (import ./plugins/yanky.nix { inherit pkgs; })
         (import ./plugins/telescope-ui-select.nix { inherit pkgs; })
+        (import ./plugins/telescope-undo.nix { inherit pkgs; })
         (import ./plugins/telescope.nix { inherit pkgs; })
         (import ./plugins/fidget.nix { inherit pkgs; })
         (import ./plugins/harpoon.nix { inherit pkgs; })
