@@ -17,10 +17,10 @@
       underline = true,      -- Keep underlines
       signs = {
         linehl = {
-          [vim.diagnostic.severity.ERROR] = "ErrorMsg",
-          [vim.diagnostic.severity.WARN]  = "DiagnosticWarn",
-          [vim.diagnostic.severity.INFO]  = "DiagnosticInfo",
-          [vim.diagnostic.severity.HINT]  = "DiagnosticHint",
+          [vim.diagnostic.severity.ERROR] = "DiagnosticVirtualTextError",
+          [vim.diagnostic.severity.WARN]  = "DiagnosticVirtualTextWarn",
+          [vim.diagnostic.severity.INFO]  = "DiagnosticVirtualTextInfo",
+          [vim.diagnostic.severity.HINT]  = "DiagnosticVirtualTextHint",
         },
       }
     })
