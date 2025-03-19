@@ -7,7 +7,7 @@
       formatters_by_ft = {
         terraform = { "terraform_fmt" },
         nix = { "nixfmt" },
-        java = {}
+        java = { "google-java-format", lsp_format = "never" }
       },
       format_on_save = {
         timeout_ms = 500,
