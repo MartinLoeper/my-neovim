@@ -177,6 +177,7 @@
         (import ./plugins/trouble.nix { inherit pkgs; })
         (import ./plugins/tiny-inline-diagnostic.nix { inherit pkgs; })
         (import ./plugins/undotree.nix { inherit pkgs; })
+        (import ./plugins/tabout.nix { inherit pkgs; })
         (import ./plugins/cheat.nix {
           lua = pkgs.lua;
           fetchFromGitHub = pkgs.fetchFromGitHub;
