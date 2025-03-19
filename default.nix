@@ -10,6 +10,9 @@
   home.packages = [
     pkgs.ripgrep
     pkgs.nodejs # requried by copilot plugin
+
+    # we install some default interpreters and runtimes s.t. projects without a direnv/devbox file work (e.g. leetcode plugin)
+    pkgs.jdk23
   ];
 
   home.activation.ensureCacheNvim = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
