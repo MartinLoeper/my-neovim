@@ -6,13 +6,13 @@
         local utils = require('telescope.utils')
 
         _G.project_files = function()
-            local _, ret, _ = utils.get_os_command_output({ 'git', 'rev-parse', '--is-inside-work-tree' }) 
-            if ret == 0 then 
-                builtin.git_files() 
+            local _, ret, _ = utils.get_os_command_output({ 'git', 'rev-parse', '--is-inside-work-tree' })
+            if ret == 0 then
+                builtin.git_files()
             else
                 builtin.find_files()
-            end 
-        end 
+            end
+        end
 
         vim.keymap.set('n', '<leader>fa', ':lua require"telescope.builtin".find_files({ hidden = true })<CR>', {noremap=true})
         vim.keymap.set('n', '<leader>ff', '<cmd>lua project_files()<CR>', {noremap=true})
@@ -46,10 +46,11 @@
     				}
     			},
         }
-    		
+
         telescope.load_extension("ui-select")
         telescope.load_extension("workspaces")
         telescope.load_extension("yank_history")
+        telescope.load_extension("undo")
   '';
   type = "lua";
 }
