@@ -75,10 +75,12 @@
         vim.opt.smartindent = true
         vim.opt.autoindent = true
 
-        vim.opt.foldmethod = "indent"  -- Use indentation levels for folding
-        vim.opt.foldlevel = 99         -- Start with all folds open
-        vim.opt.foldenable = true      -- Enable folding
-        vim.opt.foldnestmax = 3        -- Maximum nested fold levels
+        vim.opt.foldmethod = "expr"
+        vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+        vim.opt.foldtext = ""
+        vim.opt.foldlevel = 99
+        vim.opt.foldlevelstart = 1
+        vim.opt.foldnestmax = 4
 
         -- we set sensible defaults if there is no .editorconfig file
         vim.api.nvim_create_autocmd("BufEnter", {
