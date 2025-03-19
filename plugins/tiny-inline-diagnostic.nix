@@ -10,7 +10,6 @@
           enabled = true,
           always_show = true,
       },
-      diagnostic_delay = 0               -- No delay in showing diagnostics
     })
 
     vim.diagnostic.config({

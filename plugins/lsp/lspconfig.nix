@@ -24,6 +24,8 @@
           fidget.notify(client.name .. " attached")
         end,
         cmd = { "java-language-server", "--stdio" },
+
+        -- we use this little workaround for leetcode to work; otherwise the lsp refuses to spin up
         root_dir = function(fname)
           return require("lspconfig.util").root_pattern(
             "pom.xml",
