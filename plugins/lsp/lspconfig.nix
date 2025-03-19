@@ -18,13 +18,21 @@
       }
     end
 
-    nvim_lsp.java_language_server.setup {
-      capabilities = capabilities,
-      on_attach = function(client, bufnr)
-        fidget.notify(client.name .. " attached")
-      end,
-      cmd = { "java-language-server", "--stdio" },
-    }
+      nvim_lsp.java_language_server.setup {
+        capabilities = capabilities,
+        on_attach = function(client, bufnr)
+          fidget.notify(client.name .. " attached")
+        end,
+        cmd = { "java-language-server", "--stdio" },
+        root_dir = function(fname)
+          return require("lspconfig.util").root_pattern(
+            "pom.xml",
+            "build.gradle",
+            "build.gradle.kts",
+            ".git"
+          )(fname) or require("lspconfig.util").path.dirname(fname)
+        end,
+      }
 
     -- configure lua separately to include the neovim lua runtime, see lspconfig docs
     nvim_lsp.lua_ls.setup {
