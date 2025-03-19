@@ -94,6 +94,10 @@
 
         vim.opt.cursorline = true
         vim.opt.scrolloff = 10
+
+        -- clear search highligh on using esc in normal mode
+        vim.opt.hlsearch = true
+        vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
       '';
       plugins = [
         (import ./plugins/web-devicons.nix { inherit pkgs; })
