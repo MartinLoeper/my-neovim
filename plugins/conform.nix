@@ -6,7 +6,8 @@
     require("conform").setup({
       formatters_by_ft = {
         terraform = { "terraform_fmt" },
-        nix = { "nixfmt" }
+        nix = { "nixfmt" },
+        java = {}
       },
       format_on_save = {
         timeout_ms = 500,
