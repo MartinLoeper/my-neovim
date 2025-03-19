@@ -43,7 +43,19 @@
     					require("telescope.themes").get_dropdown {
     						-- even more opts
     					}
-    				}
+    				},
+            undo = {
+              mappings = {
+                i = {
+                  ["<C-u>"] = require("telescope-undo.actions").restore,
+                },
+                n = {
+                  ["y"] = require("telescope-undo.actions").yank_additions,
+                  ["Y"] = require("telescope-undo.actions").yank_deletions,
+                  ["u"] = require("telescope-undo.actions").restore,
+                },
+              },
+            },
     			},
         }
 
