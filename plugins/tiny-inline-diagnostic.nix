@@ -3,7 +3,13 @@
   config = ''
     require("tiny-inline-diagnostic").setup({
       preset = "powerline",
-      show_diagnostic_on_hover = false,  -- Don't wait for hover
+      show_source = true,
+      set_arrow_to_diag_color = true,
+      multiple_diag_under_cursor = true,
+      multilines = {
+          enabled = true,
+          always_show = true,
+      },
       diagnostic_delay = 0               -- No delay in showing diagnostics
     })
 
