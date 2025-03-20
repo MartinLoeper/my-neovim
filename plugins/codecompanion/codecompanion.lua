@@ -6,7 +6,8 @@ require("codecompanion").setup({
       show_token_count = true,
       start_in_insert_mode = false,
       window = {
-        position = "right",
+        -- position = "right",
+        layout = "float",
       },
     }
   },
