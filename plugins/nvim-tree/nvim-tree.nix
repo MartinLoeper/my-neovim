@@ -41,6 +41,10 @@
       }
     })
     vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
+    vim.keymap.set("n", "<leader>gt", function()
+      local api = require("nvim-tree.api")
+      api.tree.change_root(vim.fn.expand("%:p:h"))
+    end, { desc = "Set NvimTree to Current Buffer Directory" })
   ''];
   type = "lua";
 }

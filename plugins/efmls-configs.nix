@@ -12,7 +12,7 @@
     local efmls_config = {
       filetypes = vim.tbl_keys(languages),
       settings = {
-        rootMarkers = { '.git/' },
+        rootMarkers = { '.git/', 'package.json' },
         languages = languages,
       },
       init_options = {
