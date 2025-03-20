@@ -1,1 +1,4 @@
-{ pkgs, ... }: { home.packages = [ pkgs.prettierd pkgs.prettier pkgs.eslint ]; }
+{ pkgs, ... }: {
+  home.packages =
+    [ pkgs.prettierd pkgs.nodePackages_latest.prettier pkgs.eslint ];
+}
