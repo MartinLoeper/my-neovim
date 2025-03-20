@@ -145,6 +145,7 @@
         (import ./plugins/todo-comments.nix { inherit pkgs; })
         (import ./plugins/copilot.nix { inherit pkgs; })
         (import ./plugins/yanky.nix { inherit pkgs; })
+        (import ./plugins/git-worktree.nix { inherit pkgs; })
         (import ./plugins/telescope-ui-select.nix { inherit pkgs; })
         (import ./plugins/telescope-undo.nix { inherit pkgs; })
         (import ./plugins/telescope.nix { inherit pkgs; })
@@ -208,7 +209,6 @@
           neovimUtils = pkgs.neovimUtils;
         })
         (import ./plugins/diffview.nix { inherit pkgs; })
-        (import ./plugins/git-worktree.nix { inherit pkgs; })
 
         pkgs.vimPlugins.nui-nvim # leetcode dep
         pkgs.vimPlugins.plenary-nvim # leetcode dep
