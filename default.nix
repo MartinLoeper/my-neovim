@@ -7,6 +7,7 @@
     ./plugins/lsp/markdownls.nix
     ./plugins/lsp/typescriptls.nix
     ./plugins/lsp/prettierls.nix
+    ./plugins/lsp/efmls.nix
   ];
 
   home.packages = [
