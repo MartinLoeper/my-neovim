@@ -5,6 +5,7 @@
     ./plugins/lsp/luals.nix
     ./plugins/lsp/javals.nix
     ./plugins/lsp/markdownls.nix
+    ./plugins/lsp/typescriptls.nix
   ];
 
   home.packages = [
