@@ -30,6 +30,11 @@
         vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = 'Telescope find diagnostics' })
         vim.keymap.set('n', '<leader>gd', builtin.lsp_definitions	, { desc = 'Telescope goto definition' })
         vim.keymap.set('n', '<leader>gi', builtin.lsp_implementations, { desc = 'Telescope goto implementation' })
+        vim.keymap.set("n", "<leader>fp", function()
+          require("telescope.builtin").live_grep({
+            default_text = vim.fn.fnamemodify(vim.fn.expand("%"), ":t"), -- Get the current file name
+          })
+        end, { desc = "Find all references to [T]his file in the project" })
 
         telescope.setup {
           pickers = {

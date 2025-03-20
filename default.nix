@@ -190,6 +190,7 @@
         (import ./plugins/undotree.nix { inherit pkgs; })
         (import ./plugins/tabout.nix { inherit pkgs; })
         (import ./plugins/gitlab.nix {
+          inherit pkgs;
           lua = pkgs.lua;
           fetchFromGitHub = pkgs.fetchFromGitHub;
           neovimUtils = pkgs.neovimUtils;

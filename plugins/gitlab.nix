@@ -1,4 +1,4 @@
-{ lua, fetchFromGitHub, neovimUtils }:
+{ pkgs, lua, fetchFromGitHub, neovimUtils }:
 let
   gitlab = lua.pkgs.toLuaModule (lua.stdenv.mkDerivation ({
     name = "gitlab";
@@ -11,6 +11,8 @@ let
     };
     rockspecVersion = "1.1";
     rocksSubdir = "dummy";
+
+    buildInputs = [ pkgs.go ];
 
     installPhase = ''
       mkdir -p $out/lua
