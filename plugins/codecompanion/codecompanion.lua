@@ -22,9 +22,13 @@ require("codecompanion").setup({
   adapters = {
     anthropic = function()
       return require("codecompanion.adapters").extend("anthropic", {
+        schema = {
+          model = {
+            default = "claude-3-5-sonnet-20241022",
+          }
+        },
         env = {
           api_key = "cmd: cat /home/mloeper/.config/sops-nix/secrets/anthropic-api-key",
-          model = "claude-3-5-sonnet-20241022",
         },
       })
     end,
