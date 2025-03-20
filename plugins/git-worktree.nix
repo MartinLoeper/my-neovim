@@ -5,7 +5,7 @@
       owner = "polarmutex";
       repo = "git-worktree.nvim";
       rev = "3ad8c17a3d178ac19be925284389c14114638ebb";
-      sha256 = "sha256-LKC0y6/+6PWlIIWpfBdfaTFVnndFve7id2kBMwrIlKQ=";
+      sha256 = "sha256-fnqJqQTNei+8Gk4vZ2hjRj8iHBXTZT15xp9FvhGB+BQ=";
     };
   }));
   config = ''
