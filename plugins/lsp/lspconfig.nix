@@ -8,63 +8,64 @@
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-      local servers = { 'terraformls', 'gopls', 'hyprls', 'nil_ls', 'jsonls', 'marksman', 'ts_ls' }
-      for _, lsp in ipairs(servers) do
-        local config = {
-          capabilities = capabilities,
-          on_attach = function(client, bufnr)
-            fidget.notify(client.name .. " attached")
-          end,
-        }
+    local servers = { 'terraformls', 'gopls', 'hyprls', 'nil_ls', 'jsonls', 'marksman', 'ts_ls' }
 
-        -- Add TypeScript-specific settings
-        if lsp == 'ts_ls' then
-          config.settings = {
-            typescript = {
-              inlayHints = {
-                includeInlayParameterNameHints = 'all',
-                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayVariableTypeHints = true,
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayFunctionLikeReturnTypeHints = true,
-                includeInlayEnumMemberValueHints = true,
-              }
-            },
-            javascript = {
-              inlayHints = {
-                includeInlayParameterNameHints = 'all',
-                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayVariableTypeHints = true,
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayFunctionLikeReturnTypeHints = true,
-                includeInlayEnumMemberValueHints = true,
-              }
-            }
-          }
-        end
-
-        nvim_lsp[lsp].setup(config)
-      end
-
-      nvim_lsp.java_language_server.setup {
+    for _, lsp in ipairs(servers) do
+      local config = {
         capabilities = capabilities,
         on_attach = function(client, bufnr)
           fidget.notify(client.name .. " attached")
         end,
-        cmd = { "java-language-server", "--stdio" },
-
-        -- we use this little workaround for leetcode to work; otherwise the lsp refuses to spin up
-        root_dir = function(fname)
-          return require("lspconfig.util").root_pattern(
-            "pom.xml",
-            "build.gradle",
-            "build.gradle.kts",
-            ".git"
-          )(fname) or require("lspconfig.util").path.dirname(fname)
-        end,
       }
+
+      -- Add TypeScript-specific settings
+      if lsp == 'ts_ls' then
+        config.settings = {
+          typescript = {
+            inlayHints = {
+              includeInlayParameterNameHints = 'all',
+              includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+              includeInlayFunctionParameterTypeHints = true,
+              includeInlayVariableTypeHints = true,
+              includeInlayPropertyDeclarationTypeHints = true,
+              includeInlayFunctionLikeReturnTypeHints = true,
+              includeInlayEnumMemberValueHints = true,
+            }
+          },
+          javascript = {
+            inlayHints = {
+              includeInlayParameterNameHints = 'all',
+              includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+              includeInlayFunctionParameterTypeHints = true,
+              includeInlayVariableTypeHints = true,
+              includeInlayPropertyDeclarationTypeHints = true,
+              includeInlayFunctionLikeReturnTypeHints = true,
+              includeInlayEnumMemberValueHints = true,
+            }
+          }
+        }
+      end
+
+      nvim_lsp[lsp].setup(config)
+    end
+
+    nvim_lsp.java_language_server.setup {
+      capabilities = capabilities,
+      on_attach = function(client, bufnr)
+        fidget.notify(client.name .. " attached")
+      end,
+      cmd = { "java-language-server", "--stdio" },
+
+      -- we use this little workaround for leetcode to work; otherwise the lsp refuses to spin up
+      root_dir = function(fname)
+        return require("lspconfig.util").root_pattern(
+          "pom.xml",
+          "build.gradle",
+          "build.gradle.kts",
+          ".git"
+        )(fname) or require("lspconfig.util").path.dirname(fname)
+      end,
+    }
 
     -- configure lua separately to include the neovim lua runtime, see lspconfig docs
     nvim_lsp.lua_ls.setup {

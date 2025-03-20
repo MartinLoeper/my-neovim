@@ -6,6 +6,7 @@
     ./plugins/lsp/javals.nix
     ./plugins/lsp/markdownls.nix
     ./plugins/lsp/typescriptls.nix
+    ./plugins/lsp/prettierls.nix
   ];
 
   home.packages = [
@@ -178,6 +179,7 @@
         (import ./plugins/comment.nix { inherit pkgs; })
         (import ./plugins/noice.nix { inherit pkgs; })
         (import ./plugins/lsp/lspconfig.nix { inherit pkgs; })
+        (import ./plugins/efmls-configs.nix { inherit pkgs; })
         (import ./plugins/codecompanion/codecompanion.nix { inherit pkgs; })
         (import ./plugins/render-markdown.nix { inherit pkgs; })
         (import ./plugins/telescope-lsp-handlers.nix { inherit pkgs; })
@@ -187,6 +189,7 @@
         (import ./plugins/trouble.nix { inherit pkgs; })
         (import ./plugins/tiny-inline-diagnostic.nix { inherit pkgs; })
         (import ./plugins/undotree.nix { inherit pkgs; })
+        # does not behave like expected
         # (import ./plugins/tabout.nix { inherit pkgs; })
         # build is currently failing :(
         # (import ./plugins/gitlab.nix {
