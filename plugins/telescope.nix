@@ -43,7 +43,7 @@
           require("telescope.builtin").live_grep({
             default_text = vim.fn.fnamemodify(vim.fn.expand("%"), ":t"), -- Get the current file name
           })
-        end, { desc = "Find all references to [T]his file in the project" })
+        end, { desc = "[F]ind all references to [T]his file in the project" })
 
         telescope.setup {
           pickers = {
