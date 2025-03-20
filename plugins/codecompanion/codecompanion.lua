@@ -5,6 +5,9 @@ require("codecompanion").setup({
       show_settings = false,
       show_token_count = true,
       start_in_insert_mode = false,
+      window = {
+        position = "right",
+      },
     }
   },
   strategies = {
@@ -15,10 +18,6 @@ require("codecompanion").setup({
     inline = {
       adapter = "anthropic",
       model = "claude-3-5-sonnet-20241022",
-    },
-    window = {
-      position = "right",
-      layout = "float",
     },
   },
   adapters = {
