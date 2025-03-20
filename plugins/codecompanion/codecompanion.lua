@@ -16,6 +16,9 @@ require("codecompanion").setup({
       adapter = "anthropic",
       model = "claude-3-5-sonnet-20241022",
     },
+    window = {
+      position = "right",
+    },
   },
   adapters = {
     anthropic = function()
