@@ -17,6 +17,8 @@
         },
       },
     })
+
+    vim.cmd([[cab t Trouble]])
   '';
   type = "lua";
 }
