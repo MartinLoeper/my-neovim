@@ -189,12 +189,13 @@
         (import ./plugins/tiny-inline-diagnostic.nix { inherit pkgs; })
         (import ./plugins/undotree.nix { inherit pkgs; })
         (import ./plugins/tabout.nix { inherit pkgs; })
-        (import ./plugins/gitlab.nix {
-          inherit pkgs;
-          lua = pkgs.lua;
-          fetchFromGitHub = pkgs.fetchFromGitHub;
-          neovimUtils = pkgs.neovimUtils;
-        })
+        # build is currently failing :(
+        # (import ./plugins/gitlab.nix {
+        #   inherit pkgs;
+        #   lua = pkgs.lua;
+        #   fetchFromGitHub = pkgs.fetchFromGitHub;
+        #   neovimUtils = pkgs.neovimUtils;
+        # })
         (import ./plugins/cheat.nix {
           lua = pkgs.lua;
           fetchFromGitHub = pkgs.fetchFromGitHub;
