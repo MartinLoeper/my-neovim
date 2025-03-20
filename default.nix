@@ -154,7 +154,7 @@
         (import ./plugins/treesitter.nix { inherit pkgs; })
         (import ./plugins/treesitter-textobjects.nix { inherit pkgs; })
         (import ./plugins/treesitter-textsubjects.nix { inherit pkgs; })
-        (import ./plugins/toggleterm.nix { inherit pkgs; })
+        # (import ./plugins/toggleterm.nix { inherit pkgs; })
         (import ./plugins/competitest.nix { inherit pkgs; })
         (import ./plugins/git/gitsigns.nix { inherit pkgs; })
         (import ./plugins/indent-blankline.nix { inherit pkgs; })
