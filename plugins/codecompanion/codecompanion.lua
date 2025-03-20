@@ -6,19 +6,17 @@ require("codecompanion").setup({
       show_token_count = true,
       start_in_insert_mode = false,
       window = {
-        -- position = "right",
-        layout = "float",
+        position = "right",
+        -- layout = "float",
       },
     }
   },
   strategies = {
     chat = {
       adapter = "anthropic",
-      model = "claude-3-5-sonnet-20241022",
     },
     inline = {
       adapter = "anthropic",
-      model = "claude-3-5-sonnet-20241022",
     },
   },
   adapters = {
@@ -27,6 +25,7 @@ require("codecompanion").setup({
         env = {
           api_key = "cmd: cat /home/mloeper/.config/sops-nix/secrets/anthropic-api-key"
         },
+        model = "claude-3-5-sonnet-20241022",
       })
     end,
     openai = function()

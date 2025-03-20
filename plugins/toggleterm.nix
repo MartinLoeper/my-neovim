@@ -19,6 +19,7 @@
     vim.cmd([[cab tt ToggleTerm]])
     vim.cmd([[cab ttf ToggleTerm direction=float]])
     vim.cmd([[cab ttv ToggleTerm direction=vertical]])
+    vim.cmd([[cab tth ToggleTerm direction=horizontal]])
   '';
   type = "lua";
 }
