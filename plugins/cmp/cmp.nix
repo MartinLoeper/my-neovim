@@ -125,7 +125,10 @@
           max_item_count = 15  -- Limit history items
         }
       }),
-      matching = { disallow_symbol_nonprefix_matching = false }
+      matching = { disallow_symbol_nonprefix_matching = false },
+      completion = {
+        keyword_length = 3  -- Minimum number of characters before completion triggers
+      },
     })
   '';
   type = "lua";
