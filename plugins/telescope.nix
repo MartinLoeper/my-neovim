@@ -31,6 +31,7 @@
         vim.keymap.set('n', '<leader>gd', builtin.lsp_definitions	, { desc = 'Telescope goto definition' })
         vim.keymap.set('n', '<leader>gi', builtin.lsp_implementations, { desc = 'Telescope goto implementation' })
         vim.keymap.set('n', '<leader>gb', builtin.git_branches, { desc = 'Telescope goto [B]ranch' })
+        vim.keymap.set('n', '<leader>gw', require('telescope').extensions.git_worktree.create_git_worktree, { desc = 'Create Git [W]orktree' })
         vim.keymap.set("n", "<leader>ft", function()
           require("telescope.builtin").live_grep({
             default_text = vim.fn.fnamemodify(vim.fn.expand("%"), ":t"), -- Get the current file name
@@ -69,6 +70,7 @@
         telescope.load_extension("workspaces")
         telescope.load_extension("yank_history")
         telescope.load_extension("undo")
+        telescope.load_extension("git_worktree")
   '';
   type = "lua";
 }
