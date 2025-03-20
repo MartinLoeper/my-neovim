@@ -12,7 +12,7 @@ let
     rockspecVersion = "1.1";
     rocksSubdir = "dummy";
 
-    buildInputs = [ pkgs.go ];
+    buildInputs = [ pkgs.go pkgs.util-linux ];
 
     installPhase = ''
       mkdir -p $out/lua
