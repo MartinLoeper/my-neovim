@@ -18,6 +18,7 @@ require("codecompanion").setup({
     },
     window = {
       position = "right",
+      layout = "float",
     },
   },
   adapters = {
