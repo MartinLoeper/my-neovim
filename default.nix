@@ -207,6 +207,7 @@
           neovimUtils = pkgs.neovimUtils;
         })
         (import ./plugins/diffview.nix { inherit pkgs; })
+        (import ./plugins/cloak.nix { inherit pkgs; })
 
         pkgs.vimPlugins.nui-nvim # leetcode dep
         pkgs.vimPlugins.plenary-nvim # leetcode dep
