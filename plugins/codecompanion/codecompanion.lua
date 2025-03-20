@@ -1,7 +1,7 @@
 require("codecompanion").setup({
   display = {
     chat = {
-      intro_message = "We Vibe-Coding today huh??! Leggo!! AI doing its best 🚀",
+      intro_message = "",
       show_settings = false,
       show_token_count = true,
       start_in_insert_mode = false,
@@ -10,9 +10,11 @@ require("codecompanion").setup({
   strategies = {
     chat = {
       adapter = "anthropic",
+      model = "claude-3-5-sonnet-20241022",
     },
     inline = {
       adapter = "anthropic",
+      model = "claude-3-5-sonnet-20241022",
     },
   },
   adapters = {
