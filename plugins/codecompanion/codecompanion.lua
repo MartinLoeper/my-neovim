@@ -23,9 +23,9 @@ require("codecompanion").setup({
     anthropic = function()
       return require("codecompanion.adapters").extend("anthropic", {
         env = {
-          api_key = "cmd: cat /home/mloeper/.config/sops-nix/secrets/anthropic-api-key"
+          api_key = "cmd: cat /home/mloeper/.config/sops-nix/secrets/anthropic-api-key",
+          model = "claude-3-5-sonnet-20241022",
         },
-        model = "claude-3-5-sonnet-20241022",
       })
     end,
     openai = function()
