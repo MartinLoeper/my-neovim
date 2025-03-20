@@ -113,7 +113,17 @@
       mapping = cmp.mapping.preset.cmdline(),
       sources = cmp.config.sources({
         { name = 'path' },
-        { name = 'cmdline' },
+        {
+          name = 'cmdline',
+          option = {
+            ignore_cmds = { 'Man', '!' }  -- Ignore certain commands
+          },
+          max_item_count = 20  -- Limit number of suggestions
+        },
+        {
+          name = 'cmdline_history',
+          max_item_count = 15  -- Limit history items
+        }
       }),
       matching = { disallow_symbol_nonprefix_matching = false }
     })

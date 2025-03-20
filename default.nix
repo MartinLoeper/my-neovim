@@ -188,7 +188,7 @@
         (import ./plugins/trouble.nix { inherit pkgs; })
         (import ./plugins/tiny-inline-diagnostic.nix { inherit pkgs; })
         (import ./plugins/undotree.nix { inherit pkgs; })
-        # (import ./plugins/tabout.nix { inherit pkgs; })
+        (import ./plugins/tabout.nix { inherit pkgs; })
         # build is currently failing :(
         # (import ./plugins/gitlab.nix {
         #   inherit pkgs;
