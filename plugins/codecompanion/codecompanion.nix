@@ -1,4 +1,5 @@
 { pkgs, ... }: {
+  # WARN: we always want to be on the latest version because this s*t's lit
   plugin = (pkgs.vimPlugins.codecompanion-nvim.overrideAttrs (oldAttrs: {
     src = pkgs.fetchFromGitHub {
       owner = "olimorris";
