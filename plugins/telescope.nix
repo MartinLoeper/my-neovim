@@ -21,6 +21,12 @@
             additional_args = function() return { "--hidden", "--glob", "!.git/*" } end
           })
           end, { desc = 'Telescope live grep' })
+        vim.keymap.set('n', '<leader>fG', function()
+          builtin.live_grep({
+            cwd = vim.fn.expand('%:p:h'),
+            additional_args = function() return { "--hidden", "--glob", "!.git/*" } end
+          })
+        end, { desc = 'Telescope live grep in current buffer directory' })
         vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = '[F]ind [B]uffers using Telescope' })
         vim.keymap.set('n', '<leader>fo', builtin.resume, { desc = "[Find] using Telescope [O]thers" })
         vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = '[F]ind [H]elp Tags using Telescope' })
