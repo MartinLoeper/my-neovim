@@ -7,7 +7,7 @@ let
       owner = "harrisoncramer";
       repo = "gitlab.nvim";
       rev = "9f898aa1a8cd74fc11756c295a56ea0d4952cf40";
-      hash = "sha256-x/79mRkwwT+dNrnf8QqocsaQtM+Rx6BUvVj5Nnv5JDY=";
+      hash = "sha256-V1v9+KVVL2jDWCfMx/M7ePIo0W6tRLwM63VyfxrPLac=";
     };
     rockspecVersion = "1.1";
     rocksSubdir = "dummy";
