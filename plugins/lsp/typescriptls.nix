@@ -1,1 +1,1 @@
-{ pkgs, ... }: { home.packages = [ pkgs.typscript-language-server ]; }
+{ pkgs, ... }: { home.packages = [ pkgs.typescript-language-server ]; }
