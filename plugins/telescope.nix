@@ -17,12 +17,12 @@
         vim.keymap.set('n', '<leader>fa', ':lua require"telescope.builtin".find_files({ hidden = true })<CR>', {noremap=true})
         vim.keymap.set('n', '<leader>ff', '<cmd>lua project_files()<CR>', {noremap=true})
         vim.keymap.set('n', '<leader>fg', function()
-          require('telescope.builtin').live_grep({
+          builtin.live_grep({
             additional_args = function() return { "--hidden", "--glob", "!.git/*" } end
           })
           end, { desc = 'Telescope live grep' })
         vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = '[F]ind [B]uffers using Telescope' })
-        vim.keymap.set('n', '<leader>fo', require('telescope.builtin').resume, { desc = "[Find] using Telescope [O]thers" })
+        vim.keymap.set('n', '<leader>fo', builtin.resume, { desc = "[Find] using Telescope [O]thers" })
         vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = '[F]ind [H]elp Tags using Telescope' })
         vim.keymap.set('n', '<leader>fw', builtin.grep_string, { desc = 'Telescope grep current word or selection' })
         vim.keymap.set('n', '<leader>fif', builtin.current_buffer_fuzzy_find, { desc = 'Telescope find in current buffer' })
@@ -31,7 +31,7 @@
         vim.keymap.set('n', '<leader>gd', builtin.lsp_definitions	, { desc = 'Telescope goto definition' })
         vim.keymap.set('n', '<leader>gi', builtin.lsp_implementations, { desc = 'Telescope goto implementation' })
         vim.keymap.set('n', '<leader>gb', builtin.git_branches, { desc = 'Telescope goto [B]ranch' })
-        vim.keymap.set('n', '<leader>gw', require('telescope').extensions.git_worktree.create_git_worktree, { desc = 'Create Git [W]orktree' })
+        vim.keymap.set('n', '<leader>gw', telescope.extensions.git_worktree.create_git_worktree, { desc = 'Create Git [W]orktree' })
         vim.keymap.set("n", "<leader>ft", function()
           require("telescope.builtin").live_grep({
             default_text = vim.fn.fnamemodify(vim.fn.expand("%"), ":t"), -- Get the current file name
