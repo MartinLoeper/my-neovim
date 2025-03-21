@@ -32,10 +32,10 @@ in {
         -- hooks run before change directory
         open_pre = {
           -- If recording, save current session state and stop recording
-          "SessionsStop",
+          --"SessionsStop",
 
           -- delete all buffers (does not save changes)
-          "silent %bdelete!",
+          --"silent %bdelete!",
         },
 
         -- hooks run after change directory
