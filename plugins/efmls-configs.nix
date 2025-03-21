@@ -6,7 +6,7 @@
     local prettier = require('efmls-configs.formatters.prettier')
     local stylua = require('efmls-configs.formatters.stylua')
     local languages = {
-      typescript = { eslint, prettier },
+      --typescript = { eslint, prettier },
     }
 
     local efmls_config = {
