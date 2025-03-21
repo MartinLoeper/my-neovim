@@ -43,7 +43,7 @@ in {
           -- load any saved session from current directory
           function()
             local api = require('nvim-tree.api')
-            api.tree.open()
+            api.tree.close()
 
             local success = require("sessions").load(nil, { silent = true })
 
@@ -53,6 +53,8 @@ in {
                   previewer = true
               })
             end
+            api.tree.reload()
+            api.tree.open()
           end,
         }
       },
