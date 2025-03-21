@@ -44,6 +44,7 @@ in {
           function()
             local api = require('nvim-tree.api')
             api.tree.close()
+            api.tree.reload()
 
             local success = require("sessions").load(nil, { silent = true })
 
@@ -53,7 +54,7 @@ in {
                   previewer = true
               })
             end
-            api.tree.reload()
+
             api.tree.open()
           end,
         }
