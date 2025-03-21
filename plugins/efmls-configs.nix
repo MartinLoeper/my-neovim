@@ -25,7 +25,6 @@
     local efmls_config = {
       filetypes = vim.tbl_keys(languages),
       settings = {
-        rootMarkers = { '.git/' },
         languages = languages,
       },
       init_options = {
