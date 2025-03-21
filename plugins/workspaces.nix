@@ -49,15 +49,15 @@ in {
               api.tree.open()
             end
 
-            local success = require("sessions").load(nil, { silent = true })
+            --local success = require("sessions").load(nil, { silent = true })
 
-            if not success then
+            --if not success then
               -- TODO: this currently does not work; it gets closed immediately
               --require('telescope.builtin').find_files({
               --    hidden = true,
               --    previewer = true
               --})
-            end
+            --end
           end,
         }
       },
