@@ -9,7 +9,7 @@
       typescript = { eslint, prettier },
       javascript = { eslint, prettier },
       javascript.jsx = { eslint, prettier },
-      javascript.tsx = { eslint, prettier },
+      typescript.tsx = { eslint, prettier },
     }
 
     local efmls_config = {
