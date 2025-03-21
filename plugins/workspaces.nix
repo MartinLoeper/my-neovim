@@ -71,6 +71,15 @@ in {
         end
       end,
     })
+
+    vim.api.nvim_create_autocmd("WorkspaceChanged", {
+      callback = function(args)
+        local new_workspace = args.data
+        print("Workspace changed to: " .. new_workspace)
+
+        require("nvim-tree.api").tree.change_root(new_workspace)
+      end,
+    })
   '';
   type = "lua";
 }
