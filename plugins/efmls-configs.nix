@@ -6,7 +6,7 @@
     -- local prettier = require('efmls-configs.formatters.prettier')
     local eslint = {
       prefix = 'eslint',
-      lintCommand = 'eslint --no-color --format visualstudio ''${INPUT}',
+      lintCommand = 'eslint --no-color --format visualstudio --stdin --stdin-filename ''${INPUT}',
       lintStdin = true,
       lintIgnoreExitCode = true,
       lintFormats = { '%f(%l,%c): %trror %m', '%f(%l,%c): %tarning %m' },
