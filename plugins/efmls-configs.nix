@@ -8,8 +8,8 @@
     local languages = {
       typescript = { eslint, prettier },
       javascript = { eslint, prettier },
-      javascript.jsx = { eslint, prettier },
-      typescript.tsx = { eslint, prettier },
+      "javascript.jsx" = { eslint, prettier },
+      "typescript.tsx" = { eslint, prettier },
     }
 
     local efmls_config = {
