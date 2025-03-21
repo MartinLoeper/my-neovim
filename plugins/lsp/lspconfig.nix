@@ -8,7 +8,7 @@
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-    local servers = { 'terraformls', 'gopls', 'hyprls', 'nil_ls', 'jsonls', 'marksman' }
+    local servers = { 'terraformls', 'gopls', 'hyprls', 'nil_ls', 'jsonls', 'marksman', 'ts_ls' }
 
     for _, lsp in ipairs(servers) do
       local config = {

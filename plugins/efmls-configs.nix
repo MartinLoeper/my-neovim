@@ -2,21 +2,8 @@
   plugin = pkgs.vimPlugins.efmls-configs-nvim;
   config = ''
     -- Register linters and formatters per language
-    --local eslint = require('efmls-configs.linters.eslint')
-    -- local prettier = require('efmls-configs.formatters.prettier')
-    local eslint = {
-      prefix = 'eslint',
-      lintCommand = 'eslint --no-color --format visualstudio --stdin --stdin-filename ''${INPUT}',
-      lintStdin = true,
-      lintIgnoreExitCode = true,
-      lintFormats = { '%f(%l,%c): %trror %m', '%f(%l,%c): %tarning %m' },
-      rootMarkers = { '.eslintrc.json' },
-    }
-    local prettier = {
-      formatCommand = 'prettier --stdin --stdin-filename ''${INPUT}',
-      formatStdin = true,
-      rootMarkers = { '.prettierrc' },
-    }
+    local eslint = require('efmls-configs.linters.eslint')
+    local prettier = require('efmls-configs.formatters.prettier')
 
     local languages = {
       typescript = { eslint, prettier },
