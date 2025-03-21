@@ -32,10 +32,10 @@ in {
         -- hooks run before change directory
         open_pre = {
           -- If recording, save current session state and stop recording
-          "SessionsStop",
+          --"SessionsStop",
 
           -- delete all buffers (does not save changes)
-          "silent %bdelete!",
+          --"silent %bdelete!",
         },
 
         -- hooks run after change directory
@@ -43,11 +43,7 @@ in {
           -- load any saved session from current directory
           function()
             local api = require('nvim-tree.api')
-            local view = require('nvim-tree.view')
-
-            if not view.is_visible() then
-              api.tree.open()
-            end
+            api.tree.open()
 
             --local success = require("sessions").load(nil, { silent = true })
 
