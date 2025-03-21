@@ -2,6 +2,7 @@
   plugin = pkgs.vimPlugins.nvim-tree-lua;
   config = pkgs.lib.strings.concatStrings [''
     require("nvim-tree").setup({
+      update_cwd = true,
       sort = {
         sorter = "case_sensitive",
       },
