@@ -32,10 +32,10 @@ in {
         -- hooks run before change directory
         open_pre = {
           -- If recording, save current session state and stop recording
-          --"SessionsStop",
+          "SessionsStop",
 
           -- delete all buffers (does not save changes)
-          --"silent %bdelete!",
+          "silent %bdelete!",
         },
 
         -- hooks run after change directory
@@ -45,33 +45,19 @@ in {
             local api = require('nvim-tree.api')
             api.tree.open()
 
-            --local success = require("sessions").load(nil, { silent = true })
+            local success = require("sessions").load(nil, { silent = true })
 
-            --if not success then
-              -- TODO: this currently does not work; it gets closed immediately
-              --require('telescope.builtin').find_files({
-              --    hidden = true,
-              --    previewer = true
-              --})
-            --end
+            if not success then
+              require('telescope.builtin').find_files({
+                  hidden = true,
+                  previewer = true
+              })
+            end
           end,
         }
       },
     })
     vim.keymap.set('n', '<leader>fp', '<cmd>Telescope workspaces<CR>', { desc = '[F]ind [P]rojects using Telescope' })
-
-    -- see: https://github.com/nvim-tree/nvim-tree.lua/wiki/Recipes
-    --vim.api.nvim_create_autocmd({ 'BufEnter' }, {
-    --  pattern = 'NvimTree*',
-    --  callback = function()
-    --    local api = require('nvim-tree.api')
-    --    local view = require('nvim-tree.view')
-
-    --    if not view.is_visible() then
-    --      api.tree.open()
-    --    end
-    --  end,
-    --})
   '';
   type = "lua";
 }
