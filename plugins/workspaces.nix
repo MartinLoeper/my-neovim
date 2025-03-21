@@ -43,16 +43,14 @@ in {
           -- load any saved session from current directory
           function()
             local api = require('nvim-tree.api')
-            api.tree.close()
-
             local success = require("sessions").load(nil, { silent = true })
 
-            if not success then
-              require('telescope.builtin').find_files({
-                  hidden = true,
-                  previewer = true
-              })
-            end
+            -- if not success then
+            --   require('telescope.builtin').find_files({
+            --       hidden = true,
+            --       previewer = true
+            --   })
+            -- end
 
             api.tree.open()
           end,
