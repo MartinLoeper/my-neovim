@@ -19,7 +19,7 @@
     }
 
     local languages = {
-      --typescript = { eslint, prettier },
+      typescript = { eslint, prettier },
     }
 
     local efmls_config = {
