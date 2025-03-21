@@ -40,46 +40,42 @@ in {
 
         -- hooks run after change directory
         open = {
-            -- load any saved session from current directory
-            function()
-              local success = require("sessions").load(nil, { silent = true })
+          -- load any saved session from current directory
+          function()
+            local api = require('nvim-tree.api')
+            local view = require('nvim-tree.view')
 
-              if not success then
-                -- TODO: this currently does not work; it gets closed immediately
-                --require('telescope.builtin').find_files({
-                --    hidden = true,
-                --    previewer = true
-                --})
-              end
+            if not view.is_visible() then
+              api.tree.open()
+            end
 
-              vim.cmd('NvimTreeOpen')
-            end,
+            local success = require("sessions").load(nil, { silent = true })
+
+            if not success then
+              -- TODO: this currently does not work; it gets closed immediately
+              --require('telescope.builtin').find_files({
+              --    hidden = true,
+              --    previewer = true
+              --})
+            end
+          end,
         }
       },
     })
     vim.keymap.set('n', '<leader>fp', '<cmd>Telescope workspaces<CR>', { desc = '[F]ind [P]rojects using Telescope' })
 
     -- see: https://github.com/nvim-tree/nvim-tree.lua/wiki/Recipes
-    vim.api.nvim_create_autocmd({ 'BufEnter' }, {
-      pattern = 'NvimTree*',
-      callback = function()
-        local api = require('nvim-tree.api')
-        local view = require('nvim-tree.view')
+    --vim.api.nvim_create_autocmd({ 'BufEnter' }, {
+    --  pattern = 'NvimTree*',
+    --  callback = function()
+    --    local api = require('nvim-tree.api')
+    --    local view = require('nvim-tree.view')
 
-        if not view.is_visible() then
-          api.tree.open()
-        end
-      end,
-    })
-
-    vim.api.nvim_create_autocmd("WorkspaceChanged", {
-      callback = function(args)
-        local new_workspace = args.data
-        print("Workspace changed to: " .. new_workspace)
-
-        require("nvim-tree.api").tree.change_root(new_workspace)
-      end,
-    })
+    --    if not view.is_visible() then
+    --      api.tree.open()
+    --    end
+    --  end,
+    --})
   '';
   type = "lua";
 }
