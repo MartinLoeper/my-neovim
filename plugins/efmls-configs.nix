@@ -15,8 +15,8 @@
         languages = languages,
       },
       init_options = {
-        documentFormatting = false,
-        documentRangeFormatting = false,
+        documentFormatting = true,
+        documentRangeFormatting = true,
       },
       cmd = { 'efm-langserver', '-loglevel', '4' },
     }
