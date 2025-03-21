@@ -19,7 +19,7 @@
         documentFormatting = false,
         documentRangeFormatting = false,
       },
-      cmd = { 'efm-langserver', '--log-level', 'debug' }, -- Add this line
+      cmd = { 'efm-langserver', '--log-level', '4' },
     }
 
     local capabilities = vim.lsp.protocol.make_client_capabilities()
