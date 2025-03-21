@@ -95,6 +95,7 @@
         { name = 'nvim_lsp' },
         { name = 'vsnip' },
         { name = 'path' },
+        { name = 'nvim_lsp_signature_help' }
       }, {
         { name = 'buffer' },
       })
